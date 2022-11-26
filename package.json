@@ -1,0 +1,20 @@
+{
+  "name": "eatly",
+  "version": "1.0.0",
+  "description": "recipe app project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/femas1/eatly.git"
+  },
+  "keywords": [],
+  "author": "Federico Massara",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/femas1/eatly/issues"
+  },
+  "homepage": "https://github.com/femas1/eatly#readme"
+}
