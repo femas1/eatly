@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/femas1/eatly/issues"
   },
-  "homepage": "https://github.com/femas1/eatly#readme"
+  "homepage": "https://github.com/femas1/eatly#readme",
+  "dependencies": {
+    "dart-sass": "^1.25.0"
+  }
 }
