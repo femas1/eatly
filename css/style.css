@@ -12,4 +12,9 @@ body {
   max-width: 300px;
 }
 
+.container__header {
+  height: 200px;
+  background-color: red;
+}
+
 /*# sourceMappingURL=style.css.map */
