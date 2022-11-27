@@ -14,6 +14,72 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet"> 
 </head>
 <body>
-    <h1>EATLY</h1>
+    <!-- MAIN CONTAINER  -->
+    <main class="container">
+        <!-- HEADER -->
+        <header class="container__header">
+            <div class="container__header__logo">
+                <img src="/images/logo/logo_transparent.png" alt="eatly-logo" id="logo">
+            </div>
+            <div class="container__header__searchBar">
+                <input type="search" name="searchRecipe" id="searchRecipe" placeholder="Search your next favourite dish">
+                <button type="submit">
+                    <i></i>
+                    <p class="container__header__searchBar__btn btn">Search</p>
+                </button>
+            </div>
+            <div class="container__header__buttons">
+                <div class="container__header__buttons__addRecipe">Add recipe</div>
+                <div class="container__header__buttons__savedRecipes">Saved recipes</div>
+            </div>
+        </header>
+        <!-- HEADER END -->
+
+        <!-- MAIN CONTAINER -->
+        <div class="container__content">
+            <!-- SIDEBAR -->
+            <div class="container__content__sidebar"></div>
+            <!-- MAIN CONTENT -->
+            <div class="container__content__mainContent">
+
+                <div class="container__content__mainContent__dishPicture"></div>
+                <!-- DISH INFORMATION  -->
+                <div class="container__content__mainContent__dishInfo">
+                    <div class="container__content__mainContent__dishInfo__time">
+                        <i>tim</i>
+                        <p><span>60</span> minutes</p>
+                    </div>
+                    <div class="container__content__mainContent__dishInfo__servings">
+                        <i>serv</i>
+                        <p><span>4</span>servings</p>
+                        <i>+</i>
+                        <i>-</i>
+                    </div>
+                    <div class="container__content__mainContent__dishInfo__saveBtn">
+                        <i>save</i>
+                    </div>
+                </div>
+                <!-- DISH INFORMATION END -->
+                <!-- INGREDIENTS -->
+                <div class="container__content__mainContent__ingredients">
+                    <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
+                    <ul class="container__content__mainContent__ingredients__list">
+                        <li class="container__content__mainContent__ingredients__list_item">
+                            <i>check</i>
+                            <span><!--Push here-->3 whole eggs</span>
+                        </li>
+                    </ul>
+                </div>
+                <!-- INGREDIENTS END -->
+                <!-- DIRECTIONS -->
+                <div class="container__content__mainContent__directions">
+                    <h1 class="container__content__mainContent__directions__heading">Directions</h1>
+                    <p class="container__content__mainContent__directions__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quos quam consequuntur quod repudiandae natus temporibus cum ea ipsa dolore enim, vel tempora veniam ipsum reprehenderit? Esse mollitia voluptatem reprehenderit?</p>
+                </div>
+                <!-- DIRECTIONS END -->
+
+            </div>
+        </div>
+    </main>
 </body>
 </html>
