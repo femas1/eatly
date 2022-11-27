@@ -8,4 +8,9 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
+#logo {
+  max-width: 300px;
+  max-height: 100px;
+}
+
 /*# sourceMappingURL=style.css.map */
