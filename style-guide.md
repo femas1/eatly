@@ -16,10 +16,10 @@ The designs were created to the following widths:
 
 ### Neutral
 
-- Very dark blue: hsl(226, 43%, 10%)
-- Dark blue: hsl(235, 46%, 20%)
-- Desaturated blue: hsl(235, 45%, 61%)
-- Pale Blue: hsl(236, 100%, 87%)
+- Brick Red: #D1495B
+- Metallic Seaweed: #00798C
+- Lapis Lazuli: #30638E
+- Indigo Blue: #003D5B
 
 ## Typography
 
