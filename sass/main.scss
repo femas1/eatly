@@ -1,13 +1,11 @@
-* {
-    margin: 0;
-    padding: 0; 
-    box-sizing: border-box;
-}
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
 
-body {
-    font-family: 'Rubik', sans-serif;
-}
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
 
-#logo {
-    max-width: 300px;
-}
+@import "components/buttons";
+@import "components/logo";
