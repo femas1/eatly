@@ -8,4 +8,13 @@
     &__logo {
         max-width: 300px;
     }
+
+    &__buttons {
+        display: flex;
+
+        &__addRecipe,
+        &__savedRecipes {
+            margin: 0 1rem;
+        }
+    }
 }

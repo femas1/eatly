@@ -52,6 +52,12 @@ button {
 .container__header__logo {
   max-width: 300px;
 }
+.container__header__buttons {
+  display: flex;
+}
+.container__header__buttons__addRecipe, .container__header__buttons__savedRecipes {
+  margin: 0 1rem;
+}
 
 .container {
   background-color: red;
