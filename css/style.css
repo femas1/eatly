@@ -16,4 +16,9 @@ body {
   background-color: #fbf27c;
 }
 
+.container {
+  background-color: red;
+  padding: 20px;
+}
+
 /*# sourceMappingURL=style.css.map */
