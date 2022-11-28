@@ -16,6 +16,32 @@ body {
   font-size: 1.6rem;
 }
 
+.btn {
+  background-color: #586E72;
+  color: #fbf27c;
+  font-weight: 500;
+  padding: 1rem 2.5rem;
+  border-radius: 0.5rem;
+  /* offset-x | offset-y | blur-radius | color */
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.6);
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: translate(0.1rem, -0.1rem);
+  box-shadow: 2px 2px 4px 1px rgba(0, 0, 0, 0.6);
+}
+
+.btn:active {
+  transform: translate(-0.1rem, 0.1rem);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.8);
+}
+
+button {
+  font-size: inherit;
+  border: none;
+}
+
 .container__header {
   background-color: #fbf27c;
   height: 10rem;
