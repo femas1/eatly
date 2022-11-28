@@ -16,12 +16,15 @@ body {
   font-size: 1.6rem;
 }
 
-#logo {
-  max-width: 300px;
-}
-
 .container__header {
   background-color: #fbf27c;
+  height: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.container__header__logo {
+  max-width: 300px;
 }
 
 .container {
