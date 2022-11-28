@@ -4,6 +4,8 @@
     height: 100%;
     display: flex;
 
+    // SIDEBAR
+
     &__sidebar {
         background-color: #fff;
         flex: 1 0 30%;
@@ -21,6 +23,19 @@
             }
         }
     }  
+
+    &__mainContent{
+
+        &__dishInfo {
+            display: flex;
+            justify-content: center;
+            padding: 2rem;
+
+            &__servings {
+                display: flex;
+            }
+        }
+    }
 }
 
  #sample-picture {
