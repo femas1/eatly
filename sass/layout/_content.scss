@@ -26,6 +26,10 @@
 
     &__mainContent{
 
+        &__dishPicture {
+            text-align: center;
+        }
+
         &__dishInfo {
             display: flex;
             justify-content: center;

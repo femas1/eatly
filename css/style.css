@@ -92,6 +92,9 @@ body {
   margin-left: 2rem;
   font-weight: 400;
 }
+.container__content__mainContent__dishPicture {
+  text-align: center;
+}
 .container__content__mainContent__dishInfo {
   display: flex;
   justify-content: center;
