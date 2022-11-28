@@ -81,5 +81,22 @@ body {
   background-color: #fff;
   flex: 1 0 30%;
 }
+.container__content__sidebar__recipe {
+  background-color: #e1e7e8;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 1rem 2.5rem;
+}
+.container__content__sidebar__recipe__title {
+  margin-left: 2rem;
+  font-weight: 400;
+}
+
+#sample-picture {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 100rem;
+}
 
 /*# sourceMappingURL=style.css.map */
