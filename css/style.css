@@ -42,6 +42,20 @@ button {
   border: none;
 }
 
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 2.5rem;
+}
+
+.container {
+  height: 100%;
+  background-color: #fefcdf;
+  display: flex;
+  flex-direction: column;
+}
+
 .container__header {
   background-color: #fbf27c;
   height: 10rem;
@@ -59,16 +73,13 @@ button {
   margin: 0 1rem;
 }
 
-.container {
+.container__content {
+  background-color: red;
   height: 100%;
-  background-color: #fefcdf;
-}
-
-body {
-  height: 100vh;
   display: flex;
-  align-items: center;
-  padding: 2.5rem;
+}
+.container__content__sidebar {
+  flex: 30%;
 }
 
 /*# sourceMappingURL=style.css.map */
