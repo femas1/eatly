@@ -79,7 +79,8 @@ body {
   display: flex;
 }
 .container__content__sidebar {
-  flex: 30%;
+  background-color: #fff;
+  flex: 1 0 30%;
 }
 
 /*# sourceMappingURL=style.css.map */
