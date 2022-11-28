@@ -96,12 +96,16 @@ body {
   text-align: center;
 }
 .container__content__mainContent__dishInfo {
+  background-color: #fbf27c;
   display: flex;
   justify-content: center;
   padding: 2rem;
 }
 .container__content__mainContent__dishInfo__servings {
   display: flex;
+}
+.container__content__mainContent__dishInfo > * {
+  padding: 0.5rem 2rem;
 }
 
 #sample-picture {

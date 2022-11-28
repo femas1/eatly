@@ -31,6 +31,7 @@
         }
 
         &__dishInfo {
+            background-color: $color-primary;
             display: flex;
             justify-content: center;
             padding: 2rem;
@@ -38,6 +39,10 @@
             &__servings {
                 display: flex;
             }
+        }
+
+        &__dishInfo > * {
+           padding: .5rem 2rem;
         }
     }
 }
