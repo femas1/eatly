@@ -106,7 +106,7 @@ body {
   padding: 0.5rem 2rem;
 }
 .container__content__mainContent__ingredients {
-  text-align: center;
+  text-align: left;
 }
 .container__content__mainContent__ingredients__heading {
   padding: 1rem;
