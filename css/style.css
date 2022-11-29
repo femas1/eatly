@@ -43,14 +43,13 @@ button {
 }
 
 body {
-  height: 100vh;
   display: flex;
   align-items: center;
   padding: 2.5rem;
+  background-color: #003D5B;
 }
 
 .container {
-  height: 100%;
   background-color: #fefcdf;
   display: flex;
   flex-direction: column;
@@ -74,7 +73,6 @@ body {
 }
 
 .container__content {
-  height: 100%;
   display: flex;
 }
 .container__content__sidebar {
@@ -106,6 +104,27 @@ body {
 }
 .container__content__mainContent__dishInfo > * {
   padding: 0.5rem 2rem;
+}
+.container__content__mainContent__ingredients {
+  text-align: center;
+}
+.container__content__mainContent__ingredients__heading {
+  padding: 1rem;
+}
+.container__content__mainContent__ingredients__list {
+  list-style-type: none;
+  columns: 2;
+  padding: 2rem;
+}
+.container__content__mainContent__ingredients__list p {
+  padding: 1rem;
+}
+.container__content__mainContent__directions {
+  padding: 2rem;
+}
+.container__content__mainContent__directions__heading {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 #sample-picture {
