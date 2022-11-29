@@ -20,8 +20,10 @@ const getRandRecipe = async function () {
     const extIngredients = data.recipes[0].extendedIngredients;
 
     extIngredients.forEach(ingredient => {
-        console.log(ingredient.original)
-        ingredientName.innerHTML = `${ingredient.original}`
+        ingredientName.insertAdjacentHTML('afterbegin', 
+        `<li class="container__content__mainContent__ingredients__list__item">
+             <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
+        </li>`)
     });
 
     recipePicture.src = image;
