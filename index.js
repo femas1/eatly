@@ -1,5 +1,11 @@
 'use strict';
 
+const recipePicture = document.getElementById('recipe-picture');
+const ingredientName = document.querySelector('.container__content__mainContent__ingredients__list__item');
+
+
+
+
 // API TEST CALL 
 
 const getRandRecipe = async function () {
@@ -12,6 +18,13 @@ const getRandRecipe = async function () {
     const servings = data.recipes[0].servings
     const instructions = data.recipes[0].instructions;
     const extIngredients = data.recipes[0].extendedIngredients;
+
+    extIngredients.forEach(ingredient => {
+        console.log(ingredient.original)
+        ingredientName.innerHTML = `${ingredient.original}`
+    });
+
+    recipePicture.src = image;
 };
 
 getRandRecipe();
