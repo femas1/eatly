@@ -2,7 +2,8 @@
 
 const recipePicture = document.getElementById('recipe-picture');
 const ingredientName = document.querySelector('.container__content__mainContent__ingredients__list__item');
-
+const previewPicture = document.getElementById('preview-picture');
+const recipeTitle = document.querySelector('.container__content__sidebar__recipe__title');
 
 
 
@@ -26,7 +27,9 @@ const getRandRecipe = async function () {
         </li>`)
     });
 
+    recipeTitle.innerText = title;
     recipePicture.src = image;
+    previewPicture.src = image;
 };
 
 getRandRecipe();
