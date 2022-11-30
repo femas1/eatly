@@ -4,6 +4,7 @@ const recipePicture = document.getElementById('recipe-picture');
 const ingredientName = document.querySelector('.container__content__mainContent__ingredients__list__item');
 const previewPicture = document.getElementById('preview-picture');
 const recipeTitle = document.querySelector('.container__content__sidebar__recipe__title');
+const recipeDirections = document.querySelector('.container__content__mainContent__directions__text');
 
 
 
@@ -30,6 +31,13 @@ const getRandRecipe = async function () {
     recipeTitle.innerText = title;
     recipePicture.src = image;
     previewPicture.src = image;
+    recipeDirections.innerText = instructions;
 };
 
 getRandRecipe();
+
+// SCENARIO: User starts the app 
+
+// 1. Page loads
+// 2. Show all recipes in the sidebar
+// 3. Open / show the first recipe of the list 
