@@ -23,9 +23,8 @@ button {
 .btn {
   background-color: #586E72;
   color: #fbf27c;
-  font-weight: 500;
   padding: 1rem 2.5rem;
-  border-radius: 2rem;
+  border-radius: 1rem;
   /* offset-x | offset-y | blur-radius | color */
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.6);
 }
