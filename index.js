@@ -5,7 +5,7 @@ const ingredientName = document.querySelector('.container__content__mainContent_
 const previewPicture = document.getElementById('preview-picture');
 const recipeTitle = document.querySelector('.container__content__sidebar__recipe__title');
 const recipeDirections = document.querySelector('.container__content__mainContent__directions__text');
-
+const cookingTime = document.querySelector('.container__content__mainContent__dishInfo__time span')
 
 
 // API TEST CALL 
@@ -32,6 +32,7 @@ const getRandRecipe = async function () {
     recipePicture.src = image;
     previewPicture.src = image;
     recipeDirections.innerText = instructions;
+    cookingTime.innerText = readyIn;
 };
 
 getRandRecipe();
