@@ -73,3 +73,4 @@ const searchRecipes = async function () {
 // searchRecipes();
 
 searchBtn.addEventListener('click', () => searchRecipes())
+
