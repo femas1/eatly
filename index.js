@@ -44,13 +44,28 @@ const getRandRecipe = async function () {
 // 1. Page loads
 // 2. Show all recipes in the sidebar
     // 2.1. search recipe based on random ingredient (random ingredient from array)
+    // 2.2. push first 10 results into the preview tabs in the sidebar (slice array, add link into search)
 
 // 3. Open / show the first recipe of the list 
+const sidebar = document.querySelector('.container__content__sidebar');
 
 const searchRecipes = async function () {
     const res = await fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=cheddar');
     const data = await res.json();
-    console.log(data);
+    
+    
+    // const title = data[0].title;
+    // const image = data[0].image;
+
+    data.forEach(recipe => {
+        
+        sidebar.insertAdjacentHTML('afterbegin', `
+        <div class="container__content__sidebar__recipe">
+            <img id="preview-picture" src="${recipe.image}" alt="burrito">
+                <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
+        </div>
+`)
+    })
 }
 
-// searchRecipes();
+searchRecipes();
