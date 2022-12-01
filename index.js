@@ -54,6 +54,8 @@ const searchRecipes = async function () {
     const res = await fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=cheddar');
     const data = await res.json();
 
+    console.log(data)
+
     data.forEach(recipe => {
 
         sidebar.insertAdjacentHTML('beforeend', `
@@ -65,7 +67,29 @@ const searchRecipes = async function () {
     })
 }
 
-window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
+// window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 
 // searchBtn.addEventListener('click', () => searchRecipes())
 
+searchRecipes();
+
+// SEARCH RECIPE BY ID
+
+const getRecipeById = async function (query) {
+    const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=b69e38af682b4e7fa423de0c87c3e848&query=${query}`);
+    const data = await res.json();
+    console.log(data)
+}
+
+getRecipeById("Pasta with tuna");
+
+// 1. clicked on recipe
+// 2. get the recipe title
+// 3. search the title (exact string) using complexSearch
+// 4. insert recipe in main area (like in getRandRecipe)
+
+const recipeTab = document.querySelector('.container__content__sidebar__recipe');
+
+recipeTab.addEventListener('click', () => {
+    alert("working")
+})
