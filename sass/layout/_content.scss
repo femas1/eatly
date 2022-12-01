@@ -12,6 +12,7 @@
         flex: 1 0 30%;
 
         &__recipe {
+            cursor: pointer;
             background-color: $color-secondary-light;
             display: flex;
             justify-content: flex-start;

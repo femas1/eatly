@@ -20,6 +20,10 @@ button {
   background: none;
 }
 
+i {
+  cursor: pointer;
+}
+
 .btn {
   color: #586E72;
   font-weight: 500;
@@ -78,6 +82,7 @@ body {
 }
 .container__header__logo {
   max-height: 10rem;
+  cursor: pointer;
 }
 .container__header__buttons {
   display: flex;
@@ -95,6 +100,7 @@ body {
   flex: 1 0 30%;
 }
 .container__content__sidebar__recipe {
+  cursor: pointer;
   background-color: #e1e7e8;
   display: flex;
   justify-content: flex-start;
