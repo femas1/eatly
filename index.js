@@ -51,7 +51,7 @@ const getRandRecipe = async function () {
 
 
 const searchRecipes = async function () {
-    const res = await fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=cheddar');
+    const res = await fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=tomato');
     const data = await res.json();
 
     data.forEach(recipe => {
