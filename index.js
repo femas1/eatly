@@ -10,6 +10,7 @@ const recipeServings = document.querySelector('.container__content__mainContent_
 const searchBtn = document.getElementById('submitButton');
 
 
+
 // API TEST CALL 
 
 const getRandRecipe = async function () {
@@ -38,8 +39,6 @@ const getRandRecipe = async function () {
     recipeServings.innerText = servings;
 };
 
-// getRandRecipe();
-
 // SCENARIO: User starts the app 
 
 // 1. Page loads
@@ -54,23 +53,19 @@ const sidebar = document.querySelector('.container__content__sidebar');
 const searchRecipes = async function () {
     const res = await fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=cheddar');
     const data = await res.json();
-    
-    
-    // const title = data[0].title;
-    // const image = data[0].image;
 
     data.forEach(recipe => {
 
-        sidebar.insertAdjacentHTML('afterbegin', `
-        <div class="container__content__sidebar__recipe">
-            <img id="preview-picture" src="${recipe.image}" alt="burrito">
-                <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
-        </div>
-`)
+        sidebar.insertAdjacentHTML('beforeend', `
+            <div class="container__content__sidebar__recipe">
+                <img id="preview-picture" src="${recipe.image}" alt="burrito">
+                    <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
+            </div>`
+        )
     })
 }
 
-// searchRecipes();
+window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 
-searchBtn.addEventListener('click', () => searchRecipes())
+// searchBtn.addEventListener('click', () => searchRecipes())
 
