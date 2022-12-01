@@ -59,7 +59,7 @@ const searchRecipes = async function () {
     data.forEach(recipe => {
 
         sidebar.insertAdjacentHTML('beforeend', `
-            <div class="container__content__sidebar__recipe">
+            <div class="container__content__sidebar__recipe" id="${recipe.id}">
                 <img id="preview-picture" src="${recipe.image}" alt="burrito">
                     <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
             </div>`
@@ -69,27 +69,23 @@ const searchRecipes = async function () {
 
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 
-// searchBtn.addEventListener('click', () => searchRecipes())
-
-searchRecipes();
+// searchRecipes();
 
 // SEARCH RECIPE BY ID
 
-const getRecipeById = async function (query) {
-    const res = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=b69e38af682b4e7fa423de0c87c3e848&query=${query}`);
+const getRecipeById = async function () {
+    const res = await fetch(`https://api.spoonacular.com/recipes/636411/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
     console.log(data)
-}
+};
 
-getRecipeById("Pasta with tuna");
+// // // 1. clicked on recipe
+// // // 2. get the recipe title(outer text?)
+// // // 3. search the title (exact string) using complexSearch
+// // // 4. insert recipe in main area (like in getRandRecipe)
 
-// 1. clicked on recipe
-// 2. get the recipe title
-// 3. search the title (exact string) using complexSearch
-// 4. insert recipe in main area (like in getRandRecipe)
-
-const recipeTab = document.querySelector('.container__content__sidebar__recipe');
-
-recipeTab.addEventListener('click', () => {
-    alert("working")
-})
+sidebar.addEventListener('click', (e) => {
+    let recipeId = e.target.id;
+    console.log(recipeId)
+    getRecipeById(recipeTitle);
+});
