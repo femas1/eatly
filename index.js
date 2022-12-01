@@ -8,7 +8,7 @@ const recipeDirections = document.querySelector('.container__content__mainConten
 const cookingTime = document.querySelector('.container__content__mainContent__dishInfo__time span');
 const recipeServings = document.querySelector('.container__content__mainContent__dishInfo__servings span');
 const searchBtn = document.getElementById('submitButton');
-
+const sidebar = document.querySelector('.container__content__sidebar');
 
 
 // API TEST CALL 
@@ -48,13 +48,11 @@ const getRandRecipe = async function () {
 // 3. User clicks on one of the recipe -> show recipe in main content area
 
 // 3. Open / show the first recipe of the list 
-const sidebar = document.querySelector('.container__content__sidebar');
+
 
 const searchRecipes = async function () {
     const res = await fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=cheddar');
     const data = await res.json();
-
-    console.log(data)
 
     data.forEach(recipe => {
 
@@ -69,23 +67,38 @@ const searchRecipes = async function () {
 
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 
-// searchRecipes();
+searchRecipes();
 
 // SEARCH RECIPE BY ID
-
-const getRecipeById = async function () {
-    const res = await fetch(`https://api.spoonacular.com/recipes/636411/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
-    const data = await res.json();
-    console.log(data)
-};
 
 // // // 1. clicked on recipe
 // // // 2. get the recipe title(outer text?)
 // // // 3. search the title (exact string) using complexSearch
 // // // 4. insert recipe in main area (like in getRandRecipe)
 
+const getRecipeById = async function (id) {
+    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
+    const data = await res.json();
+
+    console.log(data)
+
+    const title = data.title;
+    const image = data.image;
+    const readyIn = data.readyInMinutes;
+    const servings = data.servings
+    const instructions = data.instructions;
+    const extIngredients = data.extendedIngredients;
+
+        recipeTitle.innerText = title;
+    recipePicture.src = image;
+    previewPicture.src = image;
+    recipeDirections.innerText = instructions;
+    cookingTime.innerText = readyIn;
+    recipeServings.innerText = servings;
+};
+
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
     console.log(recipeId)
-    getRecipeById(recipeTitle);
+    getRecipeById(recipeId);
 });
