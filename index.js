@@ -11,7 +11,7 @@ const searchBtn = document.getElementById('submitButton');
 const sidebar = document.querySelector('.container__content__sidebar');
 
 
-// API TEST CALL 
+// API RANDOM RECIPE CALL 
 
 const getRandRecipe = async function () {
     const res = await fetch('https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848');

@@ -10,6 +10,7 @@
         background-color: #fff;
         padding-top: .5rem;
         flex: 1 0 30%;
+        max-width: 44rem;
 
         &__recipe {
             cursor: pointer;
@@ -30,6 +31,9 @@
     }  
 
     &__mainContent{
+
+        flex: 1;
+        flex-shrink: 0;
 
         &__dishPicture {
             text-align: center;

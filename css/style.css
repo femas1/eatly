@@ -98,6 +98,7 @@ body {
   background-color: #fff;
   padding-top: 0.5rem;
   flex: 1 0 30%;
+  max-width: 44rem;
 }
 .container__content__sidebar__recipe {
   cursor: pointer;
@@ -111,6 +112,10 @@ body {
 .container__content__sidebar__recipe__title {
   margin-left: 2rem;
   font-weight: 400;
+}
+.container__content__mainContent {
+  flex: 1;
+  flex-shrink: 0;
 }
 .container__content__mainContent__dishPicture {
   text-align: center;
