@@ -19,5 +19,8 @@
   "homepage": "https://github.com/femas1/eatly#readme",
   "dependencies": {
     "dart-sass": "^1.25.0"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.0"
   }
 }

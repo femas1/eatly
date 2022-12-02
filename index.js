@@ -11,17 +11,6 @@ const searchBtn = document.getElementById('submitButton');
 const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
 
-// BASIC SEARCH  
-
-// to fix
-// remove results as soon as new search is started
-
-searchBar.addEventListener('keypress', (e) => {
-    let searchedIngredient = e.target.value;
-    console.log(searchedIngredient)
-
-    searchBtn.addEventListener('click', () => searchRecipes(searchedIngredient));
-})
 
 // API RANDOM RECIPE CALL 
 
@@ -121,3 +110,15 @@ sidebar.addEventListener('click', (e) => {
     console.log(recipeId)
     getRecipeById(recipeId);
 });
+
+// BASIC SEARCH IN SEARCH BAR
+
+// to fix
+// remove results as soon as new search is started
+
+searchBar.addEventListener('keypress', (e) => {
+    let searchedIngredient = e.target.value;
+    console.log(searchedIngredient)
+
+    searchBtn.addEventListener('click', () => searchRecipes(searchedIngredient));
+})
