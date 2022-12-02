@@ -11,8 +11,10 @@ const searchBtn = document.getElementById('submitButton');
 const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
 
+// BASIC SEARCH  
+
 searchBar.addEventListener('keypress', (e) => {
-    const searchedIngredient = e.target.value;
+    let searchedIngredient = e.target.value;
     console.log(searchedIngredient)
 
     searchBtn.addEventListener('click', () => searchRecipes(searchedIngredient));
