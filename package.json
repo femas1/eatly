@@ -2,7 +2,7 @@
   "name": "eatly",
   "version": "1.0.0",
   "description": "recipe app project",
-  "source": "index.html",
+  "source": "src/index.html",
   "scripts": {
     "compile:sass": "dart-sass sass/main.scss css/style.css --watch",
     "start": "parcel",
