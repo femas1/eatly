@@ -8,8 +8,15 @@ const recipeDirections = document.querySelector('.container__content__mainConten
 const cookingTime = document.querySelector('.container__content__mainContent__dishInfo__time span');
 const recipeServings = document.querySelector('.container__content__mainContent__dishInfo__servings span');
 const searchBtn = document.getElementById('submitButton');
+const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
 
+searchBar.addEventListener('keypress', (e) => {
+    const searchedIngredient = e.target.value;
+    console.log(searchedIngredient)
+
+    searchBtn.addEventListener('click', () => searchRecipes(searchedIngredient));
+})
 
 // API RANDOM RECIPE CALL 
 
@@ -50,8 +57,8 @@ const getRandRecipe = async function () {
 // 3. Open / show the first recipe of the list 
 
 
-const searchRecipes = async function () {
-    const res = await fetch('https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=tomato');
+const searchRecipes = async function (ingredient) {
+    const res = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=${ingredient}`);
     const data = await res.json();
 
     data.forEach(recipe => {
@@ -67,7 +74,7 @@ const searchRecipes = async function () {
 
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 
-searchRecipes();
+// searchRecipes();
 
 // SEARCH RECIPE BY ID
 
