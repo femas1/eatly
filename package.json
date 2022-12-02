@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "description": "recipe app project",
   "main": "index.js",
+  "source": "index.html",
   "scripts": {
-    "compile:sass": "dart-sass sass/main.scss css/style.css --watch"
+    "compile:sass": "dart-sass sass/main.scss css/style.css --watch",
+    "start": "parcel",
+    "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -21,6 +24,6 @@
     "dart-sass": "^1.25.0"
   },
   "devDependencies": {
-    "parcel": "^2.8.0"
+    "parcel": "latest"
   }
 }
