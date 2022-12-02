@@ -13,6 +13,9 @@ const sidebar = document.querySelector('.container__content__sidebar');
 
 // BASIC SEARCH  
 
+// to fix
+// remove results as soon as new search is started
+
 searchBar.addEventListener('keypress', (e) => {
     let searchedIngredient = e.target.value;
     console.log(searchedIngredient)
@@ -104,6 +107,13 @@ const getRecipeById = async function (id) {
     recipeDirections.innerText = instructions;
     cookingTime.innerText = readyIn;
     recipeServings.innerText = servings;
+
+    extIngredients.forEach(ingredient => {
+        ingredientName.insertAdjacentHTML('afterbegin', 
+        `<li class="container__content__mainContent__ingredients__list__item">
+             <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
+        </li>`)
+    });
 };
 
 sidebar.addEventListener('click', (e) => {
