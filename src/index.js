@@ -1,5 +1,6 @@
 'use strict';
 
+const recipeContainer = document.querySelector('.container__content__mainContent');
 const recipePicture = document.getElementById('recipe-picture');
 const ingredientName = document.querySelector('.container__content__mainContent__ingredients__list__item');
 const previewPicture = document.getElementById('preview-picture');
@@ -10,7 +11,6 @@ const recipeServings = document.querySelector('.container__content__mainContent_
 const searchBtn = document.getElementById('submitButton');
 const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
-
 
 // API RANDOM RECIPE CALL 
 
@@ -32,6 +32,15 @@ const getRandRecipe = async function () {
         </li>`)
     });
 
+    // APPLY THIS ON THE CONTAINER INSTEAD OF SINGLE ELEMENTS
+
+    recipeTitle.innerHTML ="";
+    recipePicture.innerHTML ="";
+    previewPicture.innerHTML ="";
+    recipeDirections.innerHTML ="";
+    cookingTime.innerHTML ="";
+    recipeServings.innerHTML ="";
+
     recipeTitle.innerText = title;
     recipePicture.src = image;
     previewPicture.src = image;
@@ -39,6 +48,8 @@ const getRandRecipe = async function () {
     cookingTime.innerText = readyIn;
     recipeServings.innerText = servings;
 };
+
+getRandRecipe();
 
 // SCENARIO: User starts the app 
 
@@ -52,8 +63,12 @@ const getRandRecipe = async function () {
 
 
 const searchRecipes = async function (ingredient) {
+    try {
     const res = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=${ingredient}`);
     const data = await res.json();
+    
+
+    if(!res.ok) throw new Error(`${data.message}`);
 
     data.forEach(recipe => {
 
@@ -64,7 +79,13 @@ const searchRecipes = async function (ingredient) {
             </div>`
         )
     })
+    } catch(err) {
+        alert(err);
+    }
 }
+
+// searchRecipes("egg")
+
 
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 
@@ -116,9 +137,9 @@ sidebar.addEventListener('click', (e) => {
 // to fix
 // remove results as soon as new search is started
 
-searchBar.addEventListener('keypress', (e) => {
-    let searchedIngredient = e.target.value;
-    console.log(searchedIngredient)
+// searchBar.addEventListener('keypress', (e) => {
+//     let searchedIngredient = e.target.value;
+//     console.log(searchedIngredient)
 
-    searchBtn.addEventListener('click', () => searchRecipes(searchedIngredient));
-})
+//     searchBtn.addEventListener('click', () => alert("mr"));
+// })
