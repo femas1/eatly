@@ -629,7 +629,7 @@ const searchRecipes = async function(ingredient) {
         alert(err);
     }
 };
-// searchRecipes("egg")
+searchRecipes("egg");
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 // searchRecipes();
 // SEARCH RECIPE BY ID
@@ -640,7 +640,6 @@ const searchRecipes = async function(ingredient) {
 const getRecipeById = async function(id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
-    console.log(data);
     const title = data.title;
     const image = data.image;
     const readyIn = data.readyInMinutes;
