@@ -25,30 +25,30 @@ const getRandRecipe = async function () {
     const instructions = data.recipes[0].instructions;
     const extIngredients = data.recipes[0].extendedIngredients;
 
-    extIngredients.forEach(ingredient => {
-        ingredientName.insertAdjacentHTML('afterbegin', 
-        `<li class="container__content__mainContent__ingredients__list__item">
-             <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
-        </li>`)
-    });
+    // extIngredients.forEach(ingredient => {
+    //     ingredientName.insertAdjacentHTML('afterbegin', 
+    //     `<li class="container__content__mainContent__ingredients__list__item">
+    //          <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
+    //     </li>`)
+    // });
 
     // APPLY THIS ON THE CONTAINER INSTEAD OF SINGLE ELEMENTS
 
-    recipeTitle.innerHTML ="";
-    recipePicture.innerHTML ="";
-    previewPicture.innerHTML ="";
-    recipeDirections.innerHTML ="";
-    cookingTime.innerHTML ="";
-    recipeServings.innerHTML ="";
+    // recipeTitle.innerHTML ="";
+    // recipePicture.innerHTML ="";
+    // previewPicture.innerHTML ="";
+    // recipeDirections.innerHTML ="";
+    // cookingTime.innerHTML ="";
+    // recipeServings.innerHTML ="";
 
     recipeTitle.innerText = title;
     previewPicture.src = image;
 
+    recipeContainer.innerHTML = ""
+
     recipeContainer.insertAdjacentHTML('afterbegin', `
 
-    <!-- MAIN CONTENT -->
-    <div class="container__content__mainContent">
-        
+    <!-- MAIN CONTENT -->        
         <div class="container__content__mainContent__dishPicture">
             <img id= "recipe-picture" src="${image}" alt="recipe-picture">
         </div>
