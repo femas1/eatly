@@ -42,11 +42,56 @@ const getRandRecipe = async function () {
     recipeServings.innerHTML ="";
 
     recipeTitle.innerText = title;
-    recipePicture.src = image;
     previewPicture.src = image;
-    recipeDirections.innerText = instructions;
-    cookingTime.innerText = readyIn;
-    recipeServings.innerText = servings;
+
+    recipeContainer.insertAdjacentHTML('afterbegin', `
+
+    <!-- MAIN CONTENT -->
+    <div class="container__content__mainContent">
+        
+        <div class="container__content__mainContent__dishPicture">
+            <img id= "recipe-picture" src="${image}" alt="recipe-picture">
+        </div>
+        <!-- DISH INFORMATION  -->
+        <div class="container__content__mainContent__dishInfo">
+            <div class="container__content__mainContent__dishInfo__time">
+                <p>
+                    <i class="fa-regular fa-clock"></i>
+                    <span>${readyIn}</span>minutes
+                </p>
+            </div>
+            <div class="container__content__mainContent__dishInfo__servings">
+                <p>
+                    <i class="fa-solid fa-users"></i> 
+                    <span>${servings}</span>servings</p>
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+            </div>
+            <div class="container__content__mainContent__dishInfo__saveBtn">
+                <i class="fa-regular fa-floppy-disk"></i>
+            </div>
+        </div>
+        <!-- DISH INFORMATION END -->
+        <div class="container__content__mainContent__title">
+            <h1>${title}</h1>
+        </div>
+        <!-- INGREDIENTS -->
+        <div class="container__content__mainContent__ingredients">
+            <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
+            <ul class="container__content__mainContent__ingredients__list">
+                <li class="container__content__mainContent__ingredients__list__item">
+                    <p><!--Push here--></p>
+                </li>
+            </ul>
+        </div>
+        <!-- INGREDIENTS END -->
+        <!-- DIRECTIONS -->
+        <div class="container__content__mainContent__directions">
+            <h1 class="container__content__mainContent__directions__heading">Directions</h1>
+            <p class="container__content__mainContent__directions__text">${instructions}</p>
+        </div>
+        <!-- DIRECTIONS END -->
+    `)
 };
 
 getRandRecipe();

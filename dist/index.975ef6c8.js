@@ -533,6 +533,7 @@ function hmrAcceptRun(bundle, id) {
 
 },{}],"8lqZg":[function(require,module,exports) {
 "use strict";
+const recipeContainer = document.querySelector(".container__content__mainContent");
 const recipePicture = document.getElementById("recipe-picture");
 const ingredientName = document.querySelector(".container__content__mainContent__ingredients__list__item");
 const previewPicture = document.getElementById("preview-picture");
@@ -558,13 +559,65 @@ const getRandRecipe = async function() {
              <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
         </li>`);
     });
+    // APPLY THIS ON THE CONTAINER INSTEAD OF SINGLE ELEMENTS
+    recipeTitle.innerHTML = "";
+    recipePicture.innerHTML = "";
+    previewPicture.innerHTML = "";
+    recipeDirections.innerHTML = "";
+    cookingTime.innerHTML = "";
+    recipeServings.innerHTML = "";
     recipeTitle.innerText = title;
-    recipePicture.src = image;
     previewPicture.src = image;
-    recipeDirections.innerText = instructions;
-    cookingTime.innerText = readyIn;
-    recipeServings.innerText = servings;
+    recipeContainer.insertAdjacentHTML("afterbegin", `
+
+    <!-- MAIN CONTENT -->
+    <div class="container__content__mainContent">
+        
+        <div class="container__content__mainContent__dishPicture">
+            <img id= "recipe-picture" src="${image}" alt="recipe-picture">
+        </div>
+        <!-- DISH INFORMATION  -->
+        <div class="container__content__mainContent__dishInfo">
+            <div class="container__content__mainContent__dishInfo__time">
+                <p>
+                    <i class="fa-regular fa-clock"></i>
+                    <span>${readyIn}</span>minutes
+                </p>
+            </div>
+            <div class="container__content__mainContent__dishInfo__servings">
+                <p>
+                    <i class="fa-solid fa-users"></i> 
+                    <span>${servings}</span>servings</p>
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+            </div>
+            <div class="container__content__mainContent__dishInfo__saveBtn">
+                <i class="fa-regular fa-floppy-disk"></i>
+            </div>
+        </div>
+        <!-- DISH INFORMATION END -->
+        <div class="container__content__mainContent__title">
+            <h1>${title}</h1>
+        </div>
+        <!-- INGREDIENTS -->
+        <div class="container__content__mainContent__ingredients">
+            <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
+            <ul class="container__content__mainContent__ingredients__list">
+                <li class="container__content__mainContent__ingredients__list__item">
+                    <p><!--Push here--></p>
+                </li>
+            </ul>
+        </div>
+        <!-- INGREDIENTS END -->
+        <!-- DIRECTIONS -->
+        <div class="container__content__mainContent__directions">
+            <h1 class="container__content__mainContent__directions__heading">Directions</h1>
+            <p class="container__content__mainContent__directions__text">${instructions}</p>
+        </div>
+        <!-- DIRECTIONS END -->
+    `);
 };
+getRandRecipe();
 // SCENARIO: User starts the app 
 // 1. Page loads
 // 2. Show all recipes in the sidebar
@@ -576,6 +629,7 @@ const searchRecipes = async function(ingredient) {
     try {
         const res = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=${ingredient}`);
         const data = await res.json();
+        if (!res.ok) throw new Error(`${data.message}`);
         data.forEach((recipe)=>{
             sidebar.insertAdjacentHTML("beforeend", `
             <div class="container__content__sidebar__recipe" id="${recipe.id}">
@@ -587,7 +641,7 @@ const searchRecipes = async function(ingredient) {
         alert(err);
     }
 };
-searchRecipes(cheddar);
+// searchRecipes("egg")
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 // searchRecipes();
 // SEARCH RECIPE BY ID
@@ -621,15 +675,14 @@ sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     console.log(recipeId);
     getRecipeById(recipeId);
-});
-// BASIC SEARCH IN SEARCH BAR
-// to fix
-// remove results as soon as new search is started
-searchBar.addEventListener("keypress", (e)=>{
-    let searchedIngredient = e.target.value;
-    console.log(searchedIngredient);
-    searchBtn.addEventListener("click", ()=>searchRecipes(searchedIngredient));
-});
+}); // BASIC SEARCH IN SEARCH BAR
+ // to fix
+ // remove results as soon as new search is started
+ // searchBar.addEventListener('keypress', (e) => {
+ //     let searchedIngredient = e.target.value;
+ //     console.log(searchedIngredient)
+ //     searchBtn.addEventListener('click', () => alert("mr"));
+ // })
 
 },{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire27a3")
 
