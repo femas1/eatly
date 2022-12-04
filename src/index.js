@@ -2,7 +2,7 @@
 
 const recipeContainer = document.querySelector('.container__content__mainContent');
 const recipePicture = document.getElementById('recipe-picture');
-const ingredientName = document.querySelector('.container__content__mainContent__ingredients__list__item');
+const ingredientContainer = document.querySelector('.container__content__mainContent__ingredients__list__item');
 const previewPicture = document.getElementById('preview-picture');
 const recipeTitle = document.querySelector('.container__content__sidebar__recipe__title');
 const recipeDirections = document.querySelector('.container__content__mainContent__directions__text');
@@ -23,28 +23,12 @@ const getRandRecipe = async function () {
     const readyIn = data.recipes[0].readyInMinutes;
     const servings = data.recipes[0].servings
     const instructions = data.recipes[0].instructions;
-    const extIngredients = data.recipes[0].extendedIngredients;
-
-    // extIngredients.forEach(ingredient => {
-    //     ingredientName.insertAdjacentHTML('afterbegin', 
-    //     `<li class="container__content__mainContent__ingredients__list__item">
-    //          <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
-    //     </li>`)
-    // });
-
-    // APPLY THIS ON THE CONTAINER INSTEAD OF SINGLE ELEMENTS
-
-    // recipeTitle.innerHTML ="";
-    // recipePicture.innerHTML ="";
-    // previewPicture.innerHTML ="";
-    // recipeDirections.innerHTML ="";
-    // cookingTime.innerHTML ="";
-    // recipeServings.innerHTML ="";
+    const extIngredients = [data.recipes[0].extendedIngredients];
 
     recipeTitle.innerText = title;
     previewPicture.src = image;
 
-    recipeContainer.innerHTML = ""
+    // recipeContainer.innerHTML = ""
 
     recipeContainer.insertAdjacentHTML('afterbegin', `
 
@@ -75,16 +59,7 @@ const getRandRecipe = async function () {
         <div class="container__content__mainContent__title">
             <h1>${title}</h1>
         </div>
-        <!-- INGREDIENTS -->
-        <div class="container__content__mainContent__ingredients">
-            <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
-            <ul class="container__content__mainContent__ingredients__list">
-                <li class="container__content__mainContent__ingredients__list__item">
-                    <p><!--Push here--></p>
-                </li>
-            </ul>
-        </div>
-        <!-- INGREDIENTS END -->
+        
         <!-- DIRECTIONS -->
         <div class="container__content__mainContent__directions">
             <h1 class="container__content__mainContent__directions__heading">Directions</h1>
@@ -92,6 +67,20 @@ const getRandRecipe = async function () {
         </div>
         <!-- DIRECTIONS END -->
     `)
+
+    extIngredients.forEach(extIngredient => {
+        extIngredient.forEach(ingredient => {
+            console.log()
+            ingredientContainer.insertAdjacentHTML('beforeend', `
+           <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+`)
+        })
+    
+        
+    });
+   
+    
+    
 };
 
 getRandRecipe();
