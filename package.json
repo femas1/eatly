@@ -4,7 +4,7 @@
   "description": "recipe app project",
   "source": "src/index.html",
   "scripts": {
-    "compile:sass": "dart-sass sass/main.scss css/style.css --watch",
+    "compile:sass": "dart-sass src/sass/main.scss src/css/style.css --watch",
     "start": "parcel src/index.html",
     "build": "parcel build src/index.html --dist-dir ./dist"
   },
