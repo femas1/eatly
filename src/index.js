@@ -83,7 +83,7 @@ const getRandRecipe = async function () {
     
 };
 
-getRandRecipe();
+// getRandRecipe();
 
 // SCENARIO: User starts the app 
 
@@ -118,7 +118,7 @@ const searchRecipes = async function (ingredient) {
     }
 }
 
-searchRecipes("egg")
+// searchRecipes("egg")
 
 
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
@@ -143,12 +143,45 @@ const getRecipeById = async function (id) {
     const instructions = data.instructions;
     const extIngredients = data.extendedIngredients;
 
-    recipeTitle.innerText = title;
-    recipePicture.src = image;
-    previewPicture.src = image;
-    recipeDirections.innerText = instructions;
-    cookingTime.innerText = readyIn;
-    recipeServings.innerText = servings;
+    console.log(extIngredients)
+
+    recipeContainer.insertAdjacentHTML('afterbegin', `
+
+    <!-- MAIN CONTENT -->        
+        <div class="container__content__mainContent__dishPicture">
+            <img id= "recipe-picture" src="${image}" alt="recipe-picture">
+        </div>
+        <!-- DISH INFORMATION  -->
+        <div class="container__content__mainContent__dishInfo">
+            <div class="container__content__mainContent__dishInfo__time">
+                <p>
+                    <i class="fa-regular fa-clock"></i>
+                    <span>${readyIn}</span>minutes
+                </p>
+            </div>
+            <div class="container__content__mainContent__dishInfo__servings">
+                <p>
+                    <i class="fa-solid fa-users"></i> 
+                    <span>${servings}</span>servings</p>
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+            </div>
+            <div class="container__content__mainContent__dishInfo__saveBtn">
+                <i class="fa-regular fa-floppy-disk"></i>
+            </div>
+        </div>
+        <!-- DISH INFORMATION END -->
+        <div class="container__content__mainContent__title">
+            <h1>${title}</h1>
+        </div>
+        
+        <!-- DIRECTIONS -->
+        <div class="container__content__mainContent__directions">
+            <h1 class="container__content__mainContent__directions__heading">Directions</h1>
+            <p class="container__content__mainContent__directions__text">${instructions}</p>
+        </div>
+        <!-- DIRECTIONS END -->
+    `)
 
     extIngredients.forEach(ingredient => {
         ingredientName.insertAdjacentHTML('afterbegin', 
@@ -163,6 +196,7 @@ sidebar.addEventListener('click', (e) => {
     console.log(recipeId)
     getRecipeById(recipeId);
 });
+
 
 // BASIC SEARCH IN SEARCH BAR
 
