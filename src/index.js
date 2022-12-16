@@ -118,7 +118,7 @@ const searchRecipes = async function (ingredient) {
     }
 }
 
-// searchRecipes("egg")
+searchRecipes("egg")
 
 
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
@@ -183,6 +183,8 @@ const getRecipeById = async function (id) {
         <!-- DIRECTIONS END -->
     `)
 
+    // FIX: INGREDIENT NAME IS NOT DEFINED WHY?
+    
     extIngredients.forEach(ingredient => {
         ingredientName.insertAdjacentHTML('afterbegin', 
         `<li class="container__content__mainContent__ingredients__list__item">
