@@ -145,7 +145,10 @@ const getRecipeById = async function (id) {
 
     console.log(extIngredients)
 
-    recipeContainer.innerHTML = "";
+    // IF EMPTYING THE CONTAINER INGRENDIENTS WILL BE REMOVED TOO
+    // IF NOT EMPTYING IT, EACH CLICK CREATES A NEW CONTAINER 
+
+    // recipeContainer.innerHTML = "";
 
     recipeContainer.insertAdjacentHTML('afterbegin', `
 
@@ -185,16 +188,15 @@ const getRecipeById = async function (id) {
         <!-- DIRECTIONS END -->
     `)
 
-    // FIX: INGREDIENT NAME IS NOT DEFINED WHY?
-    
-    extIngredients.forEach(ingredient => {
-        ingredientName.insertAdjacentHTML('afterbegin', 
-        `<li class="container__content__mainContent__ingredients__list__item">
-             <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
-        </li>`)
-    });
-};
+//    INSERT INGREDIENTS  
 
+    extIngredients.forEach(ingredient => {
+        ingredientContainer.insertAdjacentHTML('beforeend', `
+           <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+`)
+    })
+}
+       
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
     console.log(recipeId)
