@@ -70,7 +70,6 @@ const getRandRecipe = async function () {
 
     extIngredients.forEach(extIngredient => {
         extIngredient.forEach(ingredient => {
-            console.log()
             ingredientContainer.insertAdjacentHTML('beforeend', `
            <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
 `)
@@ -193,7 +192,6 @@ extIngredients.forEach(ingredient => {
 
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
-    console.log(recipeId)
     getRecipeById(recipeId);
 });
 
