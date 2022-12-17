@@ -23,7 +23,7 @@ const getRandRecipe = async function () {
     const readyIn = data.recipes[0].readyInMinutes;
     const servings = data.recipes[0].servings
     const instructions = data.recipes[0].instructions;
-    const extIngredients = [data.recipes[0].extendedIngredients];
+    const extIngredients = data.recipes[0].extendedIngredients;
 
     recipeTitle.innerText = title;
     previewPicture.src = image;
@@ -68,7 +68,7 @@ const getRandRecipe = async function () {
         <!-- DIRECTIONS END -->
     `)
 
-    extIngredients.forEach(extIngredient => {
+extIngredients.forEach(extIngredient => {
         extIngredient.forEach(ingredient => {
             ingredientContainer.insertAdjacentHTML('beforeend', `
            <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
@@ -145,6 +145,20 @@ const getRecipeById = async function (id) {
 
     recipeContainer.innerHTML = "";
 
+    //    INSERT INGREDIENTS  
+
+//     let newIngredients = extIngredients.forEach(ingredient => {
+//         ingredientContainer.insertAdjacentHTML('beforeend', `
+//              <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+//         `)
+//     }
+// )
+
+let newIngredients = extIngredients.forEach(ingredient => {
+    console.log(ingredient.amount);
+}
+)
+
     recipeContainer.insertAdjacentHTML('afterbegin', `
 
     <!-- MAIN CONTENT -->        
@@ -182,13 +196,7 @@ const getRecipeById = async function (id) {
         </div>
         <!-- DIRECTIONS END -->
     `)
-
-//    INSERT INGREDIENTS  
-
-extIngredients.forEach(ingredient => {
-        ingredientContainer.insertAdjacentHTML('beforeend', `
-        <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
-`)})}
+}
 
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
