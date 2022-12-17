@@ -148,7 +148,7 @@ const getRecipeById = async function (id) {
     // IF EMPTYING THE CONTAINER INGRENDIENTS WILL BE REMOVED TOO
     // IF NOT EMPTYING IT, EACH CLICK CREATES A NEW CONTAINER 
 
-    // recipeContainer.innerHTML = "";
+    recipeContainer.innerHTML = "";
 
     recipeContainer.insertAdjacentHTML('afterbegin', `
 
@@ -190,20 +190,29 @@ const getRecipeById = async function (id) {
 
 //    INSERT INGREDIENTS  
 
-    extIngredients.forEach(ingredient => {
-        ingredientContainer.insertAdjacentHTML('beforeend', `
-           <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
-`)
-    })
-}
+// extIngredients.forEach(extIngredient => {
+//     extIngredient.forEach(ingredient => {
+//         console.log()
+//         recipeContainer.insertAdjacentHTML('beforeend', `
+
+//         <div class="container__content__mainContent__ingredients">
+//     <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
+//     <ul class="container__content__mainContent__ingredients__list">
+//         <li class="container__content__mainContent__ingredients__list__item">
+//         <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+//         </li>
+//     </ul>
+// </div>
+// `)})})
        
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
     console.log(recipeId)
     getRecipeById(recipeId);
+
 });
 
-
+}
 // BASIC SEARCH IN SEARCH BAR
 
 // to fix
