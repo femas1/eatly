@@ -145,6 +145,8 @@ const getRecipeById = async function (id) {
 
     console.log(extIngredients)
 
+    recipeContainer.innerHTML = "";
+
     recipeContainer.insertAdjacentHTML('afterbegin', `
 
     <!-- MAIN CONTENT -->        
