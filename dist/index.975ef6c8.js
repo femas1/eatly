@@ -553,9 +553,7 @@ const getRandRecipe = async function() {
     const readyIn = data.recipes[0].readyInMinutes;
     const servings = data.recipes[0].servings;
     const instructions = data.recipes[0].instructions;
-    const extIngredients = [
-        data.recipes[0].extendedIngredients
-    ];
+    const extIngredients = data.recipes[0].extendedIngredients;
     recipeTitle.innerText = title;
     previewPicture.src = image;
     // recipeContainer.innerHTML = ""
@@ -598,14 +596,13 @@ const getRandRecipe = async function() {
     `);
     extIngredients.forEach((extIngredient)=>{
         extIngredient.forEach((ingredient)=>{
-            console.log();
             ingredientContainer.insertAdjacentHTML("beforeend", `
            <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
 `);
         });
     });
 };
-getRandRecipe();
+// getRandRecipe();
 // SCENARIO: User starts the app 
 // 1. Page loads
 // 2. Show all recipes in the sidebar
@@ -629,7 +626,7 @@ const searchRecipes = async function(ingredient) {
         alert(err);
     }
 };
-searchRecipes("egg");
+// searchRecipes("egg")
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
 // searchRecipes();
 // SEARCH RECIPE BY ID
@@ -646,30 +643,70 @@ const getRecipeById = async function(id) {
     const servings = data.servings;
     const instructions = data.instructions;
     const extIngredients = data.extendedIngredients;
-    recipeTitle.innerText = title;
-    recipePicture.src = image;
-    previewPicture.src = image;
-    recipeDirections.innerText = instructions;
-    cookingTime.innerText = readyIn;
-    recipeServings.innerText = servings;
-    extIngredients.forEach((ingredient)=>{
-        ingredientName.insertAdjacentHTML("afterbegin", `<li class="container__content__mainContent__ingredients__list__item">
-             <p><i class="fa-solid fa-check"></i>${ingredient.original}</p>
-        </li>`);
+    ////////////////////////////////////////////////////////////
+    //////////BUG
+    // IF EMPTYING THE CONTAINER INGRENDIENTS WILL BE REMOVED TOO
+    // IF NOT EMPTYING IT, EACH CLICK CREATES A NEW CONTAINER 
+    recipeContainer.innerHTML = "";
+    //    INSERT INGREDIENTS  
+    //     let newIngredients = extIngredients.forEach(ingredient => {
+    //         ingredientContainer.insertAdjacentHTML('beforeend', `
+    //              <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+    //         `)
+    //     }
+    // )
+    let newIngredients = extIngredients.forEach((ingredient)=>{
+        let amount = ingredient.amount;
     });
+    console.log(newIngredients);
+    recipeContainer.insertAdjacentHTML("afterbegin", `
+
+    <!-- MAIN CONTENT -->        
+        <div class="container__content__mainContent__dishPicture">
+            <img id= "recipe-picture" src="${image}" alt="recipe-picture">
+        </div>
+        <!-- DISH INFORMATION  -->
+        <div class="container__content__mainContent__dishInfo">
+            <div class="container__content__mainContent__dishInfo__time">
+                <p>
+                    <i class="fa-regular fa-clock"></i>
+                    <span>${readyIn}</span>minutes
+                </p>
+            </div>
+            <div class="container__content__mainContent__dishInfo__servings">
+                <p>
+                    <i class="fa-solid fa-users"></i> 
+                    <span>${servings}</span>servings</p>
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+            </div>
+            <div class="container__content__mainContent__dishInfo__saveBtn">
+                <i class="fa-regular fa-floppy-disk"></i>
+            </div>
+        </div>
+        <!-- DISH INFORMATION END -->
+        <div class="container__content__mainContent__title">
+            <h1>${title}</h1>
+        </div>
+        
+        <!-- DIRECTIONS -->
+        <div class="container__content__mainContent__directions">
+            <h1 class="container__content__mainContent__directions__heading">Directions</h1>
+            <p class="container__content__mainContent__directions__text">${instructions}</p>
+        </div>
+        <!-- DIRECTIONS END -->
+    `);
 };
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
-    console.log(recipeId);
     getRecipeById(recipeId);
-}); // BASIC SEARCH IN SEARCH BAR
- // to fix
- // remove results as soon as new search is started
- // searchBar.addEventListener('keypress', (e) => {
- //     let searchedIngredient = e.target.value;
- //     console.log(searchedIngredient)
- //     searchBtn.addEventListener('click', () => alert("mr"));
- // })
+});
+// BASIC SEARCH IN SEARCH BAR
+searchBtn.addEventListener("click", ()=>{
+    sidebar.innerHTML = "";
+    let query = searchBar.value;
+    searchRecipes(query);
+});
 
 },{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire27a3")
 

@@ -112,7 +112,7 @@ const searchRecipes = async function (ingredient) {
     }
 }
 
-searchRecipes("egg")
+// searchRecipes("egg")
 
 
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
@@ -155,10 +155,11 @@ const getRecipeById = async function (id) {
 // )
 
 let newIngredients = extIngredients.forEach(ingredient => {
-    console.log(ingredient.amount);
+    let amount = ingredient.amount;
 }
 )
 
+console.log(newIngredients)
     recipeContainer.insertAdjacentHTML('afterbegin', `
 
     <!-- MAIN CONTENT -->        
@@ -205,12 +206,9 @@ sidebar.addEventListener('click', (e) => {
 
 // BASIC SEARCH IN SEARCH BAR
 
-// to fix
-// remove results as soon as new search is started
+searchBtn.addEventListener('click', () => {
+    sidebar.innerHTML = "";
+    let query = searchBar.value;
+    searchRecipes(query);
+});
 
-// searchBar.addEventListener('keypress', (e) => {
-//     let searchedIngredient = e.target.value;
-//     console.log(searchedIngredient)
-
-//     searchBtn.addEventListener('click', () => alert("mr"));
-// })

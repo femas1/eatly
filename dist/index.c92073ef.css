@@ -23,23 +23,21 @@ i {
 }
 
 .btn {
-  color: #586e72;
+  color: #fbf27c;
+  background-color: #586e72;
   border: 3px solid #586e72;
   border-radius: 1rem;
   padding: 1rem 2.5rem;
-  font-weight: 500;
-  box-shadow: 1px 1px 1px 1px #0009;
+  font-weight: 300;
 }
 
 .btn:hover {
   cursor: pointer;
   transform: translate(.05rem, -.05rem);
-  box-shadow: 2px 2px 4px 1px #0009;
 }
 
 .btn:active {
   transform: translate(-.1rem, .1rem);
-  box-shadow: 2px 2px 2px 1px #000c;
 }
 
 button {
