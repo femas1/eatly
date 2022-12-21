@@ -147,17 +147,13 @@ const getRecipeById = async function (id) {
 
     //    INSERT INGREDIENTS  
 
-//     let newIngredients = extIngredients.forEach(ingredient => {
-//         ingredientContainer.insertAdjacentHTML('beforeend', `
-//              <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
-//         `)
-//     }
-// )
-
-let newIngredients = extIngredients.forEach(ingredient => {
-    let amount = ingredient.amount;
-}
+    let newIngredients = extIngredients.forEach(ingredient => {
+        ingredientContainer.insertAdjacentHTML('beforeend', `
+             <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+        `)
+    }
 )
+
 
 console.log(newIngredients)
     recipeContainer.insertAdjacentHTML('afterbegin', `

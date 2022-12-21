@@ -649,14 +649,10 @@ const getRecipeById = async function(id) {
     // IF NOT EMPTYING IT, EACH CLICK CREATES A NEW CONTAINER 
     recipeContainer.innerHTML = "";
     //    INSERT INGREDIENTS  
-    //     let newIngredients = extIngredients.forEach(ingredient => {
-    //         ingredientContainer.insertAdjacentHTML('beforeend', `
-    //              <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
-    //         `)
-    //     }
-    // )
     let newIngredients = extIngredients.forEach((ingredient)=>{
-        let amount = ingredient.amount;
+        ingredientContainer.insertAdjacentHTML("beforeend", `
+             <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+        `);
     });
     console.log(newIngredients);
     recipeContainer.insertAdjacentHTML("afterbegin", `
