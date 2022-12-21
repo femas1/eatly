@@ -31,7 +31,6 @@ const getRandRecipe = async function () {
     // recipeContainer.innerHTML = ""
 
     recipeContainer.insertAdjacentHTML('afterbegin', `
-
     <!-- MAIN CONTENT -->        
         <div class="container__content__mainContent__dishPicture">
             <img id= "recipe-picture" src="${image}" alt="recipe-picture">
@@ -154,10 +153,8 @@ const getRecipeById = async function (id) {
     }
 )
 
-
 console.log(newIngredients)
     recipeContainer.insertAdjacentHTML('afterbegin', `
-
     <!-- MAIN CONTENT -->        
         <div class="container__content__mainContent__dishPicture">
             <img id= "recipe-picture" src="${image}" alt="recipe-picture">
@@ -207,4 +204,3 @@ searchBtn.addEventListener('click', () => {
     let query = searchBar.value;
     searchRecipes(query);
 });
-
