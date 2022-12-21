@@ -646,14 +646,13 @@ const getRecipeById = async function(id) {
     //////////BUG
     // IF EMPTYING THE CONTAINER INGRENDIENTS WILL BE REMOVED TOO
     // IF NOT EMPTYING IT, EACH CLICK CREATES A NEW CONTAINER 
-    recipeContainer.innerHTML = "";
+    // recipeContainer.innerHTML = "";
     //    INSERT INGREDIENTS  
-    let newIngredients = extIngredients.forEach((ingredient)=>{
+    extIngredients.forEach((ingredient)=>{
         ingredientContainer.insertAdjacentHTML("beforeend", `
-             <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
-        `);
+         <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+    `);
     });
-    console.log(newIngredients);
     recipeContainer.insertAdjacentHTML("afterbegin", `
     <!-- MAIN CONTENT -->        
         <div class="container__content__mainContent__dishPicture">
@@ -682,7 +681,7 @@ const getRecipeById = async function(id) {
         <div class="container__content__mainContent__title">
             <h1>${title}</h1>
         </div>
-        
+   
         <!-- DIRECTIONS -->
         <div class="container__content__mainContent__directions">
             <h1 class="container__content__mainContent__directions__heading">Directions</h1>
