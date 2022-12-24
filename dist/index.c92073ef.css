@@ -23,9 +23,9 @@ i {
 }
 
 .btn {
-  color: #fbf27c;
-  background-color: #586e72;
-  border: 3px solid #586e72;
+  color: #586e72;
+  background-color: #51565c;
+  border: 3px solid #51565c;
   border-radius: 1rem;
   padding: 1rem 2.5rem;
   font-weight: 300;
@@ -63,14 +63,14 @@ body {
 }
 
 .container {
-  background-color: #fefcdf;
+  background-color: #8ba1a5;
   flex-direction: column;
   display: flex;
 }
 
 .container__header {
   height: 10rem;
-  background-color: #fbf27c;
+  background-color: #586e72;
   justify-content: space-between;
   align-items: center;
   display: flex;
@@ -124,7 +124,7 @@ body {
 }
 
 .container__content__mainContent__dishInfo {
-  background-color: #fbf27c;
+  background-color: #586e72;
   justify-content: center;
   padding: 2rem;
   display: flex;

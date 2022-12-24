@@ -25,12 +25,12 @@ i {
 }
 
 .btn {
-  background-color: #586E72;
-  color: #fbf27c;
+  background-color: #51565C;
+  color: #586e72;
   font-weight: 300;
   padding: 1rem 2.5rem;
   border-radius: 1rem;
-  border: 3px solid #586E72;
+  border: 3px solid #51565C;
   /* offset-x | offset-y | blur-radius | color */
 }
 
@@ -66,13 +66,13 @@ body {
 }
 
 .container {
-  background-color: #fefcdf;
+  background-color: #8ba1a5;
   display: flex;
   flex-direction: column;
 }
 
 .container__header {
-  background-color: #fbf27c;
+  background-color: #586e72;
   height: 10rem;
   display: flex;
   align-items: center;
@@ -119,7 +119,7 @@ body {
   text-align: center;
 }
 .container__content__mainContent__dishInfo {
-  background-color: #fbf27c;
+  background-color: #586e72;
   display: flex;
   justify-content: center;
   padding: 2rem;
