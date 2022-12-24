@@ -23,6 +23,7 @@
     "dart-sass": "^1.25.0"
   },
   "devDependencies": {
+    "dotenv": "^16.0.3",
     "parcel": "latest"
   }
 }

@@ -1,5 +1,9 @@
 'use strict';
 
+require('dotenv').config();
+
+const apiKey = process.env.API_KEY;
+
 const recipeContainer = document.querySelector('.container__content__mainContent');
 const recipePicture = document.getElementById('recipe-picture');
 const ingredientContainer = document.querySelector('.container__content__mainContent__ingredients__list__item');
@@ -15,7 +19,7 @@ const sidebar = document.querySelector('.container__content__sidebar');
 // API RANDOM RECIPE CALL 
 
 const getRandRecipe = async function () {
-    const res = await fetch('https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848');
+    const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`);
     const data = await res.json();
 
     const title = data.recipes[0].title;
