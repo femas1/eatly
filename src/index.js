@@ -80,7 +80,7 @@ extIngredients.forEach(extIngredient => {
     });
 };
 
-// getRandRecipe();
+getRandRecipe();
 
 // SCENARIO: User starts the app 
 
