@@ -23,7 +23,7 @@ i {
 }
 
 .btn {
-  color: #586e72;
+  color: #41444b;
   background-color: #51565c;
   border: 3px solid #51565c;
   border-radius: 1rem;
@@ -63,14 +63,14 @@ body {
 }
 
 .container {
-  background-color: #8ba1a5;
+  background-color: #707682;
   flex-direction: column;
   display: flex;
 }
 
 .container__header {
   height: 10rem;
-  background-color: #586e72;
+  background-color: #41444b;
   justify-content: space-between;
   align-items: center;
   display: flex;
@@ -124,7 +124,7 @@ body {
 }
 
 .container__content__mainContent__dishInfo {
-  background-color: #586e72;
+  background-color: #41444b;
   justify-content: center;
   padding: 2rem;
   display: flex;
