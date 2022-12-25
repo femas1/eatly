@@ -62,11 +62,10 @@ body {
   display: flex;
   align-items: center;
   padding: 2.5rem;
-  background-color: #003D5B;
 }
 
 .container {
-  background-color: #707682;
+  background-color: #e0e0e0;
   display: flex;
   flex-direction: column;
 }
@@ -93,14 +92,14 @@ body {
   display: flex;
 }
 .container__content__sidebar {
-  background-color: #fff;
+  background-color: #e0e0e0;
   padding-top: 0.5rem;
   flex: 1 0 30%;
   max-width: 44rem;
 }
 .container__content__sidebar__recipe {
   cursor: pointer;
-  background-color: #e1e7e8;
+  background-color: #9da2a9;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -119,7 +118,7 @@ body {
   text-align: center;
 }
 .container__content__mainContent__dishInfo {
-  background-color: #41444b;
+  background-color: #9da2a9;
   display: flex;
   justify-content: center;
   padding: 2rem;
