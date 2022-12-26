@@ -96,7 +96,7 @@ body {
   max-width: 44rem;
   background-color: #e0e0e0;
   flex: 1 0 30%;
-  padding-top: .5rem;
+  padding: .5rem;
 }
 
 .container__content__sidebar__recipe {

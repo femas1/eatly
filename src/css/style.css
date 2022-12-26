@@ -96,6 +96,7 @@ body {
   padding-top: 0.5rem;
   flex: 1 0 30%;
   max-width: 44rem;
+  padding: 0.5rem;
 }
 .container__content__sidebar__recipe {
   cursor: pointer;
