@@ -15,8 +15,26 @@ const recipeServings = document.querySelector('.container__content__mainContent_
 const searchBtn = document.getElementById('submitButton');
 const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
+const addRecipeBtn = document.querySelector('.container__header__buttons__addRecipe');
+
+// SAVE A RECIPE
+
+// 1. User clicks on save 
+// 2. define current recipe (when clicking on recipe in sidebar --> save id somewhere in html)
+// 3. get the id from the html (from point 2)
+// 4. Get the current recipe id (getRecipeId --> calls api)
+// 5. and save it to localStorage
 
 // API RANDOM RECIPE CALL 
+
+const getRecipeId = async function (id) {
+    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
+    const data = await res.json();
+
+    console.log(data.id);
+}
+
+
 
 const getRandRecipe = async function () {
     const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
@@ -71,15 +89,15 @@ const getRandRecipe = async function () {
         <!-- DIRECTIONS END -->
     `)
 
-// ADJUST INGREDIENT FUNCTION HERE 
+// FIX INGREDIENT FUNCTION HERE 
 
-extIngredients.forEach(extIngredient => {
-        extIngredient.forEach(ingredient => {
-            ingredientContainer.insertAdjacentHTML('beforeend', `
-           <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
-`)
-        })
-    });
+// extIngredients.forEach(extIngredient => {
+//         extIngredient.forEach(ingredient => {
+//             ingredientContainer.insertAdjacentHTML('beforeend', `
+//            <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
+// `)
+//         })
+//     });
 };
 
 getRandRecipe();
@@ -213,6 +231,7 @@ const getRecipeById = async function (id) {
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
     getRecipeById(recipeId);
+    getRecipeId(recipeId);
 });
 
 // BASIC SEARCH IN SEARCH BAR
