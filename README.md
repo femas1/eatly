@@ -8,6 +8,10 @@ With this project I want to test my vanilla javascript skills by building a simp
 
 - Created a project plan (flawchart using draw.io)
 
+[WHAT-I-LEARNED]
+
+- .env
+
 [BUILT-WITH]
 
 - Vanilla Javascript
