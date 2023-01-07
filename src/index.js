@@ -25,22 +25,23 @@ const saveRecipeBtn = document.querySelector('.container__header__buttons__addRe
 // 4. Get the current recipe id (getRecipeId --> calls api)
 // 5. and save it to localStorage
 
-// const saveRecipe = function () {}
+// 1. Get ID from clicked recipe and push it to an Array 'tempId', where it is temporary stored
 
-    saveRecipeBtn.addEventListener('click', (e)=> {
-        let recipeId = e.target.id; 
-        console.log(recipeId)
-    })
+let tempId = [];
 
-    let tempId = [];
     
 sidebar.addEventListener('click', (e) => {
         let recipeId = e.target.id;
-        tempId.push(recipeId)
+        tempId.push(recipeId);
         console.log(tempId)
     });
 
-// saveRecipeBtn.addEventListener('click', saveRecipe);
+// 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
+
+// saveRecipeBtn.addEventListener('click', (e)=> {
+//     let recipeId = e.target.id; 
+//     console.log(recipeId)
+// })
 
 // API RANDOM RECIPE CALL 
 
