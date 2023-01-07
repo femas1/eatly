@@ -15,7 +15,7 @@ const recipeServings = document.querySelector('.container__content__mainContent_
 const searchBtn = document.getElementById('submitButton');
 const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
-const addRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
+const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
 
 // SAVE A RECIPE
 
@@ -25,14 +25,15 @@ const addRecipeBtn = document.querySelector('.container__header__buttons__addRec
 // 4. Get the current recipe id (getRecipeId --> calls api)
 // 5. and save it to localStorage
 
-// const saveRecipe = function (id) {
-//     addRecipeBtn.addEventListener('click', (e)=> {
-//         let recipeId = e.target.id; 
-//         console.log(recipeId)
-//     })
-// }
+// const saveRecipe = function () {}
 
-// addRecipeBtn.addEventListener('click', saveRecipe);
+    saveRecipeBtn.addEventListener('click', (e)=> {
+        let recipeId = e.target.id; 
+        console.log(recipeId)
+    })
+
+
+// saveRecipeBtn.addEventListener('click', saveRecipe);
 
 // API RANDOM RECIPE CALL 
 
