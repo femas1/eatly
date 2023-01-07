@@ -558,12 +558,18 @@ saveRecipeBtn.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     console.log(recipeId);
 });
+let tempId = [];
+sidebar.addEventListener("click", (e)=>{
+    let recipeId = e.target.id;
+    tempId.push(recipeId);
+    console.log(tempId);
+});
 // saveRecipeBtn.addEventListener('click', saveRecipe);
 // API RANDOM RECIPE CALL 
 const getRecipeId = async function(id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
-    console.log(data.id);
+// console.log(data.id);
 };
 const getRandRecipe = async function() {
     const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848`);

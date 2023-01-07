@@ -32,6 +32,13 @@ const saveRecipeBtn = document.querySelector('.container__header__buttons__addRe
         console.log(recipeId)
     })
 
+    let tempId = [];
+    
+sidebar.addEventListener('click', (e) => {
+        let recipeId = e.target.id;
+        tempId.push(recipeId)
+        console.log(tempId)
+    });
 
 // saveRecipeBtn.addEventListener('click', saveRecipe);
 
@@ -41,7 +48,7 @@ const getRecipeId = async function (id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
 
-    console.log(data.id);
+    // console.log(data.id);
 }
 
 
