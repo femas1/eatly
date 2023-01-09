@@ -18,8 +18,6 @@ const sidebar = document.querySelector('.container__content__sidebar');
 const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
 const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
 
-savedRecipesBtn.addEventListener('click', () => alert("kitemm"))
-
 // SAVE A RECIPE
 
 // 1. User clicks on save 
@@ -32,11 +30,9 @@ savedRecipesBtn.addEventListener('click', () => alert("kitemm"))
 
 let tempId = [];
 
-    
 sidebar.addEventListener('click', (e) => {
         let recipeId = e.target.id;
         tempId.push(recipeId);
-
     });
 
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
@@ -47,10 +43,13 @@ saveRecipeBtn.addEventListener('click', (e)=> {
     let lastClickedRecipe = tempId.slice(-1);
     savedRecipes.push(lastClickedRecipe);
     // STORE RECIPES IN LOCAL STORAGE 
-    localStorage.setItem('savedRecipe', savedRecipes);
-    console.log(`Your recipes: ${savedRecipes}`);
+    localStorage.setItem('savedRecipes', savedRecipes);
+    // console.log(`Your recipes: ${savedRecipes}`);
 })
 
+savedRecipesBtn.addEventListener('click', ()=> {
+    console.log(localStorage.getItem('savedRecipes'));
+})
 
 
 // API RANDOM RECIPE CALL 
@@ -58,8 +57,6 @@ saveRecipeBtn.addEventListener('click', (e)=> {
 const getRecipeId = async function (id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
-
-    // console.log(data.id);
 }
 
 

@@ -548,7 +548,6 @@ const searchBar = document.getElementById("searchRecipe");
 const sidebar = document.querySelector(".container__content__sidebar");
 const saveRecipeBtn = document.querySelector(".container__header__buttons__addRecipe.btn");
 const savedRecipesBtn = document.querySelector(".container__header__buttons__savedRecipes.btn");
-savedRecipesBtn.addEventListener("click", ()=>alert("kitemm"));
 // SAVE A RECIPE
 // 1. User clicks on save 
 // 2. define current recipe (when clicking on recipe in sidebar --> save id somewhere in html)
@@ -567,14 +566,16 @@ saveRecipeBtn.addEventListener("click", (e)=>{
     let lastClickedRecipe = tempId.slice(-1);
     savedRecipes.push(lastClickedRecipe);
     // STORE RECIPES IN LOCAL STORAGE 
-    localStorage.setItem("savedRecipe", savedRecipes);
-    console.log(`Your recipes: ${savedRecipes}`);
+    localStorage.setItem("savedRecipes", savedRecipes);
+// console.log(`Your recipes: ${savedRecipes}`);
+});
+savedRecipesBtn.addEventListener("click", ()=>{
+    console.log(localStorage.getItem("savedRecipes"));
 });
 // API RANDOM RECIPE CALL 
 const getRecipeId = async function(id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
-// console.log(data.id);
 };
 const getRandRecipe = async function() {
     const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
