@@ -43,6 +43,8 @@ let savedRecipes = [];
 saveRecipeBtn.addEventListener('click', (e)=> {
     let lastClickedRecipe = tempId.slice(-1);
     savedRecipes.push(lastClickedRecipe);
+    // STORE RECIPES IN LOCAL STORAGE 
+    localStorage.setItem('savedRecipe', savedRecipes);
     console.log(`Your recipes: ${savedRecipes}`);
 })
 
