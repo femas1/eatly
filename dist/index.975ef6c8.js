@@ -547,6 +547,8 @@ const searchBtn = document.getElementById("submitButton");
 const searchBar = document.getElementById("searchRecipe");
 const sidebar = document.querySelector(".container__content__sidebar");
 const saveRecipeBtn = document.querySelector(".container__header__buttons__addRecipe.btn");
+const savedRecipesBtn = document.querySelector(".container__header__buttons__savedRecipes.btn");
+savedRecipesBtn.addEventListener("click", ()=>alert("kitemm"));
 // SAVE A RECIPE
 // 1. User clicks on save 
 // 2. define current recipe (when clicking on recipe in sidebar --> save id somewhere in html)

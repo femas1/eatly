@@ -16,6 +16,9 @@ const searchBtn = document.getElementById('submitButton');
 const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
 const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
+const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
+
+savedRecipesBtn.addEventListener('click', () => alert("kitemm"))
 
 // SAVE A RECIPE
 
