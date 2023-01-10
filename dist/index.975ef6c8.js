@@ -574,13 +574,19 @@ saveRecipeBtn.addEventListener("click", (e)=>{
 // 2. Get recipe ids from local storage (getItem('keyName')) -> save recipe title too, push it into sidebar, when user click call api based on stored id, display using getrecipebyid function
 // 3. 
 savedRecipesBtn.addEventListener("click", ()=>{
-    console.log(localStorage.getItem("savedRecipes"));
-    // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
-    sidebar.insertAdjacentHTML("beforeend", `
-            <div class="container__content__sidebar__recipe" id="${recipe.id}">
-                <img id="preview-picture" src="${recipe.image}" alt="burrito">
-                    <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
-            </div>`);
+    let localStorageRecipes = [
+        localStorage.getItem("savedRecipes")
+    ];
+    console.log(localStorageRecipes);
+    sidebar.innerHTML = "";
+    localStorageRecipes.forEach((recipe)=>{
+        sidebar.insertAdjacentHTML("beforeend", `
+                <div class="container__content__sidebar__recipe" id="${recipe}">
+                    <img id="preview-picture" src="#" alt="burrito">
+                        <h3 class="container__content__sidebar__recipe__title">${recipe}</h3>
+                </div>`);
+    });
+// PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 });
 // API RANDOM RECIPE CALL 
 const getRecipeId = async function(id) {
@@ -657,11 +663,11 @@ const searchRecipes = async function(ingredient) {
         const res = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=${ingredient}`);
         const data = await res.json();
         if (!res.ok) throw new Error(`${data.message}`);
-        data.forEach((recipe1)=>{
+        data.forEach((recipe)=>{
             sidebar.insertAdjacentHTML("beforeend", `
-            <div class="container__content__sidebar__recipe" id="${recipe1.id}">
-                <img id="preview-picture" src="${recipe1.image}" alt="burrito">
-                    <h3 class="container__content__sidebar__recipe__title">${recipe1.title}</h3>
+            <div class="container__content__sidebar__recipe" id="${recipe.id}">
+                <img id="preview-picture" src="${recipe.image}" alt="burrito">
+                    <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
             </div>`);
         });
     } catch (err) {
