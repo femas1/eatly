@@ -55,6 +55,15 @@ saveRecipeBtn.addEventListener('click', (e)=> {
 
 savedRecipesBtn.addEventListener('click', ()=> {
     console.log(localStorage.getItem('savedRecipes'));
+
+// PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
+
+    sidebar.insertAdjacentHTML('beforeend', `
+            <div class="container__content__sidebar__recipe" id="${recipe.id}">
+                <img id="preview-picture" src="${recipe.image}" alt="burrito">
+                    <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
+            </div>`
+        )
 })
 
 
