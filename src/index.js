@@ -47,6 +47,12 @@ saveRecipeBtn.addEventListener('click', (e)=> {
     // console.log(`Your recipes: ${savedRecipes}`);
 })
 
+// GETTING MY RECIPES (STORED RECIPES)
+
+// 1. User clicks on btn "my recipes"
+// 2. Get recipe ids from local storage (getItem('keyName')) -> save recipe title too, push it into sidebar, when user click call api based on stored id, display using getrecipebyid function
+// 3. 
+
 savedRecipesBtn.addEventListener('click', ()=> {
     console.log(localStorage.getItem('savedRecipes'));
 })
@@ -125,7 +131,7 @@ const getRandRecipe = async function () {
 //     });
 };
 
-getRandRecipe();
+// getRandRecipe();
 
 // SCENARIO: User starts the app 
 
