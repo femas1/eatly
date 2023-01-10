@@ -679,10 +679,6 @@ const getRecipeById = async function(id) {
     const servings = data.servings;
     const instructions = data.instructions;
     const extIngredients = data.extendedIngredients;
-    ////////////////////////////////////////////////////////////
-    //////////BUG
-    // IF EMPTYING THE CONTAINER INGRENDIENTS WILL BE REMOVED TOO
-    // IF NOT EMPTYING IT, EACH CLICK CREATES A NEW CONTAINER 
     recipeContainer.innerHTML = "";
     //    INSERT INGREDIENTS  
     let ingredientList = [];
