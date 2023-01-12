@@ -547,6 +547,7 @@ const searchBtn = document.getElementById("submitButton");
 const searchBar = document.getElementById("searchRecipe");
 const sidebar = document.querySelector(".container__content__sidebar");
 const saveRecipeBtn = document.querySelector(".container__header__buttons__addRecipe.btn");
+const saveRecipeBtnInRecipe = document.querySelector(".fa-floppy-disk");
 const savedRecipesBtn = document.querySelector(".container__header__buttons__savedRecipes.btn");
 // SAVE A RECIPE
 // 1. User clicks on save 

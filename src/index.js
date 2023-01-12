@@ -16,7 +16,9 @@ const searchBtn = document.getElementById('submitButton');
 const searchBar = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
 const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
+const saveRecipeBtnInRecipe = document.querySelector('.fa-floppy-disk');
 const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
+
 
 // SAVE A RECIPE
 
@@ -53,7 +55,7 @@ saveRecipeBtn.addEventListener('click', (e)=> {
 // 2. Get recipe ids from local storage (getItem('keyName')) -> save recipe title too, push it into sidebar, when user click call api based on stored id, display using getrecipebyid function
 // 3. 
 
-savedRecipesBtn.addEventListener('click', ()=> {
+savedRecipesBtn.addEventListener('click', () => {
     let localStorageRecipes = [localStorage.getItem('savedRecipes')];
     console.log(localStorageRecipes);
 sidebar.innerHTML = "";
@@ -65,6 +67,7 @@ sidebar.innerHTML = "";
                 </div>`
             )
     })
+
 
 // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 
