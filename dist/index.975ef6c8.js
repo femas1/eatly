@@ -573,13 +573,13 @@ saveRecipeBtn.addEventListener("click", (e)=>{
 // GETTING MY RECIPES (STORED RECIPES)
 // 1. User clicks on btn "my recipes"
 // 2. Get recipe ids from local storage (getItem('keyName')) -> save recipe title too, push it into sidebar, when user click call api based on stored id, display using getrecipebyid function
-// 3. 
+// 3.
+// PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 savedRecipesBtn.addEventListener("click", ()=>{
-    let localStorageRecipes = [
-        localStorage.getItem("savedRecipes")
-    ];
-    console.log(localStorageRecipes);
+    // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
+    let localStorageRecipes = JSON.parse("[" + localStorage.getItem("savedRecipes") + "]");
     sidebar.innerHTML = "";
+    // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
     localStorageRecipes.forEach((recipe)=>{
         sidebar.insertAdjacentHTML("beforeend", `
                 <div class="container__content__sidebar__recipe" id="${recipe}">
@@ -587,7 +587,6 @@ savedRecipesBtn.addEventListener("click", ()=>{
                         <h3 class="container__content__sidebar__recipe__title">${recipe}</h3>
                 </div>`);
     });
-// PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 });
 // API RANDOM RECIPE CALL 
 const getRecipeId = async function(id) {
