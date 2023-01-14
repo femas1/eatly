@@ -39,7 +39,7 @@ sidebar.addEventListener('click', (e) => {
             id: recipeId,
             title: recipeTitle 
         })
-        console.log(tempId)
+        // console.log(tempId)
     });
 
 
@@ -54,7 +54,7 @@ saveRecipeBtn.addEventListener('click', (e)=> {
     // STORE RECIPES IN LOCAL STORAGE 
     let savedRecipesSerialized = JSON.stringify(savedRecipes);
     localStorage.setItem('savedRecipes', savedRecipesSerialized);
-    console.log(`Your recipes: ${savedRecipes}`);
+    console.log(`Your recipes: ${savedRecipesSerialized}`);
 })
 
 // GETTING MY RECIPES (STORED RECIPES)
@@ -67,23 +67,18 @@ saveRecipeBtn.addEventListener('click', (e)=> {
 
 savedRecipesBtn.addEventListener('click', () => {
          // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
-    let localStorageRecipes = JSON.parse("[" + localStorage.getItem('savedRecipes') + "]");
-    
+    let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem('savedRecipes'));
+    console.log(localStorageRecipesDeserialized);
     sidebar.innerHTML = "";
         // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
-    localStorageRecipes.forEach(recipe => {
-        sidebar.insertAdjacentHTML('beforeend', `
-                <div class="container__content__sidebar__recipe" id="${recipe}">
-                    <img id="preview-picture" src="#" alt="burrito">
-                        <h3 class="container__content__sidebar__recipe__title">${recipe}</h3>
-                </div>`
-            )
-        
-    })
-
-
-
-
+    // localStorageRecipes.forEach(recipe => {
+    //     sidebar.insertAdjacentHTML('beforeend', `
+    //             <div class="container__content__sidebar__recipe" id="${recipe}">
+    //                 <img id="preview-picture" src="#" alt="burrito">
+    //                     <h3 class="container__content__sidebar__recipe__title">${recipe}</h3>
+    //             </div>`
+    //         )
+    // })
 })
 
 

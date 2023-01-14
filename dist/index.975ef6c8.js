@@ -564,7 +564,7 @@ sidebar.addEventListener("click", (e)=>{
         id: recipeId,
         title: recipeTitle
     });
-    console.log(tempId);
+// console.log(tempId)
 });
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
 let savedRecipes = [];
@@ -574,7 +574,7 @@ saveRecipeBtn.addEventListener("click", (e)=>{
     // STORE RECIPES IN LOCAL STORAGE 
     let savedRecipesSerialized = JSON.stringify(savedRecipes);
     localStorage.setItem("savedRecipes", savedRecipesSerialized);
-    console.log(`Your recipes: ${savedRecipes}`);
+    console.log(`Your recipes: ${savedRecipesSerialized}`);
 });
 // GETTING MY RECIPES (STORED RECIPES)
 // 1. User clicks on btn "my recipes"
@@ -583,16 +583,18 @@ saveRecipeBtn.addEventListener("click", (e)=>{
 // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 savedRecipesBtn.addEventListener("click", ()=>{
     // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
-    let localStorageRecipes = JSON.parse("[" + localStorage.getItem("savedRecipes") + "]");
+    let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem("savedRecipes"));
+    console.log(localStorageRecipesDeserialized);
     sidebar.innerHTML = "";
-    // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
-    localStorageRecipes.forEach((recipe)=>{
-        sidebar.insertAdjacentHTML("beforeend", `
-                <div class="container__content__sidebar__recipe" id="${recipe}">
-                    <img id="preview-picture" src="#" alt="burrito">
-                        <h3 class="container__content__sidebar__recipe__title">${recipe}</h3>
-                </div>`);
-    });
+// LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
+// localStorageRecipes.forEach(recipe => {
+//     sidebar.insertAdjacentHTML('beforeend', `
+//             <div class="container__content__sidebar__recipe" id="${recipe}">
+//                 <img id="preview-picture" src="#" alt="burrito">
+//                     <h3 class="container__content__sidebar__recipe__title">${recipe}</h3>
+//             </div>`
+//         )
+// })
 });
 // API RANDOM RECIPE CALL 
 const getRecipeId = async function(id) {
