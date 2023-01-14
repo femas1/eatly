@@ -559,7 +559,13 @@ const savedRecipesBtn = document.querySelector(".container__header__buttons__sav
 let tempId = [];
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
-    tempId.push(recipeId);
+    let recipeTitle = e.target.innerText;
+    // tempId.push(recipeId);
+    tempId.push({
+        id: recipeId,
+        title: recipeTitle
+    });
+    console.log(tempId);
 });
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
 let savedRecipes = [];
