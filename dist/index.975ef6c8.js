@@ -560,7 +560,6 @@ let tempId = [];
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     let recipeTitle = e.target.innerText;
-    // tempId.push(recipeId);
     tempId.push({
         id: recipeId,
         title: recipeTitle
@@ -573,8 +572,9 @@ saveRecipeBtn.addEventListener("click", (e)=>{
     let lastClickedRecipe = tempId.slice(-1);
     savedRecipes.push(lastClickedRecipe);
     // STORE RECIPES IN LOCAL STORAGE 
-    localStorage.setItem("savedRecipes", savedRecipes);
-// console.log(`Your recipes: ${savedRecipes}`);
+    let savedRecipesSerialized = JSON.stringify(savedRecipes);
+    localStorage.setItem("savedRecipes", savedRecipesSerialized);
+    console.log(`Your recipes: ${savedRecipes}`);
 });
 // GETTING MY RECIPES (STORED RECIPES)
 // 1. User clicks on btn "my recipes"
