@@ -71,14 +71,18 @@ savedRecipesBtn.addEventListener('click', () => {
     console.log(localStorageRecipesDeserialized);
     sidebar.innerHTML = "";
         // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
-    // localStorageRecipes.forEach(recipe => {
-    //     sidebar.insertAdjacentHTML('beforeend', `
-    //             <div class="container__content__sidebar__recipe" id="${recipe}">
-    //                 <img id="preview-picture" src="#" alt="burrito">
-    //                     <h3 class="container__content__sidebar__recipe__title">${recipe}</h3>
-    //             </div>`
-    //         )
-    // })
+    localStorageRecipesDeserialized.forEach(recipeArray => {
+           sidebar.insertAdjacentHTML('beforeend', `
+                <div class="container__content__sidebar__recipe" id="${recipeArray[0].id}">
+                    <img id="preview-picture" src="#" alt="recipe-picture">
+                        <h3 class="container__content__sidebar__recipe__title">${recipeArray[0].title}</h3>
+                </div>`
+            )
+    })
+
+
+    
+
 })
 
 
