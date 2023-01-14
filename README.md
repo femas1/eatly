@@ -25,3 +25,4 @@ With this project I want to test my vanilla javascript skills by building a simp
 
 - When clicking a recipe tab in the sidebar, it won't load the recipe correctly if you click on the picture or on the recipe name (it only works when clicking in a random spot in the tab)
 - When pushing recipes from localStorage into the sidebar only the recipe id is shown
+- If one recipe fails to save (e.g. missing id), the "my recipe" btn will fail to load the stored recipes from localStorage
