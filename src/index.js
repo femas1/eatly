@@ -50,11 +50,15 @@ let savedRecipes = [];
 
 saveRecipeBtn.addEventListener('click', (e)=> {
     let lastClickedRecipe = tempId.slice(-1);
+    if(savedRecipes.some(recipe => recipe[0].id === lastClickedRecipe[0].id)){
+      console.log("Recipe already saved.")
+    } else {
     savedRecipes.push(lastClickedRecipe);
     // STORE RECIPES IN LOCAL STORAGE 
     let savedRecipesSerialized = JSON.stringify(savedRecipes);
     localStorage.setItem('savedRecipes', savedRecipesSerialized);
     console.log(`Your recipes: ${savedRecipesSerialized}`);
+    }
 })
 
 // GETTING MY RECIPES (STORED RECIPES)
