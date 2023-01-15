@@ -580,7 +580,23 @@ saveRecipeBtn.addEventListener("click", (e)=>{
     if (savedRecipes.some((recipe)=>recipe[0].id === lastClickedRecipe[0].id)) alert("Recipe already saved.");
     else {
         savedRecipes.push(lastClickedRecipe);
-        alert("Recipe successfully saved.");
+        // alert("Recipe successfully saved.")
+        // SHOW TOAST NOTIFICATION 
+        (0, _toastifyJsDefault.default)({
+            text: "Recipe successfully saved.",
+            duration: 5000,
+            destination: "https://github.com/apvarun/toastify-js",
+            newWindow: true,
+            close: true,
+            gravity: "top",
+            position: "right",
+            stopOnFocus: true,
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)"
+            },
+            onClick: function() {} // Callback after click
+        }).showToast();
+        // TOAST NOTIFICATION END
         // saveRecipeBtn.firstElementChild.classList = "fa-regular fa-circle-check"
         // STORE RECIPES IN LOCAL STORAGE 
         let savedRecipesSerialized = JSON.stringify(savedRecipes);
