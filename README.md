@@ -11,7 +11,9 @@ With this project I want to test my vanilla javascript skills by building a simp
 [WHAT-I-LEARNED]
 
 - .env
-- How to store data in localStoragd
+- Storing data in localStorage
+- Storing data as objects in localStorage using JSON.stringify() and JSON.parse()
+- Preventing saving double elements in an array using .some()
 
 [BUILT-WITH]
 
