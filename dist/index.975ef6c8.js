@@ -560,11 +560,13 @@ let tempId = [];
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     let recipeTitle = e.target.innerText;
+    let recipeImage = e.target.firstElementChild.src;
     tempId.push({
         id: recipeId,
-        title: recipeTitle
+        title: recipeTitle,
+        image: recipeImage
     });
-// console.log(tempId)
+    console.log(tempId);
 });
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
 let savedRecipes = [];
@@ -593,7 +595,7 @@ savedRecipesBtn.addEventListener("click", ()=>{
     localStorageRecipesDeserialized.forEach((recipeArray)=>{
         sidebar.insertAdjacentHTML("beforeend", `
                 <div class="container__content__sidebar__recipe" id="${recipeArray[0].id}">
-                    <img id="preview-picture" src="#" alt="recipe-picture">
+                    <img id="preview-picture" src="${recipeArray[0].image}" alt="${recipeArray[0].title}">
                         <h3 class="container__content__sidebar__recipe__title">${recipeArray[0].title}</h3>
                 </div>`);
     });
