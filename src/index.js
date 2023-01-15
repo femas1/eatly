@@ -1,5 +1,8 @@
 'use strict';
 
+import Toastify from 'toastify-js';
+import "toastify-js/src/toastify.css";
+
 // require('dotenv').config();
 
 // const apiKey = process.env.API_KEY;
@@ -19,7 +22,7 @@ const saveRecipeBtn = document.querySelector('.container__header__buttons__addRe
 const saveRecipeBtnInRecipe = document.querySelector('.fa-floppy-disk');
 const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
 
-
+console.log(saveRecipeBtn.firstElementChild.classList)
 // SAVE A RECIPE
 
 // 1. User clicks on save 
@@ -41,7 +44,7 @@ sidebar.addEventListener('click', (e) => {
             title: recipeTitle,
             image: recipeImage
         })
-        console.log(tempId);
+        // console.log(tempId);
     });
 
 
@@ -53,9 +56,11 @@ let savedRecipes = [];
 saveRecipeBtn.addEventListener('click', (e)=> {
     let lastClickedRecipe = tempId.slice(-1);
     if(savedRecipes.some(recipe => recipe[0].id === lastClickedRecipe[0].id)){
-      console.log("Recipe already saved.")
+      alert("Recipe already saved.")
     } else {
     savedRecipes.push(lastClickedRecipe);
+    alert("Recipe successfully saved.")
+    // saveRecipeBtn.firstElementChild.classList = "fa-regular fa-circle-check"
     // STORE RECIPES IN LOCAL STORAGE 
     let savedRecipesSerialized = JSON.stringify(savedRecipes);
     localStorage.setItem('savedRecipes', savedRecipesSerialized);
