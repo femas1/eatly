@@ -16,7 +16,7 @@ const recipeDirections = document.querySelector('.container__content__mainConten
 const cookingTime = document.querySelector('.container__content__mainContent__dishInfo__time span');
 const recipeServings = document.querySelector('.container__content__mainContent__dishInfo__servings span');
 const searchBtn = document.getElementById('submitButton');
-const searchBar = document.getElementById('searchRecipe');
+const searchBarInput = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
 const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
 const saveRecipeBtnInRecipe = document.querySelector('.fa-floppy-disk');
@@ -294,9 +294,16 @@ sidebar.addEventListener('click', (e) => {
 });
 
 // BASIC SEARCH IN SEARCH BAR
+searchBarInput.addEventListener('keypress', (e) => {
+    if(e.key === "Enter") {
+        sidebar.innerHTML = "";
+        let query = searchBarInput.value;
+        searchRecipes(query);
+    }
+})
 
 searchBtn.addEventListener('click', () => {
     sidebar.innerHTML = "";
-    let query = searchBar.value;
+    let query = searchBarInput.value;
     searchRecipes(query);
 });
