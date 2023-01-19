@@ -778,6 +778,8 @@ sidebar.addEventListener("click", (e)=>{
     console.log(e.target);
 });
 // BASIC SEARCH IN SEARCH BAR
+// 1. ADD error handling (eg. if the input is empty -> alert or notify user, a recipe at least three words should be entered)
+// 2. DRY: include repeated code inside of a function!
 searchBarInput.addEventListener("keypress", (e)=>{
     if (e.key === "Enter") {
         sidebar.innerHTML = "";
