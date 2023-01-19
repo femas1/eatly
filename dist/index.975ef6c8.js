@@ -702,7 +702,7 @@ const searchRecipes = async function(ingredient) {
             sidebar.insertAdjacentHTML("beforeend", `
             <div class="container__content__sidebar__recipe" id="${recipe.id}">
                 <img id="preview-picture" src="${recipe.image}" alt="burrito">
-                    <h3 class="container__content__sidebar__recipe__title">${recipe.title}</h3>
+                    <h3 class="container__content__sidebar__recipe__title" id="${recipe.id}">${recipe.title}</h3>
             </div>`);
         });
     } catch (err) {
@@ -782,10 +782,12 @@ const getRecipeById = async function(id) {
         <!-- DIRECTIONS END -->
     `);
 };
+// ISSUE WHEN CLICKING IN TEXT THE RECIPE CANT BE RETRIEVED --> INCLUDE Recipe ID IN the H3
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     getRecipeById(recipeId);
     getRecipeId(recipeId);
+    console.log(e.target);
 });
 // BASIC SEARCH IN SEARCH BAR
 searchBtn.addEventListener("click", ()=>{

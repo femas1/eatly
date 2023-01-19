@@ -1,1 +1,79 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Eatly</title><link rel="icon shortcut" href="/favicon.32272d0e.png" type="image/x-icon"><link rel="stylesheet" href="/index.8ef5a928.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet"><script src="https://kit.fontawesome.com/23de877cd7.js" crossorigin></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"><script type="module" src="/index.1e89116f.js" defer></script><script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script></head><body>  <main class="container">  <header class="container__header"> <div class="container__header__logo"> <img src="/twitter_header_photo_1.439db118.png" alt="eatly-logo" class="container__header__logo"> </div> <div class="container__header__searchBar"> <input type="search" name="searchRecipe" id="searchRecipe" placeholder="Search your next favourite dish"> <button id="submitButton" type="submit"> <p class="btn container__header__searchBar__btn"><i class="fa-magnifying-glass fa-solid"></i>Search</p> </button> </div> <div class="container__header__buttons"> <div class="btn container__header__buttons__addRecipe"> <i class="fa-plus fa-solid"></i> Save recipe </div> <div class="btn container__header__buttons__savedRecipes"> <i class="fa-floppy-disk fa-regular"></i> My recipes </div> </div> </header>   <div class="container__content">  <div class="container__content__sidebar"> <div class="container__content__sidebar__recipe"> <img id="preview-picture" src="/burrito.a3db182e.jpg" alt="burrito"> <h3 class="container__content__sidebar__recipe__title">Burrito Pie</h3> </div> </div>  <div class="container__content__mainContent">     </div> </div> </main> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatly</title>
+    <link rel="shortcut icon" href="/favicon.c31dbf57.png" type="image/x-icon">
+    <!-- OWN STYLING -->
+    <link rel="stylesheet" href="/index.c92073ef.css">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet"> 
+    <!-- FONT AWESOME ICONS -->
+    <script src="https://kit.fontawesome.com/23de877cd7.js" crossorigin="anonymous"></script>
+    <!-- TOASTIFY CSS  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- JAVASCRIPT -->
+    <script src="/index.975ef6c8.js" defer=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer=""></script>
+</head>
+<body>
+    <!-- MAIN CONTAINER  -->
+    <main class="container">
+        <!-- HEADER -->
+        <header class="container__header">
+            <div class="container__header__logo">
+                <img src="/twitter_header_photo_1.81019a82.png" alt="eatly-logo" class="container__header__logo">
+            </div>
+            <div class="container__header__searchBar">
+                <input type="search" name="searchRecipe" id="searchRecipe" placeholder="Search your next favourite dish">
+                <button id="submitButton" type="submit">
+                    <p class="container__header__searchBar__btn btn"><i class="fa-solid fa-magnifying-glass"></i>Search</p>
+                </button>
+            </div>
+            <div class="container__header__buttons">
+                <div class="container__header__buttons__addRecipe btn">
+                    <i class="fa-solid fa-plus"></i>
+                    Save recipe
+                </div>
+                <div class="container__header__buttons__savedRecipes btn">
+                    <i class="fa-regular fa-floppy-disk"></i>
+                    My recipes
+                </div>
+            </div>
+        </header>
+        <!-- HEADER END -->
+
+        <!-- MAIN CONTENT -->
+        <div class="container__content">
+            <!-- SIDEBAR -->
+            <div class="container__content__sidebar">
+                <div class="container__content__sidebar__recipe">
+                    <img id="preview-picture" src="/burrito.b180c0ee.jpg" alt="burrito">
+                    <button class="container__content__sidebar__recipe__title" id="recipe-title">Burrito Pie</button>
+                </div>
+            </div>
+            
+
+            
+            <!-- MAIN CONTENT -->
+            <div class="container__content__mainContent">
+                <!-- INSERT RECIPE FROM API HERE -->
+                <!-- INGREDIENTS -->
+    <!-- <div class="container__content__mainContent__ingredients">
+        <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
+        <ul class="container__content__mainContent__ingredients__list">
+            <li class="container__content__mainContent__ingredients__list__item">
+               
+            </li>
+        </ul>
+    </div> -->
+        <!-- INGREDIENTS END -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>
