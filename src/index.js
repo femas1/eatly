@@ -47,8 +47,6 @@ sidebar.addEventListener('click', (e) => {
         // console.log(tempId);
     });
 
-
-
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
 
 let savedRecipes = [];
@@ -89,7 +87,6 @@ saveRecipeBtn.addEventListener('click', (e)=> {
 
 // 1. User clicks on btn "my recipes"
 // 2. Get recipe ids from local storage (getItem('keyName')) -> save recipe title too, push it into sidebar, when user click call api based on stored id, display using getrecipebyid function
-// 3.
 
 // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 
@@ -107,10 +104,6 @@ savedRecipesBtn.addEventListener('click', () => {
                 </div>`
             )
     })
-
-
-    
-
 })
 
 
@@ -175,18 +168,7 @@ const getRandRecipe = async function () {
         </div>
         <!-- DIRECTIONS END -->
     `)
-
-// FIX INGREDIENT FUNCTION HERE 
-
-// extIngredients.forEach(extIngredient => {
-//         extIngredient.forEach(ingredient => {
-//             ingredientContainer.insertAdjacentHTML('beforeend', `
-//            <p>${ingredient.amount} ${ingredient.unit} ${ingredient.originalName}</p>
-// `)
-//         })
-//     });
-};
-
+}
 // getRandRecipe();
 
 // SCENARIO: User starts the app 
@@ -222,12 +204,7 @@ const searchRecipes = async function (ingredient) {
     }
 }
 
-// searchRecipes("egg")
-
-
 // window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
-
-// searchRecipes();
 
 // SEARCH RECIPE BY ID
 
@@ -309,8 +286,6 @@ const getRecipeById = async function (id) {
     `)
 }
 
-// ISSUE WHEN CLICKING IN TEXT THE RECIPE CANT BE RETRIEVED --> INCLUDE Recipe ID IN the H3
- 
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
     getRecipeById(recipeId);
