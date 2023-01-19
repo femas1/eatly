@@ -564,13 +564,15 @@ let tempId = [];
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     let recipeTitle = e.target.innerText;
-    let recipeImage = e.target.firstElementChild.src;
+    let recipeImage;
+    if (e.target.tagName === "DIV") recipeImage = e.target.firstElementChild.src;
+    else if (e.target.tagName === "H3") recipeImage = e.target.previousElementSibling.src;
     tempId.push({
         id: recipeId,
         title: recipeTitle,
         image: recipeImage
     });
-// console.log(tempId);
+// console.log(e.target);
 });
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
 let savedRecipes = [];
@@ -774,7 +776,6 @@ sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     getRecipeById(recipeId);
     getRecipeId(recipeId);
-    console.log(e.target);
 });
 // BASIC SEARCH IN SEARCH BAR
 // 1. ADD error handling (eg. if the input is empty -> alert or notify user, a recipe at least three words should be entered)
