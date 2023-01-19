@@ -50,7 +50,6 @@ sidebar.addEventListener('click', (e) => {
             title: recipeTitle,
             image: recipeImage
         })
-        // console.log(e.target);
     });
 
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
