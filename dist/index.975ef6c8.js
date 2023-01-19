@@ -553,7 +553,6 @@ const sidebar = document.querySelector(".container__content__sidebar");
 const saveRecipeBtn = document.querySelector(".container__header__buttons__addRecipe.btn");
 const saveRecipeBtnInRecipe = document.querySelector(".fa-floppy-disk");
 const savedRecipesBtn = document.querySelector(".container__header__buttons__savedRecipes.btn");
-console.log(saveRecipeBtn.firstElementChild.classList);
 // SAVE A RECIPE
 // 1. User clicks on save 
 // 2. define current recipe (when clicking on recipe in sidebar --> save id somewhere in html)

@@ -22,7 +22,6 @@ const saveRecipeBtn = document.querySelector('.container__header__buttons__addRe
 const saveRecipeBtnInRecipe = document.querySelector('.fa-floppy-disk');
 const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
 
-console.log(saveRecipeBtn.firstElementChild.classList)
 // SAVE A RECIPE
 
 // 1. User clicks on save 
