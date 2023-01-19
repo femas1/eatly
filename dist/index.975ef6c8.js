@@ -585,7 +585,6 @@ saveRecipeBtn.addEventListener("click", (e)=>{
         (0, _toastifyJsDefault.default)({
             text: "Recipe successfully saved.",
             duration: 5000,
-            destination: "https://github.com/apvarun/toastify-js",
             newWindow: true,
             close: true,
             gravity: "top",
@@ -791,6 +790,16 @@ searchBtn.addEventListener("click", ()=>{
     let query = searchBarInput.value;
     searchRecipes(query);
 });
+// ADJUST SERVINGS
+// 1. Get the recipe information = a. Api call b. check standard number of serving c. logic to calculate servings depending on starting number of servings d. get amounts from extendedIngredients array and update (increment / decrement based on user's input)
+// 2. Update the ingredient amounts (increment/decrement) according to the user input (+/-)
+// TEST CALL TO GET RECIPE INFO
+const getRecipeInformation = async function() {
+    const res = await fetch("https://api.spoonacular.com/recipes/716429/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false");
+    const data = await res.json();
+    console.log(data);
+} // getRecipeInformation();
+;
 
 },{"toastify-js":"96k49","toastify-js/src/toastify.css":"943FW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"96k49":[function(require,module,exports) {
 /*!
