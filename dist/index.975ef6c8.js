@@ -553,6 +553,8 @@ const sidebar = document.querySelector(".container__content__sidebar");
 const saveRecipeBtn = document.querySelector(".container__header__buttons__addRecipe.btn");
 const saveRecipeBtnInRecipe = document.querySelector(".fa-floppy-disk");
 const savedRecipesBtn = document.querySelector(".container__header__buttons__savedRecipes.btn");
+const incrementServingsBtn = document.querySelector(".incrementBtn");
+const decrementServingsBtn = document.querySelector(".decrementBtn");
 // SAVE A RECIPE
 // 1. User clicks on save 
 // 2. define current recipe (when clicking on recipe in sidebar --> save id somewhere in html)
@@ -655,8 +657,8 @@ const getRandRecipe = async function() {
                 <p>
                     <i class="fa-solid fa-users"></i> 
                     <span>${servings}</span>servings</p>
-                    <i class="fa-solid fa-plus"></i>
-                    <i class="fa-solid fa-minus"></i>
+                    <i class="fa-solid fa-plus incrementBtn"></i>
+                    <i class="fa-solid fa-minus decrementBtn"></i>
             </div>
             <div class="container__content__mainContent__dishInfo__saveBtn">
                 <i class="fa-regular fa-floppy-disk"></i>
@@ -740,8 +742,8 @@ const getRecipeById = async function(id) {
                 <p>
                     <i class="fa-solid fa-users"></i> 
                     <span>${servings}</span>servings</p>
-                    <i class="fa-solid fa-plus"></i>
-                    <i class="fa-solid fa-minus"></i>
+                    <i class="fa-solid fa-plus incrementBtn"></i>
+                    <i class="fa-solid fa-minus decrementBtn"></i>
             </div>
             <div class="container__content__mainContent__dishInfo__saveBtn">
                 <i class="fa-regular fa-floppy-disk"></i>
@@ -799,6 +801,15 @@ const getRecipeInformation = async function() {
     const data = await res.json();
     console.log(data);
 } // getRecipeInformation();
+ // Increment servings 
+ // let currentServings = 2;
+ // let increaseValue;
+ // const incrementServings = function(currentServings) {
+ //     currentServings++;
+ //     increaseValue = currentServings = currentServings / (currentServings - 1);
+ //     console.log(increaseValue);
+ // }
+ // incrementServings(2);
 ;
 
 },{"toastify-js":"96k49","toastify-js/src/toastify.css":"943FW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"96k49":[function(require,module,exports) {
