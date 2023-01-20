@@ -21,7 +21,7 @@ const sidebar = document.querySelector('.container__content__sidebar');
 const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
 const saveRecipeBtnInRecipe = document.querySelector('.fa-floppy-disk');
 const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
-const incrementServingsBtn = document.querySelector('.incrementBtn');
+const incrementServingsBtn = document.querySelector('.container__header__logo');
 const decrementServingsBtn = document.querySelector('.decrementBtn');
 
 // SAVE A RECIPE
@@ -323,26 +323,28 @@ searchBtn.addEventListener('click', () => {
 // 2. Update the ingredient amounts (increment/decrement) according to the user input (+/-)
 
 // TEST CALL TO GET RECIPE INFO
+// INCREMENT AND DECREMENT SERVINGS
+
+let currentServings = 2;
+let incrementValue;
 
 const getRecipeInformation = async function () {
     const res = await fetch('https://api.spoonacular.com/recipes/716429/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false');
     const data = await res.json();
-
-    console.log(data);
+    // console.log(data.extendedIngredients);
+    let ingredients = data.extendedIngredients;
+    ingredients.forEach(ingredient => {
+        console.log(ingredient.amount * incrementValue);
+        
+    }) 
 }
 
-// getRecipeInformation();
-
-// Increment servings 
-
-// let currentServings = 2;
-// let increaseValue;
-
-// const incrementServings = function(currentServings) {
-//     currentServings++;
-//     increaseValue = currentServings = currentServings / (currentServings - 1);
-//     console.log(increaseValue);
-// }
-
-
-// incrementServings(2);
+incrementServingsBtn.addEventListener('click', () => {
+    currentServings++;
+    incrementValue = currentServings / (currentServings - 1);
+    // NOW I SHOULD MULTIPLY THE AMOUNT OF EACH INGRENDIENT BY THE INCREMENT VALUE
+    // GET THE INGRENDIENT AMOUNTS
+    // MULTIPLY THEM BY THE INCREMENT VALUE
+    getRecipeInformation();
+    
+})
