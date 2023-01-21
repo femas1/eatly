@@ -331,7 +331,6 @@ let incrementValue = 1;
 const getRecipeInformation = async function (currentRecipeId) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${currentRecipeId}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false`);
     const data = await res.json();
-    console.log(data);
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
     ingredients.forEach(ingredient => {
@@ -340,21 +339,23 @@ const getRecipeInformation = async function (currentRecipeId) {
     }) 
 }
 
+// GETTING RECIPE ID FROM TAB IN SIDEBAR 
+
 let clickedRecipeId;
 
     sidebar.addEventListener('click', (e) => {
         clickedRecipeId = e.target.id;
-        console.log(clickedRecipeId)
     });
-    
+
+// INCREMENTING SERVING ON BUTTON CLICK
+// CALCULATING THE INCREMENT VALUE  (INGREDIENT RATIO)BASED ON CURRENT SERVING AMOUNT
+// GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
+
 incrementServingsBtn.addEventListener('click', () => {
     currentServings++;
     if(currentServings > 0) {
       incrementValue = currentServings / (currentServings - 1);
     }
-
-    
-
     getRecipeInformation(clickedRecipeId);
 });
 
