@@ -797,12 +797,13 @@ searchBtn.addEventListener("click", ()=>{
 // 2. Update the ingredient amounts (increment/decrement) according to the user input (+/-)
 // TEST CALL TO GET RECIPE INFO
 // INCREMENT AND DECREMENT SERVINGS
-let currentServings = 2;
-let incrementValue;
+let currentServings = 1;
+let incrementValue = 1;
 const getRecipeInformation = async function() {
     const res = await fetch("https://api.spoonacular.com/recipes/716429/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false");
     const data = await res.json();
-    // console.log(data.extendedIngredients);
+    // console.log(data);
+    currentServings = data.servings;
     let ingredients = data.extendedIngredients;
     ingredients.forEach((ingredient)=>{
         console.log(ingredient.amount * incrementValue);
@@ -810,10 +811,7 @@ const getRecipeInformation = async function() {
 };
 incrementServingsBtn.addEventListener("click", ()=>{
     currentServings++;
-    incrementValue = currentServings / (currentServings - 1);
-    // NOW I SHOULD MULTIPLY THE AMOUNT OF EACH INGRENDIENT BY THE INCREMENT VALUE
-    // GET THE INGRENDIENT AMOUNTS
-    // MULTIPLY THEM BY THE INCREMENT VALUE
+    if (currentServings > 0) incrementValue = currentServings / (currentServings - 1);
     getRecipeInformation();
 });
 
