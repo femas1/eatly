@@ -328,10 +328,10 @@ searchBtn.addEventListener('click', () => {
 let currentServings = 1;
 let incrementValue = 1;
 
-const getRecipeInformation = async function () {
-    const res = await fetch('https://api.spoonacular.com/recipes/716429/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false');
+const getRecipeInformation = async function (currentRecipeId) {
+    const res = await fetch(`https://api.spoonacular.com/recipes/${currentRecipeId}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false`);
     const data = await res.json();
-    // console.log(data);
+    console.log(data);
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
     ingredients.forEach(ingredient => {
@@ -340,10 +340,22 @@ const getRecipeInformation = async function () {
     }) 
 }
 
+let clickedRecipeId;
+
+    sidebar.addEventListener('click', (e) => {
+        clickedRecipeId = e.target.id;
+        console.log(clickedRecipeId)
+    });
+    
 incrementServingsBtn.addEventListener('click', () => {
     currentServings++;
     if(currentServings > 0) {
       incrementValue = currentServings / (currentServings - 1);
     }
-    getRecipeInformation();
+
+    
+
+    getRecipeInformation(clickedRecipeId);
 });
+
+
