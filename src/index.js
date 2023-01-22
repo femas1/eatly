@@ -64,7 +64,6 @@ saveRecipeBtn.addEventListener('click', (e)=> {
       alert("Recipe already saved.")
     } else {
     savedRecipes.push(lastClickedRecipe);
-    // alert("Recipe successfully saved.")
     // SHOW TOAST NOTIFICATION 
     Toastify({
         text: "Recipe successfully saved.",
@@ -80,8 +79,6 @@ saveRecipeBtn.addEventListener('click', (e)=> {
         onClick: function(){} // Callback after click
       }).showToast();
     // TOAST NOTIFICATION END
-
-    // saveRecipeBtn.firstElementChild.classList = "fa-regular fa-circle-check"
     // STORE RECIPES IN LOCAL STORAGE 
     let savedRecipesSerialized = JSON.stringify(savedRecipes);
     localStorage.setItem('savedRecipes', savedRecipesSerialized);
@@ -90,10 +87,6 @@ saveRecipeBtn.addEventListener('click', (e)=> {
 })
 
 // GETTING MY RECIPES (STORED RECIPES)
-
-// 1. User clicks on btn "my recipes"
-// 2. Get recipe ids from local storage (getItem('keyName')) -> save recipe title too, push it into sidebar, when user click call api based on stored id, display using getrecipebyid function
-
 // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 
 savedRecipesBtn.addEventListener('click', () => {
@@ -112,15 +105,12 @@ savedRecipesBtn.addEventListener('click', () => {
     })
 })
 
-
 // API RANDOM RECIPE CALL 
 
 const getRecipeId = async function (id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
 }
-
-
 
 const getRandRecipe = async function () {
     const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
@@ -177,22 +167,10 @@ const getRandRecipe = async function () {
 }
 // getRandRecipe();
 
-// SCENARIO: User starts the app 
-
-// 1. Page loads
-// 2. Show all recipes in the sidebar
-    // 2.1. search recipe based on random ingredient (random ingredient from array)
-    // 2.2. push first 10 results into the preview tabs in the sidebar (slice array, add link into search)
-// 3. User clicks on one of the recipe -> show recipe in main content area
-
-// 3. Open / show the first recipe of the list 
-
-
 const searchRecipes = async function (ingredient) {
     try {
     const res = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=${ingredient}`);
     const data = await res.json();
-    
 
     if(!res.ok) throw new Error(`${data.message}`);
 
@@ -210,14 +188,7 @@ const searchRecipes = async function (ingredient) {
     }
 }
 
-// window.addEventListener('DOMContentLoaded', getRandRecipe(), searchRecipes())
-
 // SEARCH RECIPE BY ID
-
-// // // 1. clicked on recipe
-// // // 2. get the recipe title(outer text?)
-// // // 3. search the title (exact string) using complexSearch
-// // // 4. insert recipe in main area (like in getRandRecipe)
 
 const getRecipeById = async function (id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
@@ -325,7 +296,7 @@ searchBtn.addEventListener('click', () => {
 // TEST CALL TO GET RECIPE INFO
 // INCREMENT AND DECREMENT SERVINGS
 
-let currentServings = 1;
+let currentServings;
 let incrementValue = 1;
 
 const getRecipeInformation = async function (currentRecipeId) {
@@ -358,5 +329,3 @@ incrementServingsBtn.addEventListener('click', () => {
     }
     getRecipeInformation(clickedRecipeId);
 });
-
-
