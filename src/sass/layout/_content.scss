@@ -31,6 +31,8 @@
       
     }  
 
+    // MAIN CONTENT / MAIN RECIPE INFORMATION
+
     &__mainContent{
 
         flex: 1;
@@ -55,11 +57,15 @@
            padding: .5rem 2rem;
         }
 
+        &__title {
+            padding: 1rem;
+        }
+        
         &__ingredients {
             text-align: left;
 
             &__heading {
-                padding: 1rem
+                padding: 1rem;
             }
 
             &__list {

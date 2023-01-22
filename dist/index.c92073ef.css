@@ -137,6 +137,10 @@ body {
   padding: .5rem 2rem;
 }
 
+.container__content__mainContent__title {
+  padding: 1rem;
+}
+
 .container__content__mainContent__ingredients {
   text-align: left;
 }
