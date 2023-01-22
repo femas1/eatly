@@ -24,7 +24,7 @@ const sidebar = document.querySelector('.container__content__sidebar');
 const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
 const saveRecipeBtnInRecipe = document.querySelector('.fa-floppy-disk');
 const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
-const incrementServingsBtn = document.querySelector('.container__header__logo');
+const incrementServingsBtn = document.querySelector('.incrementBtn');
 const decrementServingsBtn = document.querySelector('.decrementBtn');
 
 // SAVE A RECIPE
@@ -204,9 +204,6 @@ const searchRecipeById = async function (id) {
     const instructions = data.instructions;
     const extIngredients = data.extendedIngredients;
 
-    // recipeContainer.innerHTML = "";
-
-
         // INSERTING IMAGE 
         recipePictureContainer.innerHTML = "";
         recipePictureContainer.innerHTML = `<img id="recipe-picture" src="${image}" alt="${title}">`
@@ -289,7 +286,6 @@ const getRecipeInformation = async function (currentRecipeId) {
     let ingredients = data.extendedIngredients;
     ingredients.forEach(ingredient => {
         console.log(ingredient.amount * incrementValue);
-        
     }) 
 }
 
