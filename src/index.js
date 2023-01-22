@@ -8,10 +8,13 @@ import "toastify-js/src/toastify.css";
 // const apiKey = process.env.API_KEY;
 
 const recipeContainer = document.querySelector('.container__content__mainContent');
+const recipePictureContainer = document.querySelector('.container__content__mainContent__dishPicture');
 const recipePicture = document.getElementById('recipe-picture');
-const ingredientContainer = document.querySelector('.container__content__mainContent__ingredients__list__item');
+const ingredientContainer = document.querySelector('.container__content__mainContent__ingredients__list');
+const ingredientContainerItem = document.querySelector('.container__content__mainContent__ingredients__list__item');
 const previewPicture = document.getElementById('preview-picture');
 const recipeTitle = document.querySelector('.container__content__sidebar__recipe__title');
+const recipeTitleMain = document.querySelector('.container__content__mainContent__title');
 const recipeDirections = document.querySelector('.container__content__mainContent__directions__text');
 const cookingTime = document.querySelector('.container__content__mainContent__dishInfo__time span');
 const recipeServings = document.querySelector('.container__content__mainContent__dishInfo__servings span');
@@ -190,7 +193,7 @@ const searchRecipes = async function (ingredient) {
 
 // SEARCH RECIPE BY ID
 
-const getRecipeById = async function (id) {
+const searchRecipeById = async function (id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
 
@@ -201,9 +204,22 @@ const getRecipeById = async function (id) {
     const instructions = data.instructions;
     const extIngredients = data.extendedIngredients;
 
-    recipeContainer.innerHTML = "";
+    // recipeContainer.innerHTML = "";
 
-        //    INSERT INGREDIENTS  
+
+        // INSERTING IMAGE 
+        recipePictureContainer.innerHTML = "";
+        recipePictureContainer.innerHTML = `<img id="recipe-picture" src="${image}" alt="${title}">`
+
+        // INSERTING COOKING TIME
+        cookingTime.innerHTML = "";
+        cookingTime.innerHTML = `<span>${readyIn} </span>`;
+
+        // INSERTING SERVINGS 
+        recipeServings.innerHTML = "";
+        recipeServings.innerHTML = `<span>${servings} </span>`;
+
+        // INSERTING INGREDIENTS  
 
         let ingredientList = [];
 
@@ -214,58 +230,25 @@ const getRecipeById = async function (id) {
 
         let allIngredients = [...ingredientList]
 
+        recipeTitleMain.innerHTML = "";
+        recipeTitleMain.insertAdjacentHTML('afterbegin', `
+            <h1>${title}</h1>`);
 
-    recipeContainer.insertAdjacentHTML('afterbegin', `
-    <!-- MAIN CONTENT -->        
-        <div class="container__content__mainContent__dishPicture">
-            <img id= "recipe-picture" src="${image}" alt="recipe-picture">
-        </div>
-        <!-- DISH INFORMATION  -->
-        <div class="container__content__mainContent__dishInfo">
-            <div class="container__content__mainContent__dishInfo__time">
-                <p>
-                    <i class="fa-regular fa-clock"></i>
-                    <span>${readyIn}</span>minutes
-                </p>
-            </div>
-            <div class="container__content__mainContent__dishInfo__servings">
-                <p>
-                    <i class="fa-solid fa-users"></i> 
-                    <span>${servings}</span>servings</p>
-                    <i class="fa-solid fa-plus incrementBtn"></i>
-                    <i class="fa-solid fa-minus decrementBtn"></i>
-            </div>
-            <div class="container__content__mainContent__dishInfo__saveBtn">
-                <i class="fa-regular fa-floppy-disk"></i>
-            </div>
-        </div>
-        <!-- DISH INFORMATION END -->
-        <div class="container__content__mainContent__title">
-            <h1>${title}</h1>
-        </div>
-        <!-- INGREDIENTS -->
+        // INSTEAD OF A SINGLE LI, add one li for each ingredient
+        ingredientContainer.innerHTML = "";
+        ingredientContainer.insertAdjacentHTML('afterbegin', `
+            <li class="container__content__mainContent__ingredients__list__item">${allIngredients}
+        </li>`)
 
-            <div class="container__content__mainContent__ingredients">
-            <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
-            <ul class="container__content__mainContent__ingredients__list">
-                <li class="container__content__mainContent__ingredients__list__item">
-                        ${allIngredients}
-                </li>
-            </ul>
-        </div>
-    <!-- INGREDIENTS -->
-        <!-- DIRECTIONS -->
-        <div class="container__content__mainContent__directions">
-            <h1 class="container__content__mainContent__directions__heading">Directions</h1>
-            <p class="container__content__mainContent__directions__text">${instructions}</p>
-        </div>
-        <!-- DIRECTIONS END -->
-    `)
+        // INSERTING DIRECTIONS
+        recipeDirections.innerHTML = "";
+        recipeDirections.innerHTML = `${instructions}`;
+
 }
 
 sidebar.addEventListener('click', (e) => {
     let recipeId = e.target.id;
-    getRecipeById(recipeId);
+    searchRecipeById(recipeId);
     getRecipeId(recipeId);
 });
 
