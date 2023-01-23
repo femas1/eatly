@@ -215,7 +215,7 @@ const searchRecipeById = async function (id) {
         // INSERTING SERVINGS 
         recipeServings.innerHTML = "";
         recipeServings.innerHTML = `<span>${servings} </span>`;
-
+        tempServings.push(servings);
         // INSERTING INGREDIENTS  
 
         let ingredientList = [];
@@ -276,6 +276,9 @@ searchBtn.addEventListener('click', () => {
 // TEST CALL TO GET RECIPE INFO
 // INCREMENT AND DECREMENT SERVINGS
 
+let tempServings = [];
+
+// currentServings = tempServings.slice(-1);
 let currentServings;
 let incrementValue = 1;
 
@@ -284,9 +287,9 @@ const getRecipeInformation = async function (currentRecipeId) {
     const data = await res.json();
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
-    ingredients.forEach(ingredient => {
-        console.log(ingredient.amount * incrementValue);
-    }) 
+    // ingredients.forEach(ingredient => {
+    //     console.log(ingredient.amount * incrementValue);
+    // }) 
 }
 
 // GETTING RECIPE ID FROM TAB IN SIDEBAR 
@@ -302,9 +305,14 @@ let clickedRecipeId;
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 
 incrementServingsBtn.addEventListener('click', () => {
+    getRecipeInformation(clickedRecipeId);
+    currentServings = [...tempServings.slice(-1)][0]
+    console.log(currentServings)
     currentServings++;
     if(currentServings > 0) {
       incrementValue = currentServings / (currentServings - 1);
     }
-    getRecipeInformation(clickedRecipeId);
+    // getRecipeInformation(clickedRecipeId);
+    recipeServings.innerHTML = "";
+        recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });

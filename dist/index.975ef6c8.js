@@ -712,6 +712,7 @@ const searchRecipeById = async function(id) {
     // INSERTING SERVINGS 
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${servings} </span>`;
+    tempServings.push(servings);
     // INSERTING INGREDIENTS  
     let ingredientList = [];
     extIngredients.forEach((ingredient)=>{
@@ -757,6 +758,8 @@ searchBtn.addEventListener("click", ()=>{
 // 2. Update the ingredient amounts (increment/decrement) according to the user input (+/-)
 // TEST CALL TO GET RECIPE INFO
 // INCREMENT AND DECREMENT SERVINGS
+let tempServings = [];
+// currentServings = tempServings.slice(-1);
 let currentServings;
 let incrementValue = 1;
 const getRecipeInformation = async function(currentRecipeId) {
@@ -764,9 +767,9 @@ const getRecipeInformation = async function(currentRecipeId) {
     const data = await res.json();
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
-    ingredients.forEach((ingredient)=>{
-        console.log(ingredient.amount * incrementValue);
-    });
+// ingredients.forEach(ingredient => {
+//     console.log(ingredient.amount * incrementValue);
+// }) 
 };
 // GETTING RECIPE ID FROM TAB IN SIDEBAR 
 let clickedRecipeId;
@@ -777,9 +780,16 @@ sidebar.addEventListener("click", (e)=>{
 // CALCULATING THE INCREMENT VALUE  (INGREDIENT RATIO)BASED ON CURRENT SERVING AMOUNT
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 incrementServingsBtn.addEventListener("click", ()=>{
+    getRecipeInformation(clickedRecipeId);
+    currentServings = [
+        ...tempServings.slice(-1)
+    ][0];
+    console.log(currentServings);
     currentServings++;
     if (currentServings > 0) incrementValue = currentServings / (currentServings - 1);
-    getRecipeInformation(clickedRecipeId);
+    // getRecipeInformation(clickedRecipeId);
+    recipeServings.innerHTML = "";
+    recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
 
 },{"toastify-js":"96k49","toastify-js/src/toastify.css":"943FW","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3"}],"96k49":[function(require,module,exports) {
