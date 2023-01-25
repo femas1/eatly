@@ -780,14 +780,13 @@ sidebar.addEventListener("click", (e)=>{
 // CALCULATING THE INCREMENT VALUE  (INGREDIENT RATIO)BASED ON CURRENT SERVING AMOUNT
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 incrementServingsBtn.addEventListener("click", ()=>{
-    getRecipeInformation(clickedRecipeId);
     currentServings = [
         ...tempServings.slice(-1)
     ][0];
     console.log(currentServings);
     currentServings++;
     if (currentServings > 0) incrementValue = currentServings / (currentServings - 1);
-    // getRecipeInformation(clickedRecipeId);
+    getRecipeInformation(clickedRecipeId);
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
