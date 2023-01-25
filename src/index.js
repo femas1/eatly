@@ -305,13 +305,13 @@ let clickedRecipeId;
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 
 incrementServingsBtn.addEventListener('click', () => {
-    currentServings = [...tempServings.slice(-1)][0]
-    console.log(currentServings)
+    currentServings = [...tempServings.slice(-1)].slice(-1)
     currentServings++;
     if(currentServings > 0) {
-      incrementValue = currentServings / (currentServings - 1);
+        incrementValue = currentServings / (currentServings - 1);
     }
     getRecipeInformation(clickedRecipeId);
+    console.log(currentServings)
     recipeServings.innerHTML = "";
         recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
