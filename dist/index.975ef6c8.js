@@ -732,6 +732,8 @@ const searchRecipeById = async function(id) {
     // INSERTING DIRECTIONS
     recipeDirections.innerHTML = "";
     recipeDirections.innerHTML = `${instructions}`;
+    console.log(tempServings);
+    console.log(`CURRENT SERVINGS: ${tempServings}`);
 };
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
@@ -759,8 +761,7 @@ searchBtn.addEventListener("click", ()=>{
 // TEST CALL TO GET RECIPE INFO
 // INCREMENT AND DECREMENT SERVINGS
 let tempServings = [];
-// currentServings = tempServings.slice(-1);
-let currentServings;
+let currentServings = tempServings[tempServings.length - 1];
 let incrementValue = 1;
 const getRecipeInformation = async function(currentRecipeId) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${currentRecipeId}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false`);
@@ -780,13 +781,13 @@ sidebar.addEventListener("click", (e)=>{
 // CALCULATING THE INCREMENT VALUE  (INGREDIENT RATIO)BASED ON CURRENT SERVING AMOUNT
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 incrementServingsBtn.addEventListener("click", ()=>{
-    currentServings = [
-        ...tempServings.slice(-1)
-    ].slice(-1);
+    // PROBLEM HERE IS, THE TEMPSERVINGS Array is not being updated by each click
+    currentServings = tempServings[tempServings.length - 1];
+    console.log(`current servings from last element in array: ${currentServings}`);
     currentServings++;
+    console.log(`incremented servings: ${currentServings}`);
     if (currentServings > 0) incrementValue = currentServings / (currentServings - 1);
     getRecipeInformation(clickedRecipeId);
-    console.log(currentServings);
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });

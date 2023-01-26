@@ -240,7 +240,8 @@ const searchRecipeById = async function (id) {
         // INSERTING DIRECTIONS
         recipeDirections.innerHTML = "";
         recipeDirections.innerHTML = `${instructions}`;
-
+        console.log(tempServings)
+        console.log(`CURRENT SERVINGS: ${tempServings}`)
 }
 
 sidebar.addEventListener('click', (e) => {
@@ -277,9 +278,7 @@ searchBtn.addEventListener('click', () => {
 // INCREMENT AND DECREMENT SERVINGS
 
 let tempServings = [];
-
-// currentServings = tempServings.slice(-1);
-let currentServings;
+let currentServings = tempServings[tempServings.length - 1];
 let incrementValue = 1;
 
 const getRecipeInformation = async function (currentRecipeId) {
@@ -305,13 +304,16 @@ let clickedRecipeId;
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 
 incrementServingsBtn.addEventListener('click', () => {
-    currentServings = [...tempServings.slice(-1)].slice(-1)
+    // PROBLEM HERE IS, THE TEMPSERVINGS Array is not being updated by each click
+    currentServings = tempServings[tempServings.length - 1];
+    console.log(`current servings from last element in array: ${currentServings}`)
     currentServings++;
+    console.log(`incremented servings: ${currentServings}`)
     if(currentServings > 0) {
         incrementValue = currentServings / (currentServings - 1);
     }
     getRecipeInformation(clickedRecipeId);
-    console.log(currentServings)
+
     recipeServings.innerHTML = "";
         recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
