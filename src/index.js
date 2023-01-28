@@ -240,8 +240,8 @@ const searchRecipeById = async function (id) {
         // INSERTING DIRECTIONS
         recipeDirections.innerHTML = "";
         recipeDirections.innerHTML = `${instructions}`;
-        console.log(tempServings)
-        console.log(`CURRENT SERVINGS: ${tempServings}`)
+        // console.log(tempServings)
+        // console.log(`CURRENT SERVINGS: ${tempServings}`)
 }
 
 sidebar.addEventListener('click', (e) => {
@@ -279,16 +279,26 @@ searchBtn.addEventListener('click', () => {
 
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
-let incrementValue = 1;
+let incrementValue;
 
 const getRecipeInformation = async function (currentRecipeId) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${currentRecipeId}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false`);
     const data = await res.json();
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
-    // ingredients.forEach(ingredient => {
-    //     console.log(ingredient.amount * incrementValue);
-    // }) 
+    ingredientContainer.innerHTML = "";
+    console.log(ingredientContainer)
+    ingredients.forEach(ingredient => {
+        // console.log(`INGREDIENT: ${ingredient.name} AMOUNT: ${ingredient.amount} `);
+        let newIngredient = document.createElement("DIV");
+        let newIngredientCalc = `${ingredient.amount}` * `${incrementValue}`;
+        let newIngredientContent = document.createTextNode(`${newIngredientCalc} ${ingredient.name}`);
+        newIngredient.innerText = `${newIngredientContent.textContent}`
+        // console.log(newIngredient)
+        // ingredientContainer.appendChild(newIngredient)
+        ingredientContainer.innerHTML = newIngredient;
+    }) 
+    
 }
 
 // GETTING RECIPE ID FROM TAB IN SIDEBAR 
@@ -304,17 +314,16 @@ let clickedRecipeId;
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 
 incrementServingsBtn.addEventListener('click', () => {
-    // PROBLEM HERE IS, THE TEMPSERVINGS Array is not being updated by each click
-    tempServings.push(recipeServings.innerText)
+    tempServings.push(recipeServings.innerText);
     currentServings = tempServings[tempServings.length - 1];
-    console.log(`current servings from last element in array: ${currentServings}`)
+    // console.log(`current servings from last element in array: ${currentServings}`)
     currentServings++;
-    console.log(`incremented servings: ${currentServings}`)
+    // console.log(`incremented servings: ${currentServings}`)
     if(currentServings > 0) {
         incrementValue = currentServings / (currentServings - 1);
     }
     getRecipeInformation(clickedRecipeId);
-
+    // console.log(incrementValue)
     recipeServings.innerHTML = "";
         recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
