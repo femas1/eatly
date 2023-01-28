@@ -782,6 +782,7 @@ sidebar.addEventListener("click", (e)=>{
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 incrementServingsBtn.addEventListener("click", ()=>{
     // PROBLEM HERE IS, THE TEMPSERVINGS Array is not being updated by each click
+    tempServings.push(recipeServings.innerText);
     currentServings = tempServings[tempServings.length - 1];
     console.log(`current servings from last element in array: ${currentServings}`);
     currentServings++;
