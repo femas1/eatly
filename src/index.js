@@ -287,16 +287,14 @@ const getRecipeInformation = async function (currentRecipeId) {
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
     ingredientContainer.innerHTML = "";
-    console.log(ingredientContainer)
+    // console.log(ingredientContainer)
     ingredients.forEach(ingredient => {
         // console.log(`INGREDIENT: ${ingredient.name} AMOUNT: ${ingredient.amount} `);
-        let newIngredient = document.createElement("DIV");
+        let newIngredient = document.createElement("LI");
         let newIngredientCalc = `${ingredient.amount}` * `${incrementValue}`;
         let newIngredientContent = document.createTextNode(`${newIngredientCalc} ${ingredient.name}`);
         newIngredient.innerText = `${newIngredientContent.textContent}`
-        // console.log(newIngredient)
-        // ingredientContainer.appendChild(newIngredient)
-        ingredientContainer.innerHTML = newIngredient;
+        ingredientContainer.appendChild(newIngredient);
     }) 
     
 }
