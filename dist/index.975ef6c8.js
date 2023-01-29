@@ -771,9 +771,9 @@ const getRecipeInformation = async function(currentRecipeId) {
     ingredientContainer.innerHTML = "";
     // console.log(ingredientContainer)
     ingredients.forEach((ingredient)=>{
-        // console.log(`INGREDIENT: ${ingredient.name} AMOUNT: ${ingredient.amount} `);
         let newIngredient = document.createElement("LI");
-        let newIngredientCalc = `${ingredient.amount}` * `${incrementValue}`;
+        // CALCULATION NOT WORKING CORRECTLY BECAUSE INGREDIENT AMOUNT ITS NOT UPDATED BY EACH CLICK
+        let newIngredientCalc = ingredient.amount * incrementValue;
         let newIngredientContent = document.createTextNode(`${newIngredientCalc} ${ingredient.name}`);
         newIngredient.innerText = `${newIngredientContent.textContent}`;
         ingredientContainer.appendChild(newIngredient);
