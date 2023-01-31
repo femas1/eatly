@@ -286,7 +286,7 @@ const getRecipeInformation = async function (currentRecipeId) {
     const data = await res.json();
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
-    ingredientContainer.innerHTML = "";
+    ingredientContainer.innerHTML = "";  
     // console.log(ingredientContainer)
     ingredients.forEach(ingredient => {
         let newIngredient = document.createElement("LI");
@@ -314,14 +314,13 @@ let clickedRecipeId;
 incrementServingsBtn.addEventListener('click', () => {
     tempServings.push(recipeServings.innerText);
     currentServings = tempServings[tempServings.length - 1];
-    // console.log(`current servings from last element in array: ${currentServings}`)
-    currentServings++;
-    // console.log(`incremented servings: ${currentServings}`)
+      currentServings++;
+
     if(currentServings > 0) {
         incrementValue = currentServings / (currentServings - 1);
     }
     getRecipeInformation(clickedRecipeId);
-    // console.log(incrementValue)
+
     recipeServings.innerHTML = "";
         recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });

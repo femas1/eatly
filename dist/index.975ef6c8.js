@@ -790,12 +790,9 @@ sidebar.addEventListener("click", (e)=>{
 incrementServingsBtn.addEventListener("click", ()=>{
     tempServings.push(recipeServings.innerText);
     currentServings = tempServings[tempServings.length - 1];
-    // console.log(`current servings from last element in array: ${currentServings}`)
     currentServings++;
-    // console.log(`incremented servings: ${currentServings}`)
     if (currentServings > 0) incrementValue = currentServings / (currentServings - 1);
     getRecipeInformation(clickedRecipeId);
-    // console.log(incrementValue)
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
