@@ -739,6 +739,7 @@ sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
     searchRecipeById(recipeId);
     getRecipeId(recipeId);
+// getRecipeInformation(recipeId);
 });
 // BASIC SEARCH IN SEARCH BAR
 // 1. ADD error handling (eg. if the input is empty -> alert or notify user, a recipe at least three words should be entered)
@@ -763,21 +764,25 @@ searchBtn.addEventListener("click", ()=>{
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
 let incrementValue;
+let currentIngredientsAmounts = [];
 const getRecipeInformation = async function(currentRecipeId) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${currentRecipeId}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false`);
     const data = await res.json();
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
-    ingredientContainer.innerHTML = "";
     // console.log(ingredientContainer)
     ingredients.forEach((ingredient)=>{
+        currentIngredientsAmounts.push(ingredient.amount);
         let newIngredient = document.createElement("LI");
         // CALCULATION NOT WORKING CORRECTLY BECAUSE INGREDIENT AMOUNT ITS NOT UPDATED BY EACH CLICK
-        let newIngredientCalc = ingredient.amount * incrementValue;
-        let newIngredientContent = document.createTextNode(`${newIngredientCalc} ${ingredient.name}`);
+        let newIngredientAmount = ingredient.amount * incrementValue;
+        let newIngredientContent = document.createTextNode(`${newIngredientAmount} ${ingredient.name}`);
         newIngredient.innerText = `${newIngredientContent.textContent}`;
         ingredientContainer.appendChild(newIngredient);
+        currentIngredientsAmounts = [];
+        currentIngredientsAmounts.push(newIngredientAmount);
     });
+// console.log(currentIngredientsAmounts);
 };
 // GETTING RECIPE ID FROM TAB IN SIDEBAR 
 let clickedRecipeId;
@@ -788,11 +793,12 @@ sidebar.addEventListener("click", (e)=>{
 // CALCULATING THE INCREMENT VALUE  (INGREDIENT RATIO)BASED ON CURRENT SERVING AMOUNT
 // GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 incrementServingsBtn.addEventListener("click", ()=>{
+    getRecipeInformation(clickedRecipeId);
+    ingredientContainer.innerHTML = "";
     tempServings.push(recipeServings.innerText);
     currentServings = tempServings[tempServings.length - 1];
     currentServings++;
     if (currentServings > 0) incrementValue = currentServings / (currentServings - 1);
-    getRecipeInformation(clickedRecipeId);
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
