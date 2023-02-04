@@ -771,15 +771,7 @@ const getRecipeInformation = async function(currentRecipeId) {
     currentServings = data.servings;
     let ingredients = data.extendedIngredients;
     ingredients.forEach((ingredient)=>{
-        currentIngredientsAmounts.push(ingredient.amount);
-        let newIngredient = document.createElement("LI");
-        let newIngredientAmount = currentIngredientsAmounts[currentIngredientsAmounts.length - 1] * incrementValue;
-        let newIngredientContent = document.createTextNode(`${newIngredientAmount} ${ingredient.name}`);
-        newIngredient.innerText = `${newIngredientContent.textContent}`;
-        ingredientContainer.appendChild(newIngredient);
-        currentIngredientsAmounts = [];
-        currentIngredientsAmounts.push(newIngredientAmount);
-        console.log(currentIngredientsAmounts);
+        currentIngredientsAmounts.push(ingredient);
     });
 };
 let clickedRecipeId;
@@ -793,6 +785,18 @@ incrementServingsBtn.addEventListener("click", ()=>{
     currentServings = tempServings[tempServings.length - 1];
     currentServings++;
     if (currentServings > 0) incrementValue = currentServings / tempServings[tempServings.length - 1];
+    console.log(currentIngredientsAmounts);
+    currentIngredientsAmounts.forEach((ingredient)=>{
+        ingredient.amount = ingredient.amount * incrementValue;
+    });
+    console.log(`updated amount: ${currentIngredientsAmounts}`);
+    // let newIngredient = document.createElement("LI");
+    // let newIngredientAmount = currentIngredientsAmounts[currentIngredientsAmounts.length - 1] * incrementValue;
+    // let newIngredientContent = document.createTextNode(`${newIngredientAmount} ${ingredient.name}`);
+    // newIngredient.innerText = `${newIngredientContent.textContent}`
+    // ingredientContainer.appendChild(newIngredient);
+    // currentIngredientsAmounts = [];
+    // currentIngredientsAmounts.push(newIngredientAmount);
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
