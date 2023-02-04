@@ -280,7 +280,7 @@ searchBtn.addEventListener('click', () => {
 
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
-let incrementValue;
+let incrementValue = 1;
 let currentIngredientsAmounts = [];
 
 const getRecipeInformation = async function (currentRecipeId) {
@@ -289,35 +289,27 @@ const getRecipeInformation = async function (currentRecipeId) {
     currentServings = data.servings;
 
     let ingredients = data.extendedIngredients;
-      
-    // console.log(ingredientContainer)
+
     ingredients.forEach(ingredient => {
         currentIngredientsAmounts.push(ingredient.amount);
         let newIngredient = document.createElement("LI");
-        // CALCULATION NOT WORKING CORRECTLY BECAUSE INGREDIENT AMOUNT ITS NOT UPDATED BY EACH CLICK
-        let newIngredientAmount = ingredient.amount * incrementValue;
+     
+        let newIngredientAmount = currentIngredientsAmounts[currentIngredientsAmounts.length - 1] * incrementValue;
         let newIngredientContent = document.createTextNode(`${newIngredientAmount} ${ingredient.name}`);
         newIngredient.innerText = `${newIngredientContent.textContent}`
         ingredientContainer.appendChild(newIngredient);
 
-        currentIngredientsAmounts = [];+
+        currentIngredientsAmounts = [];
         currentIngredientsAmounts.push(newIngredientAmount);
-
+        console.log(currentIngredientsAmounts)
     });
-    // console.log(currentIngredientsAmounts);
 }
-
-// GETTING RECIPE ID FROM TAB IN SIDEBAR 
 
 let clickedRecipeId;
 
     sidebar.addEventListener('click', (e) => {
         clickedRecipeId = e.target.id;
     });
-
-// INCREMENTING SERVING ON BUTTON CLICK
-// CALCULATING THE INCREMENT VALUE  (INGREDIENT RATIO)BASED ON CURRENT SERVING AMOUNT
-// GETTING THE RECIPE INFORMATION (INGREDIENT AMOUNTS) OF THE CLICKED RECIPE
 
 incrementServingsBtn.addEventListener('click', () => {
     getRecipeInformation(clickedRecipeId);
@@ -329,7 +321,7 @@ incrementServingsBtn.addEventListener('click', () => {
       currentServings++;
 
     if(currentServings > 0) {
-        incrementValue = currentServings / (currentServings - 1);
+        incrementValue = currentServings / tempServings[tempServings.length - 1];
     }
 
     recipeServings.innerHTML = "";
