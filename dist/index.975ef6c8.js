@@ -782,7 +782,6 @@ sidebar.addEventListener("click", (e)=>{
 // console.log(currentIngredients)
 });
 incrementServingsBtn.addEventListener("click", ()=>{
-    // getRecipeInformation(clickedRecipeId);
     // WHEN CLICKING WE MUST NOT CALL THE FUNCTION BUT
     // 1. when clicking in the recipe we put all the info we need in an array
     // 2. when clicking on the increment button we update the info in the array, without calling api anymore
@@ -793,8 +792,11 @@ incrementServingsBtn.addEventListener("click", ()=>{
     if (currentServings > 0) incrementValue = currentServings / tempServings[tempServings.length - 1];
     currentIngredients.forEach((ingredient)=>{
         ingredient.amount = ingredient.amount * incrementValue;
+        let ingredientItem = document.createElement("LI");
+        let ingredientItemContent = document.createTextNode(`${ingredient.amount} ${ingredient.name}`);
+        ingredientItem.innerText = `${ingredientItemContent.textContent}`;
+        ingredientContainer.appendChild(ingredientItem);
     });
-    console.log(currentIngredients);
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
