@@ -281,6 +281,7 @@ searchBtn.addEventListener('click', () => {
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
 let incrementValue = 1;
+let decrementValue = 1;
 let currentIngredients = [];
 
 const getRecipeInformation = async function (currentRecipeId) {
@@ -304,9 +305,7 @@ let clickedRecipeId;
     });
 
 incrementServingsBtn.addEventListener('click', () => {
-    // WHEN CLICKING WE MUST NOT CALL THE FUNCTION BUT
-    // 1. when clicking in the recipe we put all the info we need in an array
-    // 2. when clicking on the increment button we update the info in the array, without calling api anymore
+
     ingredientContainer.innerHTML = "";
 
     tempServings.push(recipeServings.innerText);
@@ -321,7 +320,32 @@ incrementServingsBtn.addEventListener('click', () => {
         ingredient.amount = ingredient.amount * incrementValue;
 
         let ingredientItem = document.createElement("LI");
-        let ingredientItemContent = document.createTextNode(`${ingredient.amount} ${ingredient.name}`);
+        let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);
+        ingredientItem.innerText = `${ingredientItemContent.textContent}`
+        ingredientContainer.appendChild(ingredientItem);
+    })
+    
+    recipeServings.innerHTML = "";
+    recipeServings.innerHTML = `<span>${currentServings} </span>`;
+});
+
+decrementServingsBtn.addEventListener('click', () => {
+
+    ingredientContainer.innerHTML = "";
+
+    tempServings.push(recipeServings.innerText);
+    currentServings = tempServings[tempServings.length - 1];
+      currentServings--;
+
+    if(currentServings > 0) {
+        decrementValue = tempServings[tempServings.length - 1] / currentServings ;
+    }
+
+    currentIngredients.forEach(ingredient => {
+        ingredient.amount = ingredient.amount * decrementValue;
+
+        let ingredientItem = document.createElement("LI");
+        let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);
         ingredientItem.innerText = `${ingredientItemContent.textContent}`
         ingredientContainer.appendChild(ingredientItem);
     })
