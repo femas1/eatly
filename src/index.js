@@ -281,7 +281,7 @@ searchBtn.addEventListener('click', () => {
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
 let incrementValue = 1;
-let currentIngredientsAmounts = [];
+let currentIngredients = [];
 
 const getRecipeInformation = async function (currentRecipeId) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${currentRecipeId}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false`);
@@ -289,9 +289,9 @@ const getRecipeInformation = async function (currentRecipeId) {
     currentServings = data.servings;
 
     let ingredients = data.extendedIngredients;
-
+    currentIngredients = [];
     ingredients.forEach(ingredient => {
-        currentIngredientsAmounts.push(ingredient);
+        currentIngredients.push(ingredient);
     });
 }
 
@@ -299,11 +299,15 @@ let clickedRecipeId;
 
     sidebar.addEventListener('click', (e) => {
         clickedRecipeId = e.target.id;
+        getRecipeInformation(clickedRecipeId);
+        // console.log(currentIngredients)
     });
 
 incrementServingsBtn.addEventListener('click', () => {
-    getRecipeInformation(clickedRecipeId);
-
+    // getRecipeInformation(clickedRecipeId);
+    // WHEN CLICKING WE MUST NOT CALL THE FUNCTION BUT
+    // 1. when clicking in the recipe we put all the info we need in an array
+    // 2. when clicking on the increment button we update the info in the array, without calling api anymore
     ingredientContainer.innerHTML = "";
 
     tempServings.push(recipeServings.innerText);
@@ -314,22 +318,12 @@ incrementServingsBtn.addEventListener('click', () => {
         incrementValue = currentServings / tempServings[tempServings.length - 1];
     }
 
-    console.log(currentIngredientsAmounts)
-    currentIngredientsAmounts.forEach(ingredient => {
+    currentIngredients.forEach(ingredient => {
         ingredient.amount = ingredient.amount * incrementValue
     })
-    console.log(`updated amount: ${currentIngredientsAmounts}`)
-    // let newIngredient = document.createElement("LI");
-     
-        // let newIngredientAmount = currentIngredientsAmounts[currentIngredientsAmounts.length - 1] * incrementValue;
-        // let newIngredientContent = document.createTextNode(`${newIngredientAmount} ${ingredient.name}`);
-        // newIngredient.innerText = `${newIngredientContent.textContent}`
-        // ingredientContainer.appendChild(newIngredient);
 
-        // currentIngredientsAmounts = [];
-        // currentIngredientsAmounts.push(newIngredientAmount);
-
-
+    console.log(currentIngredients);
+    
     recipeServings.innerHTML = "";
-        recipeServings.innerHTML = `<span>${currentServings} </span>`;
+    recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
