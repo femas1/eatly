@@ -31,16 +31,16 @@ i {
   padding: 1rem 2.5rem;
   border-radius: 1rem;
   border: 3px solid #51565C;
+  cursor: pointer;
   /* offset-x | offset-y | blur-radius | color */
 }
 
 .btn:hover {
-  cursor: pointer;
-  transform: translate(0.05rem, -0.05rem);
+  background-color: #4c5157;
 }
 
 .btn:active {
-  transform: translate(-0.1rem, 0.1rem);
+  background-color: #474c51;
 }
 
 button {

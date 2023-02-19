@@ -24,6 +24,7 @@ i {
 
 .btn {
   color: #e0e0e0;
+  cursor: pointer;
   background-color: #51565c;
   border: 3px solid #51565c;
   border-radius: 1rem;
@@ -32,12 +33,11 @@ i {
 }
 
 .btn:hover {
-  cursor: pointer;
-  transform: translate(.05rem, -.05rem);
+  background-color: #4c5157;
 }
 
 .btn:active {
-  transform: translate(-.1rem, .1rem);
+  background-color: #474c51;
 }
 
 button {
