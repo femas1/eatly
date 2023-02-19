@@ -281,7 +281,7 @@ searchBtn.addEventListener('click', () => {
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
 let incrementValue = 1;
-let decrementValue = 1;
+let decrementValue;
 let currentIngredients = [];
 
 const getRecipeInformation = async function (currentRecipeId) {
@@ -315,7 +315,7 @@ incrementServingsBtn.addEventListener('click', () => {
     if(currentServings > 0) {
         incrementValue = currentServings / tempServings[tempServings.length - 1];
     }
-
+    console.log(currentIngredients)
     currentIngredients.forEach(ingredient => {
         ingredient.amount = ingredient.amount * incrementValue;
 
@@ -340,9 +340,11 @@ decrementServingsBtn.addEventListener('click', () => {
     if(currentServings > 0) {
         decrementValue = tempServings[tempServings.length - 1] / currentServings ;
     }
-
+    console.log(currentIngredients)
+    console.log(tempServings[tempServings.length - 1])
+    console.log(currentServings)
     currentIngredients.forEach(ingredient => {
-        ingredient.amount = ingredient.amount * decrementValue;
+        ingredient.amount = ingredient.amount / decrementValue;
 
         let ingredientItem = document.createElement("LI");
         let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);

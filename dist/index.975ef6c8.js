@@ -764,7 +764,7 @@ searchBtn.addEventListener("click", ()=>{
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
 let incrementValue = 1;
-let decrementValue = 1;
+let decrementValue;
 let currentIngredients = [];
 const getRecipeInformation = async function(currentRecipeId) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${currentRecipeId}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848&includeNutrition=false`);
@@ -788,6 +788,7 @@ incrementServingsBtn.addEventListener("click", ()=>{
     currentServings = tempServings[tempServings.length - 1];
     currentServings++;
     if (currentServings > 0) incrementValue = currentServings / tempServings[tempServings.length - 1];
+    console.log(currentIngredients);
     currentIngredients.forEach((ingredient)=>{
         ingredient.amount = ingredient.amount * incrementValue;
         let ingredientItem = document.createElement("LI");
@@ -804,8 +805,11 @@ decrementServingsBtn.addEventListener("click", ()=>{
     currentServings = tempServings[tempServings.length - 1];
     currentServings--;
     if (currentServings > 0) decrementValue = tempServings[tempServings.length - 1] / currentServings;
+    console.log(currentIngredients);
+    console.log(tempServings[tempServings.length - 1]);
+    console.log(currentServings);
     currentIngredients.forEach((ingredient)=>{
-        ingredient.amount = ingredient.amount * decrementValue;
+        ingredient.amount = ingredient.amount / decrementValue;
         let ingredientItem = document.createElement("LI");
         let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);
         ingredientItem.innerText = `${ingredientItemContent.textContent}`;
