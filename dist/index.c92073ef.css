@@ -114,6 +114,10 @@ body {
   font-weight: 400;
 }
 
+.container__content__sidebar__recipe:hover {
+  background-color: #4c5157;
+}
+
 .container__content__mainContent {
   flex: 1 0;
 }

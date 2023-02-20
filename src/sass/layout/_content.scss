@@ -28,6 +28,10 @@
             }
         }
 
+        &__recipe:hover {
+            background-color: darken($color-secondary, 2);
+        }
+
       
     }  
 
