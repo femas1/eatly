@@ -92,21 +92,23 @@ saveRecipeBtn.addEventListener('click', (e)=> {
 // GETTING MY RECIPES (STORED RECIPES)
 // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 
-savedRecipesBtn.addEventListener('click', () => {
-         // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
-    let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem('savedRecipes'));
-    console.log(localStorageRecipesDeserialized);
-    sidebar.innerHTML = "";
-        // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
-    localStorageRecipesDeserialized.forEach(recipeArray => {
-           sidebar.insertAdjacentHTML('beforeend', `
-                <div class="container__content__sidebar__recipe" id="${recipeArray[0].id}">
-                    <img id="preview-picture" src="${recipeArray[0].image}" alt="${recipeArray[0].title}">
-                        <h3 class="container__content__sidebar__recipe__title">${recipeArray[0].title}</h3>
-                </div>`
-            )
-    })
+const getSavedRecipes = () => {
+    // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
+let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem('savedRecipes'));
+console.log(localStorageRecipesDeserialized);
+sidebar.innerHTML = "";
+   // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
+localStorageRecipesDeserialized.forEach(recipeArray => {
+      sidebar.insertAdjacentHTML('beforeend', `
+           <div class="container__content__sidebar__recipe" id="${recipeArray[0].id}">
+               <img id="preview-picture" src="${recipeArray[0].image}" alt="${recipeArray[0].title}">
+                   <h3 class="container__content__sidebar__recipe__title">${recipeArray[0].title}</h3>
+           </div>`
+       )
 })
+}
+
+savedRecipesBtn.addEventListener('click', getSavedRecipes);
 
 // API RANDOM RECIPE CALL 
 
