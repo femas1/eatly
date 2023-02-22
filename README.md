@@ -29,7 +29,8 @@ With this project I want to test my vanilla javascript skills by building a simp
 - If one recipe fails to save (e.g. missing id), the "my recipe" btn will fail to load the stored recipes from localStorage
 - THe API key is public
 - When decrementing servings, it is possible to go to 0 and below (negative numbers)
-- Ingrendient list are not formatted correctly (should be a tidy unordered list)
+- Ingrendient list are not formatted correctly (should be a tidy unordered list) (only in getRecipeInformation function)
+- Increment/Decrement function does not work in getRandRecipe function
 
 [TROUBLES]
 
