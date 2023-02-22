@@ -127,17 +127,18 @@ const getRandRecipe = async function () {
     const servings = data.recipes[0].servings
     const instructions = data.recipes[0].instructions;
     const extIngredients = data.recipes[0].extendedIngredients;
+    console.log(image)
+    recipePicture.src = image;
 
-    recipeTitle.innerText = title;
+    recipeTitleMain.firstElementChild.innerText = title;
     previewPicture.src = image;
+    recipeDirections.innerHTML = instructions;
 
     // recipeContainer.innerHTML = ""
 
     recipeContainer.insertAdjacentHTML('afterbegin', `
     <!-- MAIN CONTENT -->        
-        <div class="container__content__mainContent__dishPicture">
-            <img id= "recipe-picture" src="${image}" alt="recipe-picture">
-        </div>
+        
         <!-- DISH INFORMATION  -->
         <div class="container__content__mainContent__dishInfo">
             <div class="container__content__mainContent__dishInfo__time">
@@ -162,15 +163,20 @@ const getRandRecipe = async function () {
             <h1>${title}</h1>
         </div>
         
-        <!-- DIRECTIONS -->
-        <div class="container__content__mainContent__directions">
-            <h1 class="container__content__mainContent__directions__heading">Directions</h1>
-            <p class="container__content__mainContent__directions__text">${instructions}</p>
-        </div>
+
         <!-- DIRECTIONS END -->
     `)
+
+    extIngredients.forEach(ingredient => {
+ 
+        let ingredientItem = document.createElement("LI");
+        let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);
+        ingredientItem.innerText = `${ingredientItemContent.textContent}`
+        ingredientContainer.appendChild(ingredientItem);
+    })
 }
-// getRandRecipe();
+
+// window.addEventListener('DOMContentLoaded', getRandRecipe());
 
 const searchRecipes = async function (ingredient) {
     try {
@@ -218,6 +224,7 @@ const searchRecipeById = async function (id) {
         recipeServings.innerHTML = "";
         recipeServings.innerHTML = `<span>${servings} </span>`;
         tempServings.push(servings);
+        
         // INSERTING INGREDIENTS  
 
         let ingredientList = [];
