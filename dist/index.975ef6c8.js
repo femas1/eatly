@@ -638,49 +638,64 @@ const getRandRecipe = async function() {
     const instructions = data.recipes[0].instructions;
     const extIngredients = data.recipes[0].extendedIngredients;
     console.log(image);
-    recipePicture.src = image;
-    recipeTitleMain.firstElementChild.innerText = title;
-    previewPicture.src = image;
-    recipeDirections.innerHTML = instructions;
-    // recipeContainer.innerHTML = ""
-    recipeContainer.insertAdjacentHTML("afterbegin", `
-    <!-- MAIN CONTENT -->        
-        
-        <!-- DISH INFORMATION  -->
-        <div class="container__content__mainContent__dishInfo">
-            <div class="container__content__mainContent__dishInfo__time">
-                <p>
-                    <i class="fa-regular fa-clock"></i>
-                    <span>${readyIn}</span>minutes
-                </p>
-            </div>
-            <div class="container__content__mainContent__dishInfo__servings">
-                <p>
-                    <i class="fa-solid fa-users"></i> 
-                    <span>${servings}</span>servings</p>
-                    <i class="fa-solid fa-plus incrementBtn"></i>
-                    <i class="fa-solid fa-minus decrementBtn"></i>
-            </div>
-            <div class="container__content__mainContent__dishInfo__saveBtn">
-                <i class="fa-regular fa-floppy-disk"></i>
-            </div>
-        </div>
-        <!-- DISH INFORMATION END -->
-        <div class="container__content__mainContent__title">
-            <h1>${title}</h1>
-        </div>
-        
-
-        <!-- DIRECTIONS END -->
-    `);
+    // recipePicture.src = image;
+    // recipeTitleMain.firstElementChild.innerText = title;
+    // previewPicture.src = image;
+    // recipeDirections.innerHTML = instructions;
+    // INSERTING IMAGE 
+    recipePictureContainer.innerHTML = "";
+    recipePictureContainer.innerHTML = `<img id="recipe-picture" src="${image}" alt="${title}">`;
+    // INSERTING COOKING TIME
+    cookingTime.innerHTML = "";
+    cookingTime.innerHTML = `<span>${readyIn} </span>`;
+    // INSERTING SERVINGS 
+    recipeServings.innerHTML = "";
+    recipeServings.innerHTML = `<span>${servings} </span>`;
+    tempServings.push(servings);
+    // INSERTING INGREDIENTS  
     extIngredients.forEach((ingredient)=>{
         let ingredientItem = document.createElement("LI");
         let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);
         ingredientItem.innerText = `${ingredientItemContent.textContent}`;
         ingredientContainer.appendChild(ingredientItem);
     });
+    // INSERTING TITLE  
+    recipeTitleMain.innerHTML = "";
+    recipeTitleMain.insertAdjacentHTML("afterbegin", `
+        <h1>${title}</h1>`);
+    // INSERTING DIRECTIONS
+    recipeDirections.innerHTML = "";
+    recipeDirections.innerHTML = `${instructions}`;
+// recipeContainer.innerHTML = ""
+// recipeContainer.insertAdjacentHTML('afterbegin', `
+// <!-- MAIN CONTENT -->        
+//     <!-- DISH INFORMATION  -->
+//     <div class="container__content__mainContent__dishInfo">
+//         <div class="container__content__mainContent__dishInfo__time">
+//             <p>
+//                 <i class="fa-regular fa-clock"></i>
+//                 <span>${readyIn}</span>minutes
+//             </p>
+//         </div>
+//         <div class="container__content__mainContent__dishInfo__servings">
+//             <p>
+//                 <i class="fa-solid fa-users"></i> 
+//                 <span>${servings}</span>servings</p>
+//                 <i class="fa-solid fa-plus incrementBtn"></i>
+//                 <i class="fa-solid fa-minus decrementBtn"></i>
+//         </div>
+//         <div class="container__content__mainContent__dishInfo__saveBtn">
+//             <i class="fa-regular fa-floppy-disk"></i>
+//         </div>
+//     </div>
+//     <!-- DISH INFORMATION END -->
+//     <div class="container__content__mainContent__title">
+//         <h1>${title}</h1>
+//     </div>
+//     <!-- DIRECTIONS END -->
+// `)
 };
-// window.addEventListener('DOMContentLoaded', getRandRecipe());
+window.addEventListener("DOMContentLoaded", getRandRecipe());
 const searchRecipes = async function(ingredient) {
     try {
         const res = await fetch(`https://api.spoonacular.com/recipes/findByIngredients?apiKey=b69e38af682b4e7fa423de0c87c3e848&ingredients=${ingredient}`);
