@@ -127,12 +127,6 @@ const getRandRecipe = async function () {
     const servings = data.recipes[0].servings
     const instructions = data.recipes[0].instructions;
     const extIngredients = data.recipes[0].extendedIngredients;
-    console.log(image)
-
-    // recipePicture.src = image;
-    // recipeTitleMain.firstElementChild.innerText = title;
-    // previewPicture.src = image;
-    // recipeDirections.innerHTML = instructions;
 
     // INSERTING IMAGE 
     recipePictureContainer.innerHTML = "";
@@ -167,38 +161,6 @@ const getRandRecipe = async function () {
     recipeDirections.innerHTML = "";
     recipeDirections.innerHTML = `${instructions}`;
 
-    // recipeContainer.innerHTML = ""
-
-    // recipeContainer.insertAdjacentHTML('afterbegin', `
-    // <!-- MAIN CONTENT -->        
-        
-    //     <!-- DISH INFORMATION  -->
-    //     <div class="container__content__mainContent__dishInfo">
-    //         <div class="container__content__mainContent__dishInfo__time">
-    //             <p>
-    //                 <i class="fa-regular fa-clock"></i>
-    //                 <span>${readyIn}</span>minutes
-    //             </p>
-    //         </div>
-    //         <div class="container__content__mainContent__dishInfo__servings">
-    //             <p>
-    //                 <i class="fa-solid fa-users"></i> 
-    //                 <span>${servings}</span>servings</p>
-    //                 <i class="fa-solid fa-plus incrementBtn"></i>
-    //                 <i class="fa-solid fa-minus decrementBtn"></i>
-    //         </div>
-    //         <div class="container__content__mainContent__dishInfo__saveBtn">
-    //             <i class="fa-regular fa-floppy-disk"></i>
-    //         </div>
-    //     </div>
-    //     <!-- DISH INFORMATION END -->
-    //     <div class="container__content__mainContent__title">
-    //         <h1>${title}</h1>
-    //     </div>
-        
-
-    //     <!-- DIRECTIONS END -->
-    // `)
 };
 
 
