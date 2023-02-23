@@ -580,7 +580,7 @@ sidebar.addEventListener("click", (e)=>{
 });
 // 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
 let savedRecipes = [];
-saveRecipeBtn.addEventListener("click", (e)=>{
+const storeRecipe = ()=>{
     let lastClickedRecipe = tempId.slice(-1);
     if (savedRecipes.some((recipe)=>recipe[0].id === lastClickedRecipe[0].id)) alert("Recipe already saved.");
     else {
@@ -605,7 +605,9 @@ saveRecipeBtn.addEventListener("click", (e)=>{
         localStorage.setItem("savedRecipes", savedRecipesSerialized);
         console.log(`Your recipes: ${savedRecipesSerialized}`);
     }
-});
+};
+saveRecipeBtn.addEventListener("click", storeRecipe);
+saveRecipeBtnInRecipe.addEventListener("click", storeRecipe);
 // GETTING MY RECIPES (STORED RECIPES)
 // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
 const getSavedRecipes = ()=>{
@@ -665,7 +667,6 @@ const getRandRecipe = async function() {
     // INSERTING TITLE INTO SIDEBAR TAB
     recipeTitle.innerText = title;
     previewPicture.src = image;
-    console.log(recipeTitle);
 };
 // GETTING A RANDOM RECIPE END
 window.addEventListener("DOMContentLoaded", getRandRecipe());

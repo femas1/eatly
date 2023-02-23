@@ -61,7 +61,7 @@ sidebar.addEventListener('click', (e) => {
 
 let savedRecipes = [];
 
-saveRecipeBtn.addEventListener('click', (e)=> {
+const storeRecipe = () => {
     let lastClickedRecipe = tempId.slice(-1);
     if(savedRecipes.some(recipe => recipe[0].id === lastClickedRecipe[0].id)){
       alert("Recipe already saved.")
@@ -87,7 +87,10 @@ saveRecipeBtn.addEventListener('click', (e)=> {
     localStorage.setItem('savedRecipes', savedRecipesSerialized);
     console.log(`Your recipes: ${savedRecipesSerialized}`);
     }
-})
+}
+
+saveRecipeBtn.addEventListener('click', storeRecipe);
+saveRecipeBtnInRecipe.addEventListener('click', storeRecipe);
 
 // GETTING MY RECIPES (STORED RECIPES)
 // PUT RECIPES INTO SIDEBAR FROM LOCALSTORAGE
@@ -166,7 +169,6 @@ const getRandRecipe = async function () {
     // INSERTING TITLE INTO SIDEBAR TAB
     recipeTitle.innerText = title;
     previewPicture.src = image;
-    console.log(recipeTitle)
 
 };
 
