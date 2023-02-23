@@ -22,20 +22,10 @@ const searchBtn = document.getElementById('submitButton');
 const searchBarInput = document.getElementById('searchRecipe');
 const sidebar = document.querySelector('.container__content__sidebar');
 const saveRecipeBtn = document.querySelector('.container__header__buttons__addRecipe.btn');
-const saveRecipeBtnInRecipe = document.querySelector('.fa-floppy-disk');
+const saveRecipeBtnInRecipe = document.querySelector('.container__content__mainContent__dishInfo__saveBtn');
 const savedRecipesBtn = document.querySelector('.container__header__buttons__savedRecipes.btn');
 const incrementServingsBtn = document.querySelector('.incrementBtn');
 const decrementServingsBtn = document.querySelector('.decrementBtn');
-
-// SAVE A RECIPE
-
-// 1. User clicks on save 
-// 2. define current recipe (when clicking on recipe in sidebar --> save id somewhere in html)
-// 3. get the id from the html (from point 2)
-// 4. Get the current recipe id (getRecipeId --> calls api)
-// 5. and save it to localStorage
-
-// 1. Get ID from clicked recipe and push it to an Array 'tempId', where it is temporary stored
 
 let tempId = [];
 
@@ -56,8 +46,6 @@ sidebar.addEventListener('click', (e) => {
             image: recipeImage
         })
     });
-
-// 2. When user clicks on save button, get the id from tempId array and push it to an array in localStorage (to avoid getting the wrong index, get alway the -1 index - last clicked recipe)
 
 let savedRecipes = [];
 
@@ -85,7 +73,6 @@ const storeRecipe = () => {
     // STORE RECIPES IN LOCAL STORAGE 
     let savedRecipesSerialized = JSON.stringify(savedRecipes);
     localStorage.setItem('savedRecipes', savedRecipesSerialized);
-    console.log(`Your recipes: ${savedRecipesSerialized}`);
     }
 }
 
