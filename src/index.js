@@ -110,12 +110,14 @@ localStorageRecipesDeserialized.forEach(recipeArray => {
 
 savedRecipesBtn.addEventListener('click', getSavedRecipes);
 
-// API RANDOM RECIPE CALL 
+
 
 const getRecipeId = async function (id) {
     const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
 }
+
+// GETTING A RANDOM RECIPE 
 
 const getRandRecipe = async function () {
     const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
@@ -144,7 +146,7 @@ const getRandRecipe = async function () {
     // INSERTING INGREDIENTS  
 
     extIngredients.forEach(ingredient => {
- 
+        currentIngredients.push(ingredient);
         let ingredientItem = document.createElement("LI");
         let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);
         ingredientItem.innerText = `${ingredientItemContent.textContent}`
@@ -163,7 +165,7 @@ const getRandRecipe = async function () {
 
 };
 
-
+// GETTING A RANDOM RECIPE END
 
 window.addEventListener('DOMContentLoaded', getRandRecipe());
 
@@ -269,12 +271,6 @@ searchBtn.addEventListener('click', () => {
 });
 
 // ADJUST SERVINGS
-
-// 1. Get the recipe information = a. Api call b. check standard number of serving c. logic to calculate servings depending on starting number of servings d. get amounts from extendedIngredients array and update (increment / decrement based on user's input)
-// 2. Update the ingredient amounts (increment/decrement) according to the user input (+/-)
-
-// TEST CALL TO GET RECIPE INFO
-// INCREMENT AND DECREMENT SERVINGS
 
 let tempServings = [];
 let currentServings = tempServings[tempServings.length - 1];
