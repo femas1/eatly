@@ -545,7 +545,7 @@ const recipePicture = document.getElementById("recipe-picture");
 const ingredientContainer = document.querySelector(".container__content__mainContent__ingredients__list");
 const ingredientContainerItem = document.querySelector(".container__content__mainContent__ingredients__list__item");
 const previewPicture = document.getElementById("preview-picture");
-const recipeTitle = document.querySelector(".container__content__sidebar__recipe__title");
+const recipeTitleEl = document.querySelector(".container__content__sidebar__recipe__title");
 const recipeTitleMain = document.querySelector(".container__content__mainContent__title");
 const recipeDirections = document.querySelector(".container__content__mainContent__directions__text");
 const cookingTime = document.querySelector(".container__content__mainContent__dishInfo__time span");
@@ -624,15 +624,21 @@ const getRecipeId = async function(id) {
 const getRandRecipe = async function() {
     const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
     const data = await res.json();
-    const title = data.recipes[0].title;
-    const image = data.recipes[0].image;
+    const recipeTitle = data.recipes[0].title;
+    const recipeId = data.recipes[0].id;
+    const recipeImage = data.recipes[0].image;
     const readyIn = data.recipes[0].readyInMinutes;
     const servings = data.recipes[0].servings;
     const instructions = data.recipes[0].instructions;
     const extIngredients = data.recipes[0].extendedIngredients;
+    tempId.push({
+        id: recipeId,
+        title: recipeTitle,
+        image: recipeImage
+    });
     // INSERTING IMAGE 
     recipePictureContainer.innerHTML = "";
-    recipePictureContainer.innerHTML = `<img id="recipe-picture" src="${image}" alt="${title}">`;
+    recipePictureContainer.innerHTML = `<img id="recipe-picture" src="${recipeImage}" alt="${recipeTitle}">`;
     // INSERTING COOKING TIME
     cookingTime.innerHTML = "";
     cookingTime.innerHTML = `<span>${readyIn} </span>`;
@@ -651,13 +657,13 @@ const getRandRecipe = async function() {
     // INSERTING TITLE  
     recipeTitleMain.innerHTML = "";
     recipeTitleMain.insertAdjacentHTML("afterbegin", `
-        <h1>${title}</h1>`);
+        <h1>${recipeTitle}</h1>`);
     // INSERTING DIRECTIONS
     recipeDirections.innerHTML = "";
     recipeDirections.innerHTML = `${instructions}`;
     // INSERTING TITLE INTO SIDEBAR TAB
-    recipeTitle.innerText = title;
-    previewPicture.src = image;
+    recipeTitleEl.innerText = recipeTitle;
+    previewPicture.src = recipeImage;
 };
 // GETTING A RANDOM RECIPE END
 window.addEventListener("DOMContentLoaded", getRandRecipe());
