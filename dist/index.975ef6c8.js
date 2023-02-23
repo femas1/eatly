@@ -662,6 +662,10 @@ const getRandRecipe = async function() {
     // INSERTING DIRECTIONS
     recipeDirections.innerHTML = "";
     recipeDirections.innerHTML = `${instructions}`;
+    // INSERTING TITLE INTO SIDEBAR TAB
+    recipeTitle.innerText = title;
+    previewPicture.src = image;
+    console.log(recipeTitle);
 };
 // GETTING A RANDOM RECIPE END
 window.addEventListener("DOMContentLoaded", getRandRecipe());
