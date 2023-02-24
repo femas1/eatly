@@ -14,7 +14,7 @@
 119C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@swc\helpers\lib\_class_apply_descriptor_update.js133144625278805127 0
 100C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\caniuse-lite\data\regions\FM.js133144625312865687 0
 83C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\domelementtype133144625270489875 1
-60C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist133216483486106003 1
+60C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist133216485776549016 1
 94C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\ordered-binary\index.d.ts133144625273847965 0
 109C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\node-gyp-build-optional-packages\LICENSE133144625249548533 0
 105C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@swc\helpers\lib\_to_property_key.js133144625296854826 0
@@ -1593,7 +1593,7 @@
 99C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@parcel\core\lib\AssetGraph.js133144625284861673 0
 94C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\posthtml-parser\readme.md133144625271109523 0
 101C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@swc\helpers\lib\_ts_decorate.js133144625296964773 0
-78C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.975ef6c8.js133216473609915753 0
+78C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.975ef6c8.js133216485776309157 0
 96C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\is-binary-path\package.json133139327182084611 0
 125C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@parcel\watcher\prebuilds\win32-x64\node.napi.glibc.node133144625298473901 0
 107C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\posthtml-parser\dist\chunk.T6SARJYH.js133144625257104218 0
@@ -2201,7 +2201,7 @@
 96C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@parcel\transformer-svg\src133144625274487593 1
 130C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@parcel\transformer-react-refresh-wrap\lib\helpers\helpers.js133144625268111237 0
 126C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\htmlnano\docs\versioned_docs\version-2.0.0\050-modules.md133144625296065277 0
-71C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.html133216483485926124 0
+71C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.html133216485776419103 0
 96C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\@jridgewell\source-map\dist133144625268980735 1
 100C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\caniuse-lite\data\regions\QA.js133144625326777736 0
 107C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\node_modules\caniuse-lite\data\features\fontface.js133144625313345409 0
@@ -4416,7 +4416,7 @@
 82C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.4d529172.js.map133144631440338367 0
 79C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.8ef5a928.css133184471090610509 0
 83C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.8ef5a928.css.map133184471090926767 0
-82C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.975ef6c8.js.map133216473610045671 0
+82C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.975ef6c8.js.map133216485776499052 0
 78C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.a248b4fc.js133186075038533001 0
 82C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.a248b4fc.js.map133186075038842836 0
 78C:\Users\feder\Desktop\WebDev\Portfolio\recipeApp\eatly\dist\index.acb809ab.js133163556603852441 0
