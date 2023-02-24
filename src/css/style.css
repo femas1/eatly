@@ -32,7 +32,31 @@ i {
   border-radius: 1rem;
   border: 3px solid #51565C;
   cursor: pointer;
+  margin: 0.5rem;
   /* offset-x | offset-y | blur-radius | color */
+}
+@media (max-width: 1225px) {
+  .btn {
+    padding: 0.5rem 1.25rem;
+    font-size: 1.5rem;
+  }
+}
+@media (max-width: 1028px) {
+  .btn {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+}
+@media (max-width: 925px) {
+  .btn {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 750px) {
+  #searchBtnText {
+    display: none;
+  }
 }
 
 .btn:hover {
@@ -57,6 +81,16 @@ input {
 #searchRecipe {
   width: 40rem;
 }
+@media (max-width: 1140px) {
+  #searchRecipe {
+    width: 30rem;
+  }
+}
+@media (max-width: 1000px) {
+  #searchRecipe {
+    width: 20rem;
+  }
+}
 
 body {
   display: flex;
@@ -77,12 +111,28 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.container__header__searchBar {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
 .container__header__logo {
   max-height: 10rem;
   cursor: pointer;
 }
+@media (max-width: 1030px) {
+  .container__header__logo {
+    max-height: 7rem;
+  }
+}
+@media (max-width: 750px) {
+  .container__header__logo {
+    max-height: 6rem;
+  }
+}
 .container__header__buttons {
   display: flex;
+  flex: 1;
 }
 .container__header__buttons__addRecipe, .container__header__buttons__savedRecipes {
   margin: 0 1rem;

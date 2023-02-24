@@ -6,8 +6,28 @@
     border-radius: 1rem;
     border: 3px solid $color-secondary;
     cursor: pointer;
+    margin: .25rem;
     /* offset-x | offset-y | blur-radius | color */
     // box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.6);
+
+    @media (max-width: 1225px) {
+        padding: .5rem 1.25rem;
+        font-size: 1.5rem;
+    }
+
+    @media (max-width: 1028px) {
+        font-size: 1.30rem;
+        text-align: center;
+    }
+    @media (max-width: 925px) {
+        font-size: 1.1rem;
+    }
+}
+
+#searchBtnText {
+    @media(max-width:750px){
+        display: none;
+    }
 }
 
 .btn:hover {

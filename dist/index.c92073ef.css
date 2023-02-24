@@ -28,8 +28,35 @@ i {
   background-color: #51565c;
   border: 3px solid #51565c;
   border-radius: 1rem;
+  margin: .5rem;
   padding: 1rem 2.5rem;
   font-weight: 300;
+}
+
+@media (max-width: 1225px) {
+  .btn {
+    padding: .5rem 1.25rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 1028px) {
+  .btn {
+    text-align: center;
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 925px) {
+  .btn {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 750px) {
+  #searchBtnText {
+    display: none;
+  }
 }
 
 .btn:hover {
@@ -55,6 +82,18 @@ input {
   width: 40rem;
 }
 
+@media (max-width: 1140px) {
+  #searchRecipe {
+    width: 30rem;
+  }
+}
+
+@media (max-width: 1000px) {
+  #searchRecipe {
+    width: 20rem;
+  }
+}
+
 body {
   align-items: center;
   padding: 2.5rem;
@@ -75,12 +114,31 @@ body {
   display: flex;
 }
 
+.container__header__searchBar {
+  flex-wrap: nowrap;
+  align-items: center;
+  display: flex;
+}
+
 .container__header__logo {
   max-height: 10rem;
   cursor: pointer;
 }
 
+@media (max-width: 1030px) {
+  .container__header__logo {
+    max-height: 7rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .container__header__logo {
+    max-height: 6rem;
+  }
+}
+
 .container__header__buttons {
+  flex: 1;
   display: flex;
 }
 

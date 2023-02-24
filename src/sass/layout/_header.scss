@@ -5,13 +5,28 @@
     align-items: center;
     justify-content: space-between;
 
+    &__searchBar {
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
     &__logo {
         max-height: 10rem;
         cursor: pointer;
+        
+        @media(max-width: 1030px) {
+            max-height: 7rem;
+        }
+
+        @media(max-width: 750px) {
+            max-height: 6rem;
+        }
     }
 
     &__buttons {
         display: flex;
+        flex: 1;
 
         &__addRecipe,
         &__savedRecipes {

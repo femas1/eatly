@@ -6,4 +6,12 @@ input {
 
 #searchRecipe {
     width: 40rem;
+    
+    @media(max-width: 1140px) {
+        width: 30rem;
+    }
+
+    @media(max-width: 1000px) {
+        width: 20rem;
+    }
 }
