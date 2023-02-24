@@ -91,6 +91,11 @@ input {
     width: 20rem;
   }
 }
+@media (max-width: 700px) {
+  #searchRecipe {
+    width: 15rem;
+  }
+}
 
 body {
   display: flex;
