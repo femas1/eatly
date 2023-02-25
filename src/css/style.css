@@ -108,6 +108,11 @@ input {
     width: 15rem;
   }
 }
+@media (max-width: 670px) {
+  #searchRecipe {
+    width: 25rem;
+  }
+}
 
 body {
   display: flex;
@@ -141,6 +146,11 @@ body {
   flex-wrap: nowrap;
   align-items: center;
 }
+@media (max-width: 670px) {
+  .container__header__searchBar__btn {
+    display: none;
+  }
+}
 .container__header__logo {
   max-height: 10rem;
   cursor: pointer;
@@ -162,7 +172,7 @@ body {
 }
 @media (max-width: 670px) {
   .container__header__buttons {
-    justify-content: flex-start;
+    justify-content: flex-end;
     margin-left: 6rem;
   }
 }
@@ -238,6 +248,10 @@ body {
 .container__content__mainContent__directions__heading {
   text-align: center;
   margin-bottom: 2rem;
+}
+
+#recipe-picture {
+  max-width: 100%;
 }
 
 #preview-picture {
