@@ -52,9 +52,21 @@ i {
     font-size: 1.1rem;
   }
 }
+@media (max-width: 670px) {
+  .btn {
+    font-size: 2rem;
+  }
+}
 
 @media (max-width: 750px) {
   #searchBtnText {
+    display: none;
+  }
+}
+
+@media (max-width: 670px) {
+  #saveRecipeText,
+#myRecipesText {
     display: none;
   }
 }
@@ -117,6 +129,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  max-width: 150rem;
+}
+@media (max-width: 670px) {
+  .container__header {
+    justify-content: baseline;
+  }
 }
 .container__header__searchBar {
   display: flex;
@@ -140,6 +158,13 @@ body {
 .container__header__buttons {
   display: flex;
   flex: 1;
+  justify-content: center;
+}
+@media (max-width: 670px) {
+  .container__header__buttons {
+    justify-content: flex-start;
+    margin-left: 6rem;
+  }
 }
 .container__header__buttons__addRecipe, .container__header__buttons__savedRecipes {
   margin: 0 1rem;

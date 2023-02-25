@@ -4,6 +4,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 150rem;
+
+    @media(max-width:670px) {
+        justify-content: baseline;
+    }
 
     &__searchBar {
         display: flex;
@@ -27,6 +32,12 @@
     &__buttons {
         display: flex;
         flex: 1;
+        justify-content: center;
+
+        @media(max-width:670px) {
+            justify-content: flex-start;
+            margin-left: 6rem;
+        }
 
         &__addRecipe,
         &__savedRecipes {

@@ -22,10 +22,20 @@
     @media (max-width: 925px) {
         font-size: 1.1rem;
     }
+    @media (max-width: 670px) {
+        font-size: 2rem;
+    }
 }
 
 #searchBtnText {
     @media(max-width:750px){
+        display: none;
+    }
+}
+
+#saveRecipeText,
+#myRecipesText {
+    @media(max-width:670px){
         display: none;
     }
 }
