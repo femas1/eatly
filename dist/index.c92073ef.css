@@ -28,7 +28,7 @@ i {
   background-color: #51565c;
   border: 3px solid #51565c;
   border-radius: 1rem;
-  margin: .5rem;
+  margin: .25rem;
   padding: 1rem 2.5rem;
   font-weight: 300;
 }
@@ -101,12 +101,14 @@ input {
 }
 
 body {
+  justify-content: center;
   align-items: center;
   padding: 2.5rem;
   display: flex;
 }
 
 .container {
+  max-width: 150rem;
   background-color: #e0e0e0;
   flex-direction: column;
   display: flex;
