@@ -28,12 +28,12 @@ body {
 }
 
 .btn {
-  background-color: #F44E3F;
-  color: #fff;
+  background-color: #FDE9C9;
+  color: #363636;
   font-weight: 300;
   padding: 1rem 2.5rem;
   border-radius: 1rem;
-  border: 3px solid #F44E3F;
+  border: 3px solid #FDE9C9;
   cursor: pointer;
   margin: 0.25rem;
   /* offset-x | offset-y | blur-radius | color */
@@ -75,11 +75,11 @@ body {
 }
 
 .btn:hover {
-  background-color: #f34535;
+  background-color: #fde5bf;
 }
 
 .btn:active {
-  background-color: #f33c2c;
+  background-color: #fce1b5;
 }
 
 button {
@@ -125,14 +125,14 @@ body {
 }
 
 .container {
-  background-color: #fff;
+  background-color: #fdf9f2;
   display: flex;
   flex-direction: column;
   max-width: 150rem;
 }
 
 .container__header {
-  background-color: #303841;
+  background-color: #EA5455;
   height: 10rem;
   display: flex;
   align-items: center;
@@ -187,7 +187,7 @@ body {
   display: flex;
 }
 .container__content__sidebar {
-  background-color: #fff;
+  background-color: #fdf9f2;
   padding-top: 0.5rem;
   flex: 1 0 30%;
   max-width: 44rem;
@@ -195,7 +195,7 @@ body {
 }
 .container__content__sidebar__recipe {
   cursor: pointer;
-  background-color: #ffe2db;
+  background-color: white;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -207,7 +207,7 @@ body {
   font-weight: 400;
 }
 .container__content__sidebar__recipe:hover {
-  background-color: #f34535;
+  background-color: #fde5bf;
 }
 .container__content__mainContent {
   flex: 1;
@@ -217,7 +217,7 @@ body {
   text-align: center;
 }
 .container__content__mainContent__dishInfo {
-  background-color: #ffe2db;
+  background-color: white;
   display: flex;
   justify-content: center;
   padding: 2rem;
