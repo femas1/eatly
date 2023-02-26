@@ -28,12 +28,12 @@ body {
 }
 
 .btn {
-  background-color: #51565C;
-  color: #e0e0e0;
+  background-color: #F44E3F;
+  color: #fff;
   font-weight: 300;
   padding: 1rem 2.5rem;
   border-radius: 1rem;
-  border: 3px solid #51565C;
+  border: 3px solid #F44E3F;
   cursor: pointer;
   margin: 0.25rem;
   /* offset-x | offset-y | blur-radius | color */
@@ -75,11 +75,11 @@ body {
 }
 
 .btn:hover {
-  background-color: #4c5157;
+  background-color: #f34535;
 }
 
 .btn:active {
-  background-color: #474c51;
+  background-color: #f33c2c;
 }
 
 button {
@@ -125,7 +125,7 @@ body {
 }
 
 .container {
-  background-color: #e0e0e0;
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   max-width: 150rem;
@@ -187,7 +187,7 @@ body {
   display: flex;
 }
 .container__content__sidebar {
-  background-color: #e0e0e0;
+  background-color: #fff;
   padding-top: 0.5rem;
   flex: 1 0 30%;
   max-width: 44rem;
@@ -195,7 +195,7 @@ body {
 }
 .container__content__sidebar__recipe {
   cursor: pointer;
-  background-color: #9da2a9;
+  background-color: #ffe2db;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -207,7 +207,7 @@ body {
   font-weight: 400;
 }
 .container__content__sidebar__recipe:hover {
-  background-color: #4c5157;
+  background-color: #f34535;
 }
 .container__content__mainContent {
   flex: 1;
@@ -217,7 +217,7 @@ body {
   text-align: center;
 }
 .container__content__mainContent__dishInfo {
-  background-color: #9da2a9;
+  background-color: #ffe2db;
   display: flex;
   justify-content: center;
   padding: 2rem;
