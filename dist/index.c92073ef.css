@@ -10,7 +10,6 @@ html {
 
 body {
   box-sizing: border-box;
-  font-family: Rubik, sans-serif;
   font-size: 1.6rem;
 }
 
@@ -20,6 +19,10 @@ button {
 
 i {
   cursor: pointer;
+}
+
+body {
+  font-family: Rubik, sans-serif;
 }
 
 .btn {
