@@ -26,14 +26,13 @@ body {
 }
 
 .btn {
-  color: #363636;
+  background-color: none;
+  color: #fde9c9;
   cursor: pointer;
-  background-color: #fde9c9;
-  border: 3px solid #fde9c9;
-  border-radius: 1rem;
+  border-bottom: 4px solid #fde9c9;
   margin: .25rem;
-  padding: 1rem 2.5rem;
-  font-weight: 300;
+  padding: .5rem 1.5rem;
+  font-weight: 700;
 }
 
 @media (max-width: 1225px) {
@@ -75,6 +74,7 @@ body {
 }
 
 .btn:hover {
+  color: #ea5455;
   background-color: #fde5bf;
 }
 
