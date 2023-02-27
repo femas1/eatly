@@ -209,7 +209,7 @@ body {
 
 .container__content__sidebar__recipe {
   cursor: pointer;
-  background-color: #fff;
+  background-color: none;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: .5rem;
@@ -235,7 +235,7 @@ body {
 }
 
 .container__content__mainContent__dishInfo {
-  background-color: #fff;
+  background-color: none;
   justify-content: center;
   padding: 2rem;
   display: flex;
@@ -254,10 +254,14 @@ body {
 }
 
 .container__content__mainContent__ingredients {
-  text-align: left;
+  text-align: center;
+  display: flex;
 }
 
 .container__content__mainContent__ingredients__heading {
+  width: -moz-fit-content;
+  width: fit-content;
+  border-bottom: 3px solid #ea5455;
   padding: 1rem;
 }
 

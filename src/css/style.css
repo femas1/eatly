@@ -195,7 +195,7 @@ body {
 }
 .container__content__sidebar__recipe {
   cursor: pointer;
-  background-color: white;
+  background-color: none;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -217,7 +217,7 @@ body {
   text-align: center;
 }
 .container__content__mainContent__dishInfo {
-  background-color: white;
+  background-color: none;
   display: flex;
   justify-content: center;
   padding: 2rem;
@@ -232,24 +232,28 @@ body {
   padding: 1rem;
 }
 .container__content__mainContent__ingredients {
-  text-align: left;
+  display: flex;
+  justify-content: center;
 }
 .container__content__mainContent__ingredients__heading {
-  padding: 1rem;
+  border-bottom: 3px solid #EA5455;
 }
 .container__content__mainContent__ingredients__list {
   list-style-type: none;
-  columns: 2;
-  padding: 2rem;
 }
 .container__content__mainContent__ingredients__list p {
   padding: 1rem;
 }
 .container__content__mainContent__directions {
-  padding: 2rem;
+  padding: 2rem 0;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .container__content__mainContent__directions__heading {
-  text-align: center;
+  border-bottom: 3px solid #EA5455;
   margin-bottom: 2rem;
 }
 

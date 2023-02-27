@@ -15,7 +15,7 @@
 
         &__recipe {
             cursor: pointer;
-            background-color: $color-secondary-light;
+            background-color: none;
             display: flex;
             justify-content: flex-start;
             align-items: center;
@@ -47,7 +47,7 @@
         }
 
         &__dishInfo {
-            background-color: $color-secondary-light;
+            background-color: none;
             display: flex;
             justify-content: center;
             padding: 2rem;
@@ -66,16 +66,17 @@
         }
         
         &__ingredients {
-            text-align: left;
+            display: flex;
+            justify-content: center;
 
             &__heading {
-                padding: 1rem;
+                border-bottom: 3px solid $color-primary;
             }
 
             &__list {
                 list-style-type: none;
-                columns: 2;
-                padding: 2rem;
+                // columns: 2;
+                // padding: 2rem;
 
                 p {
                     padding: 1rem;
@@ -84,10 +85,15 @@
         }
 
         &__directions {
-            padding: 2rem;
+            padding: 2rem 0;
+            display: flex;
+            text-align: center;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
             &__heading {
-                text-align: center;
+                border-bottom: 3px solid $color-primary;
                 margin-bottom: 2rem;
             }
         }
