@@ -84,6 +84,7 @@ body {
 
 button {
   font-size: inherit;
+  font-family: inherit;
   border: none;
 }
 
@@ -191,7 +192,7 @@ body {
   padding-top: 0.5rem;
   flex: 1 0 30%;
   max-width: 44rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0;
 }
 .container__content__sidebar__recipe {
   cursor: pointer;
@@ -207,7 +208,7 @@ body {
   font-weight: 400;
 }
 .container__content__sidebar__recipe:hover {
-  background-color: #fde5bf;
+  background-color: #EA5455;
 }
 .container__content__mainContent {
   flex: 1;
@@ -229,17 +230,20 @@ body {
   padding: 0.5rem 2rem;
 }
 .container__content__mainContent__title {
-  padding: 1rem;
+  padding: 1rem 0;
 }
 .container__content__mainContent__ingredients {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 .container__content__mainContent__ingredients__heading {
   border-bottom: 3px solid #EA5455;
 }
 .container__content__mainContent__ingredients__list {
   list-style-type: none;
+  columns: 2;
+  padding: 2rem 2rem 2rem 0;
 }
 .container__content__mainContent__ingredients__list p {
   padding: 1rem;
@@ -247,14 +251,15 @@ body {
 .container__content__mainContent__directions {
   padding: 2rem 0;
   display: flex;
-  text-align: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .container__content__mainContent__directions__heading {
   border-bottom: 3px solid #EA5455;
   margin-bottom: 2rem;
+}
+.container__content__mainContent__directions__text {
+  padding-left: 2rem;
 }
 
 #recipe-picture {
