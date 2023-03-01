@@ -789,13 +789,13 @@ decrementServingsBtn.addEventListener("click", ()=>{
     ingredientContainer.innerHTML = "";
     tempServings.push(recipeServings.innerText);
     currentServings = tempServings[tempServings.length - 1];
-    currentServings--;
-    if (currentServings > 0) decrementValue = tempServings[tempServings.length - 1] / currentServings;
-    console.log(currentIngredients);
-    console.log(tempServings[tempServings.length - 1]);
-    console.log(currentServings);
+    if (currentServings > 0) {
+        currentServings--;
+        decrementValue = tempServings[tempServings.length - 1] / currentServings;
+    }
+    if (currentServings === 0) currentServings = tempServings[tempServings.length - 1];
     currentIngredients.forEach((ingredient)=>{
-        ingredient.amount = ingredient.amount / decrementValue;
+        if (currentServings > 0) ingredient.amount = ingredient.amount / decrementValue;
         let ingredientItem = document.createElement("LI");
         let ingredientItemContent = document.createTextNode(`${ingredient.amount.toFixed(2)} ${ingredient.unit} ${ingredient.name}`);
         ingredientItem.innerText = `${ingredientItemContent.textContent}`;
