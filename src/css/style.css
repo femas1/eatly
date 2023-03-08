@@ -30,7 +30,7 @@ body {
 .btn {
   background-color: none;
   color: #FDE9C9;
-  font-weight: 700;
+  font-weight: 400;
   padding: 0.5rem 1.5rem;
   border-bottom: 4px solid #FDE9C9;
   cursor: pointer;
@@ -192,9 +192,10 @@ body {
   padding-top: 0.5rem;
   flex: 1 0 30%;
   max-width: 44rem;
-  padding: 0.5rem 0;
+  padding: 0.5rem 1rem 0 0;
 }
 .container__content__sidebar__recipe {
+  background-color: rgba(237, 237, 237, 0.452);
   cursor: pointer;
   background-color: none;
   display: flex;

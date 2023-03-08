@@ -32,7 +32,7 @@ body {
   border-bottom: 4px solid #fde9c9;
   margin: .25rem;
   padding: .5rem 1.5rem;
-  font-weight: 700;
+  font-weight: 400;
 }
 
 @media (max-width: 1225px) {
@@ -205,11 +205,12 @@ body {
   max-width: 44rem;
   background-color: #fdf9f2;
   flex: 1 0 30%;
-  padding: .5rem 0;
+  padding: .5rem 1rem 0 0;
 }
 
 .container__content__sidebar__recipe {
   cursor: pointer;
+  background-color: #ededed73;
   background-color: none;
   justify-content: flex-start;
   align-items: center;
