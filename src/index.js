@@ -85,7 +85,6 @@ saveRecipeBtnInRecipe.addEventListener('click', storeRecipe);
 const getSavedRecipes = () => {
     // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
 let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem('savedRecipes'));
-console.log(localStorageRecipesDeserialized);
 sidebar.innerHTML = "";
    // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
 localStorageRecipesDeserialized.forEach(recipeArray => {
@@ -241,8 +240,6 @@ const searchRecipeById = async function (id) {
         // INSERTING DIRECTIONS
         recipeDirections.innerHTML = "";
         recipeDirections.innerHTML = `${instructions}`;
-        // console.log(tempServings)
-        // console.log(`CURRENT SERVINGS: ${tempServings}`)
 }
 
 sidebar.addEventListener('click', (e) => {
@@ -296,7 +293,6 @@ let clickedRecipeId;
     sidebar.addEventListener('click', (e) => {
         clickedRecipeId = e.target.id;
         getRecipeInformation(clickedRecipeId);
-        // console.log(currentIngredients)
     });
 
 incrementServingsBtn.addEventListener('click', () => {
@@ -321,7 +317,7 @@ incrementServingsBtn.addEventListener('click', () => {
     
     recipeServings.innerHTML = "";
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
-    console.log(currentServings)
+    
 });
 
 decrementServingsBtn.addEventListener('click', () => {
@@ -336,7 +332,7 @@ decrementServingsBtn.addEventListener('click', () => {
             currentServings--;
         };
         
-        decrementValue = tempServings[tempServings.length - 1] / currentServings ;
+    decrementValue = tempServings[tempServings.length - 1] / currentServings ;
 
        currentIngredients.forEach(ingredient => {
 
