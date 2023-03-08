@@ -45,6 +45,12 @@
 
         &__dishPicture {
             text-align: center;
+            @media (max-width: 620px) {
+                width: 25rem;
+            }
+            @media (max-width: 450px) {
+                width: 21rem;
+            }
         }
 
         &__dishInfo {

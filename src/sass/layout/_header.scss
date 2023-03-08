@@ -9,11 +9,24 @@
     @media(max-width:670px) {
         justify-content: baseline;
     }
+    @media(max-width:450px) {
+        flex-direction: column;
+        height: 13rem;
+        align-items: center;
+        justify-content: center;
+    }
 
     &__searchBar {
         display: flex;
         flex-wrap: nowrap;
         align-items: center;
+
+        @media(max-width: 620px){
+           width: 12rem;
+        }
+        @media(max-width:450px) {
+            width: auto;
+        }
 
         &__btn {
             @media(max-width: 670px){
@@ -33,6 +46,9 @@
         @media(max-width: 750px) {
             max-height: 6rem;
         }
+        @media(max-width: 530px) {
+            max-height: 5rem;
+        }
     }
 
     &__buttons {
@@ -42,12 +58,12 @@
 
         @media(max-width:670px) {
             justify-content: flex-end;
-            margin-left: 6rem;
+            // margin-left: 6rem;
         }
 
-        &__addRecipe,
-        &__savedRecipes {
-            margin: 0 1rem;
-        }
+        // &__addRecipe,
+        // &__savedRecipes {
+        //     // padding: 0 1rem;
+        // }
     }
 }

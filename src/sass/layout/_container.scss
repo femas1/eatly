@@ -4,4 +4,14 @@
     display: flex;
     flex-direction: column;
     max-width: 150rem;
+
+    @media(max-width: 620px) {
+        width: 52rem;
+    }
+    @media(max-width: 530px) {
+        width: 43rem;
+    }
+    @media(max-width: 450px) {
+        width: 32rem;
+    }
 }

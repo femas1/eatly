@@ -136,6 +136,24 @@ body {
   display: flex;
 }
 
+@media (max-width: 620px) {
+  .container {
+    width: 52rem;
+  }
+}
+
+@media (max-width: 530px) {
+  .container {
+    width: 43rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    width: 32rem;
+  }
+}
+
 .container__header {
   height: 10rem;
   max-width: 150rem;
@@ -151,10 +169,31 @@ body {
   }
 }
 
+@media (max-width: 450px) {
+  .container__header {
+    height: 13rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
 .container__header__searchBar {
   flex-wrap: nowrap;
   align-items: center;
   display: flex;
+}
+
+@media (max-width: 620px) {
+  .container__header__searchBar {
+    width: 12rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .container__header__searchBar {
+    width: auto;
+  }
 }
 
 @media (max-width: 670px) {
@@ -180,6 +219,12 @@ body {
   }
 }
 
+@media (max-width: 530px) {
+  .container__header__logo {
+    max-height: 5rem;
+  }
+}
+
 .container__header__buttons {
   flex: 1;
   justify-content: center;
@@ -189,12 +234,7 @@ body {
 @media (max-width: 670px) {
   .container__header__buttons {
     justify-content: flex-end;
-    margin-left: 6rem;
   }
-}
-
-.container__header__buttons__addRecipe, .container__header__buttons__savedRecipes {
-  margin: 0 1rem;
 }
 
 .container__content {
@@ -234,6 +274,18 @@ body {
 
 .container__content__mainContent__dishPicture {
   text-align: center;
+}
+
+@media (max-width: 620px) {
+  .container__content__mainContent__dishPicture {
+    width: 25rem;
+  }
+}
+
+@media (max-width: 450px) {
+  .container__content__mainContent__dishPicture {
+    width: 21rem;
+  }
 }
 
 .container__content__mainContent__dishInfo {
