@@ -37,14 +37,14 @@ backToResultsBtn.addEventListener('click', ()=> {
 
 })
 
-sidebarRecipeTab.addEventListener('click', ()=> {
-    sidebar.style.display = "none";
-    recipeContainer.style.display = "flex";
-    recipeContainer.style.flexDirection = "column";
-    backToResultsBtn.style.display = "flex";
+// sidebarRecipeTab.addEventListener('click', ()=> {
+//     sidebar.style.display = "none";
+//     recipeContainer.style.display = "flex";
+//     recipeContainer.style.flexDirection = "column";
+//     backToResultsBtn.style.display = "flex";
 
 
-})
+// })
 
 let tempId = [];
 
@@ -64,6 +64,12 @@ sidebar.addEventListener('click', (e) => {
             title: recipeTitle,
             image: recipeImage
         })
+
+        sidebar.style.display = "none";
+        recipeContainer.style.display = "flex";
+        recipeContainer.style.flexDirection = "column";
+        backToResultsBtn.style.display = "flex";
+
     });
 
 let savedRecipes = [];

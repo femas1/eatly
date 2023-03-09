@@ -565,12 +565,12 @@ backToResultsBtn.addEventListener("click", ()=>{
     recipeContainer.style.display = "none";
     backToResultsBtn.style.display = "none";
 });
-sidebarRecipeTab.addEventListener("click", ()=>{
-    sidebar.style.display = "none";
-    recipeContainer.style.display = "flex";
-    recipeContainer.style.flexDirection = "column";
-    backToResultsBtn.style.display = "flex";
-});
+// sidebarRecipeTab.addEventListener('click', ()=> {
+//     sidebar.style.display = "none";
+//     recipeContainer.style.display = "flex";
+//     recipeContainer.style.flexDirection = "column";
+//     backToResultsBtn.style.display = "flex";
+// })
 let tempId = [];
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
@@ -583,6 +583,10 @@ sidebar.addEventListener("click", (e)=>{
         title: recipeTitle,
         image: recipeImage
     });
+    sidebar.style.display = "none";
+    recipeContainer.style.display = "flex";
+    recipeContainer.style.flexDirection = "column";
+    backToResultsBtn.style.display = "flex";
 });
 let savedRecipes = [];
 const storeRecipe = ()=>{
