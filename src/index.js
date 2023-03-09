@@ -29,6 +29,9 @@ const incrementServingsBtn = document.querySelector('.incrementBtn');
 const decrementServingsBtn = document.querySelector('.decrementBtn');
 const backToResultsBtn= document.querySelector('.container__content__backToResults.btn-secondary');
 
+
+
+
 backToResultsBtn.addEventListener('click', ()=> {
     sidebar.style.display = "flex";
     recipeContainer.style.display = "none";
@@ -36,15 +39,6 @@ backToResultsBtn.addEventListener('click', ()=> {
 
 
 })
-
-// sidebarRecipeTab.addEventListener('click', ()=> {
-//     sidebar.style.display = "none";
-//     recipeContainer.style.display = "flex";
-//     recipeContainer.style.flexDirection = "column";
-//     backToResultsBtn.style.display = "flex";
-
-
-// })
 
 let tempId = [];
 
@@ -65,10 +59,14 @@ sidebar.addEventListener('click', (e) => {
             image: recipeImage
         })
 
-        sidebar.style.display = "none";
-        recipeContainer.style.display = "flex";
-        recipeContainer.style.flexDirection = "column";
-        backToResultsBtn.style.display = "flex";
+        const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+        if(width < 650) {
+            sidebar.style.display = "none";
+            recipeContainer.style.display = "flex";
+            recipeContainer.style.flexDirection = "column";
+            backToResultsBtn.style.display = "flex";
+        }
+        
 
     });
 
@@ -284,9 +282,7 @@ searchBarInput.addEventListener('keypress', (e) => {
         sidebar.innerHTML = "";
         let query = searchBarInput.value;
         searchRecipes(query);
-        sidebar.style.display = "flex";
-        recipeContainer.style.display = "none";
-        backToResultsBtn.style.display = "none";
+
     }
 })
 
@@ -294,9 +290,6 @@ searchBtn.addEventListener('click', () => {
     sidebar.innerHTML = "";
     let query = searchBarInput.value;
     searchRecipes(query);
-    sidebar.style.display = "flex";
-    recipeContainer.style.display = "none";
-    backToResultsBtn.style.display = "none";
 });
 
 // ADJUST SERVINGS

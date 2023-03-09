@@ -565,12 +565,6 @@ backToResultsBtn.addEventListener("click", ()=>{
     recipeContainer.style.display = "none";
     backToResultsBtn.style.display = "none";
 });
-// sidebarRecipeTab.addEventListener('click', ()=> {
-//     sidebar.style.display = "none";
-//     recipeContainer.style.display = "flex";
-//     recipeContainer.style.flexDirection = "column";
-//     backToResultsBtn.style.display = "flex";
-// })
 let tempId = [];
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
@@ -583,10 +577,13 @@ sidebar.addEventListener("click", (e)=>{
         title: recipeTitle,
         image: recipeImage
     });
-    sidebar.style.display = "none";
-    recipeContainer.style.display = "flex";
-    recipeContainer.style.flexDirection = "column";
-    backToResultsBtn.style.display = "flex";
+    const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+    if (width < 650) {
+        sidebar.style.display = "none";
+        recipeContainer.style.display = "flex";
+        recipeContainer.style.flexDirection = "column";
+        backToResultsBtn.style.display = "flex";
+    }
 });
 let savedRecipes = [];
 const storeRecipe = ()=>{
@@ -753,18 +750,12 @@ searchBarInput.addEventListener("keypress", (e)=>{
         sidebar.innerHTML = "";
         let query = searchBarInput.value;
         searchRecipes(query);
-        sidebar.style.display = "flex";
-        recipeContainer.style.display = "none";
-        backToResultsBtn.style.display = "none";
     }
 });
 searchBtn.addEventListener("click", ()=>{
     sidebar.innerHTML = "";
     let query = searchBarInput.value;
     searchRecipes(query);
-    sidebar.style.display = "flex";
-    recipeContainer.style.display = "none";
-    backToResultsBtn.style.display = "none";
 });
 // ADJUST SERVINGS
 let tempServings = [];
