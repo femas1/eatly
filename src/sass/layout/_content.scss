@@ -4,6 +4,17 @@
 
     display: flex;
 
+    @media (max-width: 650px) {
+        flex-direction: column;
+    }
+
+    &__backToResults{
+        display: none;
+        @media (max-width: 650px) {
+            display: flex;
+        }
+    }
+
     // MAIN CONTENT / MAIN RECIPE INFORMATION
 
     &__mainContent{

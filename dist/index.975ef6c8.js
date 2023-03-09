@@ -553,11 +553,24 @@ const recipeServings = document.querySelector(".container__content__mainContent_
 const searchBtn = document.getElementById("submitButton");
 const searchBarInput = document.getElementById("searchRecipe");
 const sidebar = document.querySelector(".container__content__sidebar");
+const sidebarRecipeTab = document.querySelector(".container__content__sidebar__recipe");
 const saveRecipeBtn = document.querySelector(".container__header__buttons__addRecipe.btn");
 const saveRecipeBtnInRecipe = document.querySelector(".container__content__mainContent__dishInfo__saveBtn");
 const savedRecipesBtn = document.querySelector(".container__header__buttons__savedRecipes.btn");
 const incrementServingsBtn = document.querySelector(".incrementBtn");
 const decrementServingsBtn = document.querySelector(".decrementBtn");
+const backToResultsBtn = document.querySelector(".container__content__backToResults.btn-secondary");
+backToResultsBtn.addEventListener("click", ()=>{
+    sidebar.style.display = "flex";
+    recipeContainer.style.display = "none";
+    backToResultsBtn.style.display = "none";
+});
+sidebarRecipeTab.addEventListener("click", ()=>{
+    sidebar.style.display = "none";
+    recipeContainer.style.display = "flex";
+    recipeContainer.style.flexDirection = "column";
+    backToResultsBtn.style.display = "flex";
+});
 let tempId = [];
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
@@ -736,12 +749,18 @@ searchBarInput.addEventListener("keypress", (e)=>{
         sidebar.innerHTML = "";
         let query = searchBarInput.value;
         searchRecipes(query);
+        sidebar.style.display = "flex";
+        recipeContainer.style.display = "none";
+        backToResultsBtn.style.display = "none";
     }
 });
 searchBtn.addEventListener("click", ()=>{
     sidebar.innerHTML = "";
     let query = searchBarInput.value;
     searchRecipes(query);
+    sidebar.style.display = "flex";
+    recipeContainer.style.display = "none";
+    backToResultsBtn.style.display = "none";
 });
 // ADJUST SERVINGS
 let tempServings = [];

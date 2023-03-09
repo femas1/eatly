@@ -2,11 +2,14 @@
     background-color: $almost-white;
     padding-top: .5rem;
     flex: 1 0 30%;
-    max-width: 44rem;
+    max-width: 42rem;
     padding: .5rem 1rem 0 0;
+    flex-direction: column;
 
     @media (max-width: 650px) {
         display: none;
+        max-width: fit-content;
+        flex-direction: column;
     }
 
     &__recipe {
@@ -27,5 +30,5 @@
 
     &__recipe:hover {
         background-color: $color-primary;
-    }
+    }        
 }
