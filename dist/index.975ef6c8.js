@@ -619,6 +619,21 @@ const getSavedRecipes = ()=>{
     // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
     let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem("savedRecipes"));
     sidebar.innerHTML = "";
+    console.log(localStorageRecipesDeserialized);
+    // SHOW TOAST NOTIFICATION 
+    if (localStorageRecipesDeserialized == null) (0, _toastifyJsDefault.default)({
+        text: "You didn't save any recipe yet",
+        duration: 5000,
+        newWindow: true,
+        close: true,
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
+        style: {
+            background: "red"
+        },
+        onClick: function() {} // Callback after click
+    }).showToast();
     // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
     localStorageRecipesDeserialized.forEach((recipeArray)=>{
         sidebar.insertAdjacentHTML("beforeend", `
