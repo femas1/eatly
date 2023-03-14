@@ -26,8 +26,7 @@ With this project I want to test my vanilla javascript skills by building a simp
 
 [KNOWN-ISSUES]
 
-- If one recipe fails to save (e.g. missing id), the "my recipe" btn will fail to load the stored recipes from localStorage
-- THe API key is publicf
+- THe API key is public
 
 [TROUBLES]
 
