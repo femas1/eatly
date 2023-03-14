@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"ShInH":[function(require,module,exports) {
+})({"8h8mn":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = null;
+var HMR_PORT = 1234;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
@@ -1152,6 +1152,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire27a3")
+},{}]},["8h8mn","8lqZg"], "8lqZg", "parcelRequire27a3")
 
 //# sourceMappingURL=index.975ef6c8.js.map
