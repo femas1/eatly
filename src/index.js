@@ -208,6 +208,8 @@ const searchRecipes = async function (ingredient) {
             </div>`
         )
     })
+
+
     } catch(err) {
         alert(err);
     }
@@ -283,6 +285,12 @@ searchBarInput.addEventListener('keypress', (e) => {
         let query = searchBarInput.value;
         searchRecipes(query);
 
+        const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+        if(width < 650) {
+            sidebar.style.display = "flex";
+            recipeContainer.style.display = "none";
+            backToResultsBtn.style.display = "none";
+        }
     }
 })
 

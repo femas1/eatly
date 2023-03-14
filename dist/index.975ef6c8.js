@@ -750,6 +750,12 @@ searchBarInput.addEventListener("keypress", (e)=>{
         sidebar.innerHTML = "";
         let query = searchBarInput.value;
         searchRecipes(query);
+        const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+        if (width < 650) {
+            sidebar.style.display = "flex";
+            recipeContainer.style.display = "none";
+            backToResultsBtn.style.display = "none";
+        }
     }
 });
 searchBtn.addEventListener("click", ()=>{
