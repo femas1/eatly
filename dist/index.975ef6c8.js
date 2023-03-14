@@ -142,10 +142,10 @@
       this[globalName] = mainExports;
     }
   }
-})({"8h8mn":[function(require,module,exports) {
+})({"ShInH":[function(require,module,exports) {
 var global = arguments[3];
 var HMR_HOST = null;
-var HMR_PORT = 1234;
+var HMR_PORT = null;
 var HMR_SECURE = false;
 var HMR_ENV_HASH = "d6ea1d42532a7575";
 module.bundle.HMR_BUNDLE_ID = "890e741a975ef6c8";
@@ -619,7 +619,11 @@ const getSavedRecipes = ()=>{
     // CONVERT STRING FROM LOCALSTORAGE TO ARRAY LIKE STRUCTURE
     let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem("savedRecipes"));
     sidebar.innerHTML = "";
-    console.log(localStorageRecipesDeserialized);
+    const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+    if (width < 650) {
+        sidebar.style.display = "flex";
+        recipeContainer.style.display = "none";
+    }
     // SHOW TOAST NOTIFICATION 
     if (localStorageRecipesDeserialized == null) (0, _toastifyJsDefault.default)({
         text: "You didn't save any recipe yet",
@@ -1152,6 +1156,6 @@ exports.export = function(dest, destName, get) {
     });
 };
 
-},{}]},["8h8mn","8lqZg"], "8lqZg", "parcelRequire27a3")
+},{}]},["ShInH","8lqZg"], "8lqZg", "parcelRequire27a3")
 
 //# sourceMappingURL=index.975ef6c8.js.map

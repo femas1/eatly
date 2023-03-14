@@ -110,7 +110,11 @@ const getSavedRecipes = () => {
 let localStorageRecipesDeserialized = JSON.parse(localStorage.getItem('savedRecipes'));
 sidebar.innerHTML = "";
 
-console.log(localStorageRecipesDeserialized)
+const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
+        if(width < 650) {
+            sidebar.style.display = "flex";
+            recipeContainer.style.display = "none";
+        }
 
     // SHOW TOAST NOTIFICATION 
     if(localStorageRecipesDeserialized == null){

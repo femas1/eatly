@@ -27,6 +27,7 @@ With this project I want to test my vanilla javascript skills by building a simp
 [KNOWN-ISSUES]
 
 - THe API key is public
+- User cannot remove recipes from stored recipes
 
 [TROUBLES]
 
