@@ -318,7 +318,10 @@ body {
 }
 
 .container__content__mainContent__title {
-  padding: 1rem 0;
+  text-align: center;
+  border-top: 3px dotted #ea5455;
+  border-bottom: 3px dotted #ea5455;
+  margin-bottom: 3rem;
 }
 
 .container__content__mainContent__ingredients {

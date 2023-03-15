@@ -288,7 +288,10 @@ body {
   padding: 0.5rem 2rem;
 }
 .container__content__mainContent__title {
-  padding: 1rem 0;
+  text-align: center;
+  border-bottom: 3px dotted #EA5455;
+  border-top: 3px dotted #EA5455;
+  margin-bottom: 3rem;
 }
 .container__content__mainContent__ingredients {
   display: flex;
