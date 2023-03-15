@@ -344,7 +344,7 @@ body {
 .container__content__mainContent__directions {
   flex-direction: column;
   align-items: flex-start;
-  padding: 2rem 0;
+  padding: .5rem;
   display: flex;
 }
 
