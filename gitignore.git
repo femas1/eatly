@@ -1,2 +1,2 @@
 .env;
-.7parcel-cache/data.mdb
+./parcel-cache/data.mdb
