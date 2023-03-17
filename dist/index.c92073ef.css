@@ -314,7 +314,23 @@ body {
 }
 
 .container__content__mainContent__dishInfo > * {
-  padding: .5rem 2rem;
+  padding: 1rem 2rem;
+}
+
+.container__content__mainContent__dishInfo__servings {
+  display: flex;
+}
+
+.container__content__mainContent__dishInfo__servings > i {
+  height: 2rem;
+  width: 2rem;
+  text-align: center;
+  background: #f5afaf;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-left: .4rem;
+  display: flex;
 }
 
 .container__content__mainContent__title {

@@ -1,1 +1,111 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Eatly</title><link rel="icon shortcut" href="/favicon.81b93d51.png" type="image/x-icon"><link rel="stylesheet" href="/index.33699e7b.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet"><script src="https://kit.fontawesome.com/23de877cd7.js" crossorigin></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"><script type="module" src="/index.0ce95419.js" defer></script><script src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script></head><body>  <main class="container">  <header class="container__header"> <div class="container__header__logo"> <img src="/twitter_header_photo_1.b4f73353.png" alt="eatly-logo" class="container__header__logo"> </div> <div class="container__header__searchBar"> <input type="search" name="searchRecipe" id="searchRecipe" placeholder="Search..."> <button id="submitButton" type="submit"> <p class="btn container__header__searchBar__btn"><i class="fa-magnifying-glass fa-solid"></i><span id="searchBtnText">Search</span></p> </button> </div> <div class="container__header__buttons"> <div class="btn container__header__buttons__addRecipe"> <i class="fa-floppy-disk fa-regular"></i> <span id="saveRecipeText">Save recipe</span> </div> <div class="btn container__header__buttons__savedRecipes"> <i class="fa-bookmark fa-regular"></i> <span id="myRecipesText">My recipes</span> </div> </div> </header>   <div class="container__content"> <div class="btn-secondary container__content__backToResults">Back to results</div>  <div class="container__content__sidebar"> <div class="container__content__sidebar__recipe"> <img id="preview-picture" src="/burrito.a3db182e.jpg" alt="burrito"> <button class="container__content__sidebar__recipe__title" id="recipe-title">Burrito Pie</button> </div> </div>   <div class="container__content__mainContent">  <div class="container__content__mainContent__dishPicture"> <img id="recipe-picture" src="#" alt="recipe-picture"> </div>  <div class="container__content__mainContent__dishInfo"> <div class="container__content__mainContent__dishInfo__time"> <p> <i class="fa-clock fa-regular"></i> <span>${readyIn}</span>minutes </p> </div> <div class="container__content__mainContent__dishInfo__servings"> <p> <i class="fa-solid fa-users"></i> <span>${servings}</span>servings</p> <i class="fa-plus fa-solid incrementBtn"></i> <i class="decrementBtn fa-minus fa-solid"></i> </div> <div class="container__content__mainContent__dishInfo__saveBtn"> <i class="fa-floppy-disk fa-regular"></i> </div> </div>  <div class="container__content__mainContent__title"> <h1></h1> </div>  <div class="container__content__mainContent__ingredients"> <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1> <ul class="container__content__mainContent__ingredients__list"> <li class="container__content__mainContent__ingredients__list__item"> </li> </ul> </div>   <div class="container__content__mainContent__directions"> <h1 class="container__content__mainContent__directions__heading">Directions</h1> <p class="container__content__mainContent__directions__text">${instructions}</p> </div>  </div> </div> </main> </body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eatly</title>
+    <link rel="shortcut icon" href="/favicon.c31dbf57.png" type="image/x-icon">
+    <!-- OWN STYLING -->
+    <link rel="stylesheet" href="/index.c92073ef.css">
+    <!-- GOOGLE FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet"> 
+    <!-- FONT AWESOME ICONS -->
+    <script src="https://kit.fontawesome.com/23de877cd7.js" crossorigin="anonymous"></script>
+    <!-- TOASTIFY CSS  -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- JAVASCRIPT -->
+    <script src="/index.975ef6c8.js" defer=""></script>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js" defer=""></script>
+</head>
+<body>
+    <!-- MAIN CONTAINER  -->
+    <main class="container">
+        <!-- HEADER -->
+        <header class="container__header">
+            <div class="container__header__logo">
+                <img src="/twitter_header_photo_1.81019a82.png" alt="eatly-logo" class="container__header__logo">
+            </div>
+            <div class="container__header__searchBar">
+                <input type="search" name="searchRecipe" id="searchRecipe" placeholder="Search...">
+                <button id="submitButton" type="submit">
+                    <p class="container__header__searchBar__btn btn"><i class="fa-solid fa-magnifying-glass"></i><span id="searchBtnText">Search</span></p>
+                </button>
+            </div>
+            <div class="container__header__buttons">
+                <div class="container__header__buttons__addRecipe btn">
+                    <i class="fa-regular fa-floppy-disk"></i>
+                    <span id="saveRecipeText">Save recipe</span>
+                </div>
+                <div class="container__header__buttons__savedRecipes btn">
+                    <i class="fa-regular fa-bookmark"></i>
+                    <span id="myRecipesText">My recipes</span>
+                </div>
+            </div>
+        </header>
+        <!-- HEADER END -->
+
+        <!-- MAIN CONTENT -->
+        <div class="container__content">
+            <div class="container__content__backToResults btn-secondary">Back to results</div>
+            <!-- SIDEBAR -->
+            <div class="container__content__sidebar">
+                <div class="container__content__sidebar__recipe">
+                    <img id="preview-picture" src="/burrito.b180c0ee.jpg" alt="burrito">
+                    <button class="container__content__sidebar__recipe__title" id="recipe-title">Burrito Pie</button>
+                </div>
+            </div>
+            <!-- SIDEBAR END-->
+            
+            <!-- MAIN CONTENT -->
+            <div class="container__content__mainContent">
+               <!-- MAIN CONTENT -->        
+        <div class="container__content__mainContent__dishPicture">
+            <img id="recipe-picture" src="#" alt="recipe-picture">
+        </div>
+        <!-- DISH INFORMATION  -->
+        <div class="container__content__mainContent__dishInfo">
+            <div class="container__content__mainContent__dishInfo__time">
+                <p>
+                    <i class="fa-regular fa-clock"></i>
+                    <span>${readyIn}</span>minutes
+                </p>
+            </div>
+            <div class="container__content__mainContent__dishInfo__servings">
+                <p>
+                    <i class="fa-solid fa-users"></i> 
+                    <span>${servings}</span>servings</p>
+                    <i class="fa-solid fa-plus incrementBtn"></i>
+                    <i class="fa-solid fa-minus decrementBtn"></i>
+            </div>
+            <div class="container__content__mainContent__dishInfo__saveBtn">
+                <i class="fa-regular fa-floppy-disk"></i>
+            </div>
+        </div>
+        <!-- DISH INFORMATION END -->
+        <div class="container__content__mainContent__title">
+            <h1></h1>
+        </div>
+        <!-- INGREDIENTS -->
+
+            <div class="container__content__mainContent__ingredients">
+            <h1 class="container__content__mainContent__ingredients__heading">Ingredients</h1>
+            <ul class="container__content__mainContent__ingredients__list">
+                <li class="container__content__mainContent__ingredients__list__item">
+                </li>
+            </ul>
+        </div>
+    <!-- INGREDIENTS -->
+        <!-- DIRECTIONS -->
+        <div class="container__content__mainContent__directions">
+            <h1 class="container__content__mainContent__directions__heading">Directions</h1>
+            <p class="container__content__mainContent__directions__text">${instructions}</p>
+        </div>
+        <!-- DIRECTIONS END -->
+            </div>
+        </div>
+    </main>
+</body>
+</html>

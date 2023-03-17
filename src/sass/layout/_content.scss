@@ -44,8 +44,30 @@
             }
         }
 
-        &__dishInfo > * {
-           padding: .5rem 2rem;
+        &__dishInfo {
+            
+            > * {
+            padding: 1rem 2rem;
+            }
+
+            &__servings {
+            
+            display: flex;
+            
+                > i {
+                    margin-left: .4rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    
+                    
+                    height: 2rem;
+                    width: 2rem;
+                    background: $color-primary-light;
+                    border-radius: 10px;
+                    text-align: center;
+                }
+            }
         }
 
         &__title {
