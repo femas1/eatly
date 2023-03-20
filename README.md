@@ -15,6 +15,7 @@ With this project I want to test my vanilla javascript skills by building a simp
 - Storing data as objects in localStorage using JSON.stringify() and JSON.parse()
 - Preventing saving double elements in an array using .some()
 - How to format a number with two decimals using toFixed()
+- How to bundle the code for production deploy using parcel
 
 [BUILT-WITH]
 
