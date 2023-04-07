@@ -541,9 +541,7 @@ var _toastifyCss = require("toastify-js/src/toastify.css");
 // const apiKey = process.env.API_KEY;
 const recipeContainer = document.querySelector(".container__content__mainContent");
 const recipePictureContainer = document.querySelector(".container__content__mainContent__dishPicture");
-const recipePicture = document.getElementById("recipe-picture");
 const ingredientContainer = document.querySelector(".container__content__mainContent__ingredients__list");
-const ingredientContainerItem = document.querySelector(".container__content__mainContent__ingredients__list__item");
 const previewPicture = document.getElementById("preview-picture");
 const recipeTitleEl = document.querySelector(".container__content__sidebar__recipe__title");
 const recipeTitleMain = document.querySelector(".container__content__mainContent__title");
@@ -553,16 +551,16 @@ const recipeServings = document.querySelector(".container__content__mainContent_
 const searchBtn = document.getElementById("submitButton");
 const searchBarInput = document.getElementById("searchRecipe");
 const sidebar = document.querySelector(".container__content__sidebar");
-const sidebarRecipeTab = document.querySelector(".container__content__sidebar__recipe");
 const saveRecipeBtn = document.querySelector(".container__header__buttons__addRecipe.btn");
 const saveRecipeBtnInRecipe = document.querySelector(".container__content__mainContent__dishInfo__saveBtn");
 const savedRecipesBtn = document.querySelector(".container__header__buttons__savedRecipes.btn");
 const incrementServingsBtn = document.querySelector(".incrementBtn");
 const decrementServingsBtn = document.querySelector(".decrementBtn");
 const backToResultsBtn = document.querySelector(".container__content__backToResults.btn-secondary");
+const hideRecipeContainer = ()=>recipeContainer.style.display = "none";
 backToResultsBtn.addEventListener("click", ()=>{
     sidebar.style.display = "flex";
-    recipeContainer.style.display = "none";
+    hideRecipeContainer();
     backToResultsBtn.style.display = "none";
 });
 let tempId = [];
@@ -622,7 +620,7 @@ const getSavedRecipes = ()=>{
     const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
     if (width < 650) {
         sidebar.style.display = "flex";
-        recipeContainer.style.display = "none";
+        hideRecipeContainer();
     }
     // SHOW TOAST NOTIFICATION 
     if (localStorageRecipesDeserialized == null) (0, _toastifyJsDefault.default)({
@@ -772,7 +770,7 @@ searchBarInput.addEventListener("keypress", (e)=>{
         const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
         if (width < 650) {
             sidebar.style.display = "flex";
-            recipeContainer.style.display = "none";
+            hideRecipeContainer();
             backToResultsBtn.style.display = "none";
         }
     }

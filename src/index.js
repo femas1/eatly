@@ -26,10 +26,11 @@ const incrementServingsBtn = document.querySelector('.incrementBtn');
 const decrementServingsBtn = document.querySelector('.decrementBtn');
 const backToResultsBtn= document.querySelector('.container__content__backToResults.btn-secondary');
 
+const hideRecipeContainer = () => recipeContainer.style.display = "none";
 
 backToResultsBtn.addEventListener('click', ()=> {
     sidebar.style.display = "flex";
-    recipeContainer.style.display = "none";
+    hideRecipeContainer();
     backToResultsBtn.style.display = "none";
 })
 
@@ -106,7 +107,7 @@ sidebar.innerHTML = "";
 const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
         if(width < 650) {
             sidebar.style.display = "flex";
-            recipeContainer.style.display = "none";
+            hideRecipeContainer();
         }
 
     // SHOW TOAST NOTIFICATION 
@@ -308,7 +309,7 @@ searchBarInput.addEventListener('keypress', (e) => {
         const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
         if(width < 650) {
             sidebar.style.display = "flex";
-            recipeContainer.style.display = "none";
+            hideRecipeContainer();
             backToResultsBtn.style.display = "none";
         }
     }
