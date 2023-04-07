@@ -27,9 +27,10 @@ const decrementServingsBtn = document.querySelector('.decrementBtn');
 const backToResultsBtn= document.querySelector('.container__content__backToResults.btn-secondary');
 
 const hideRecipeContainer = () => recipeContainer.style.display = "none";
+const sidebarFlex = () => sidebar.style.display = "flex";
 
 backToResultsBtn.addEventListener('click', ()=> {
-    sidebar.style.display = "flex";
+    sidebarFlex();
     hideRecipeContainer();
     backToResultsBtn.style.display = "none";
 })
@@ -106,7 +107,7 @@ sidebar.innerHTML = "";
 
 const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
         if(width < 650) {
-            sidebar.style.display = "flex";
+            sidebarFlex();
             hideRecipeContainer();
         }
 
@@ -308,7 +309,7 @@ searchBarInput.addEventListener('keypress', (e) => {
 
         const width = Math.max(document.clientWidth || 0, window.innerWidth || 0);
         if(width < 650) {
-            sidebar.style.display = "flex";
+            sidebarFlex();
             hideRecipeContainer();
             backToResultsBtn.style.display = "none";
         }
