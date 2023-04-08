@@ -28,6 +28,7 @@ const backToResultsBtn= document.querySelector('.container__content__backToResul
 
 const hideRecipeContainer = () => recipeContainer.style.display = "none";
 const sidebarFlex = () => sidebar.style.display = "flex";
+const emptyIngredientContainer = () => ingredientContainer.innerHTML = "";
 
 backToResultsBtn.addEventListener('click', ()=> {
     sidebarFlex();
@@ -279,7 +280,7 @@ const searchRecipeById = async function (id) {
             <h1>${title}</h1>`);
 
         // INSTEAD OF A SINGLE LI, add one li for each ingredient
-        ingredientContainer.innerHTML = "";
+        emptyIngredientContainer();
         ingredientContainer.insertAdjacentHTML('afterbegin', `
             <li class="container__content__mainContent__ingredients__list__item">${allIngredients}
         </li>`)
@@ -351,7 +352,7 @@ let clickedRecipeId;
 
 incrementServingsBtn.addEventListener('click', () => {
 
-    ingredientContainer.innerHTML = "";
+    emptyIngredientContainer();
 
     tempServings.push(parseInt(recipeServings.innerText));
     currentServings = tempServings[tempServings.length - 1];
@@ -376,8 +377,7 @@ incrementServingsBtn.addEventListener('click', () => {
 
 decrementServingsBtn.addEventListener('click', () => {
 
-    ingredientContainer.innerHTML = "";
-   
+    emptyIngredientContainer(); 
     
     tempServings.push(parseInt(recipeServings.innerText));
     currentServings = tempServings[tempServings.length - 1];
