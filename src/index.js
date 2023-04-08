@@ -129,7 +129,7 @@ Toastify({
     onClick: function(){} // Callback after click
   }).showToast();
 // TOAST NOTIFICATION END
-// STORE RECIPES IN LOCAL STORAGE 
+// STORE RECIPES IN LOCAL STORAGE END
     }
  
    // LOOPING OVER ARRAY AND CREATE A LIST OF STORED RECIPES AND PUSH INTO SIDEBAR
@@ -145,13 +145,6 @@ localStorageRecipesDeserialized.forEach(recipeArray => {
 }
 
 savedRecipesBtn.addEventListener('click', getSavedRecipes);
-
-
-
-const getRecipeId = async function (id) {
-    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
-    const data = await res.json();
-}
 
 // GETTING A RANDOM RECIPE 
 
@@ -289,6 +282,11 @@ const searchRecipeById = async function (id) {
         // INSERTING DIRECTIONS
         recipeDirections.innerHTML = "";
         recipeDirections.innerHTML = `${instructions}`;
+}
+
+const getRecipeId = async function (id) {
+    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
+    const data = await res.json();
 }
 
 sidebar.addEventListener('click', (e) => {
