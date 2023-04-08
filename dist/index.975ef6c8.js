@@ -558,11 +558,13 @@ const incrementServingsBtn = document.querySelector(".incrementBtn");
 const decrementServingsBtn = document.querySelector(".decrementBtn");
 const backToResultsBtn = document.querySelector(".container__content__backToResults.btn-secondary");
 const hideRecipeContainer = ()=>recipeContainer.style.display = "none";
+const hideBackToResultsBtn = ()=>backToResultsBtn.style.display = "none";
 const sidebarFlex = ()=>sidebar.style.display = "flex";
+const emptyIngredientContainer = ()=>ingredientContainer.innerHTML = "";
 backToResultsBtn.addEventListener("click", ()=>{
     sidebarFlex();
     hideRecipeContainer();
-    backToResultsBtn.style.display = "none";
+    hideBackToResultsBtn();
 });
 let tempId = [];
 sidebar.addEventListener("click", (e)=>{
@@ -647,10 +649,6 @@ const getSavedRecipes = ()=>{
     });
 };
 savedRecipesBtn.addEventListener("click", getSavedRecipes);
-const getRecipeId = async function(id) {
-    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
-    const data = await res.json();
-};
 // GETTING A RANDOM RECIPE 
 const getRandRecipe = async function() {
     const res = await fetch(`https://api.spoonacular.com/recipes/random?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
@@ -746,13 +744,17 @@ const searchRecipeById = async function(id) {
     recipeTitleMain.insertAdjacentHTML("afterbegin", `
             <h1>${title}</h1>`);
     // INSTEAD OF A SINGLE LI, add one li for each ingredient
-    ingredientContainer.innerHTML = "";
+    emptyIngredientContainer();
     ingredientContainer.insertAdjacentHTML("afterbegin", `
             <li class="container__content__mainContent__ingredients__list__item">${allIngredients}
         </li>`);
     // INSERTING DIRECTIONS
     recipeDirections.innerHTML = "";
     recipeDirections.innerHTML = `${instructions}`;
+};
+const getRecipeId = async function(id) {
+    const res = await fetch(`https://api.spoonacular.com/recipes/${id}/information?apiKey=b69e38af682b4e7fa423de0c87c3e848`);
+    const data = await res.json();
 };
 sidebar.addEventListener("click", (e)=>{
     let recipeId = e.target.id;
@@ -772,7 +774,7 @@ searchBarInput.addEventListener("keypress", (e)=>{
         if (width < 650) {
             sidebarFlex();
             hideRecipeContainer();
-            backToResultsBtn.style.display = "none";
+            hideBackToResultsBtn();
         }
     }
 });
@@ -803,7 +805,7 @@ sidebar.addEventListener("click", (e)=>{
     getRecipeInformation(clickedRecipeId);
 });
 incrementServingsBtn.addEventListener("click", ()=>{
-    ingredientContainer.innerHTML = "";
+    emptyIngredientContainer();
     tempServings.push(parseInt(recipeServings.innerText));
     currentServings = tempServings[tempServings.length - 1];
     currentServings++;
@@ -819,7 +821,7 @@ incrementServingsBtn.addEventListener("click", ()=>{
     recipeServings.innerHTML = `<span>${currentServings} </span>`;
 });
 decrementServingsBtn.addEventListener("click", ()=>{
-    ingredientContainer.innerHTML = "";
+    emptyIngredientContainer();
     tempServings.push(parseInt(recipeServings.innerText));
     currentServings = tempServings[tempServings.length - 1];
     if (currentServings >= 2) currentServings--;
