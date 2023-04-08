@@ -27,13 +27,14 @@ const decrementServingsBtn = document.querySelector('.decrementBtn');
 const backToResultsBtn= document.querySelector('.container__content__backToResults.btn-secondary');
 
 const hideRecipeContainer = () => recipeContainer.style.display = "none";
+const hideBackToResultsBtn = () => backToResultsBtn.style.display = "none";
 const sidebarFlex = () => sidebar.style.display = "flex";
 const emptyIngredientContainer = () => ingredientContainer.innerHTML = "";
 
 backToResultsBtn.addEventListener('click', ()=> {
     sidebarFlex();
     hideRecipeContainer();
-    backToResultsBtn.style.display = "none";
+    hideBackToResultsBtn();
 })
 
 let tempId = [];
@@ -312,7 +313,7 @@ searchBarInput.addEventListener('keypress', (e) => {
         if(width < 650) {
             sidebarFlex();
             hideRecipeContainer();
-            backToResultsBtn.style.display = "none";
+            hideBackToResultsBtn();
         }
     }
 })
